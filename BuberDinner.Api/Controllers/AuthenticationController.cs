@@ -35,7 +35,7 @@ public class AuthenticationController : ApiController
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        var query = _mapper.Map<LoginQuery>(request); 
+        var query = _mapper.Map<LoginQuery>(request);
         ErrorOr<AuthenticationResult> authResult = await _mediator.Send(query);
 
         return authResult.Match(

@@ -16,6 +16,7 @@ public static class DependencyInjection
 
         services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
         services.AddMappings();
+
         return services;
     }
 }

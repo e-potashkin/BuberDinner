@@ -1,12 +1,13 @@
+using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.Entities;
 using BuberDinner.Domain.Common.Errors;
+using BuberDinner.Domain.Entities;
 using ErrorOr;
 using MediatR;
-using BuberDinner.Application.Authentication.Common;
 
 namespace BuberDinner.Application.Authentication.Queries.Login;
+
 public class LoginQueryHandler
     : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
@@ -25,14 +26,14 @@ public class LoginQueryHandler
     {
         await Task.CompletedTask;
         // 1. Validate the user exists
-        if(_userRepository.GetUserByEmail(query.Email) is not User user)
+        if (_userRepository.GetUserByEmail(query.Email) is not User user)
         {
             return Errors.Authentication.InvalidCredentials;
         }
         // 2. Validate the password is correct
-        if(user.Password != query.Password)
+        if (user.Password != query.Password)
         {
-            return new[] {Errors.Authentication.InvalidCredentials};
+            return new[] { Errors.Authentication.InvalidCredentials };
         }
         // 3. Generate a JWT token       
         var token = _jwtTokenGenerator.GenerateToken(user);
@@ -41,4 +42,3 @@ public class LoginQueryHandler
             token);
     }
 }
-

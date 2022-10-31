@@ -13,7 +13,7 @@ public class ErrorHandlingFilterAttribute : ExceptionFilterAttribute
         {
             Type = "https://tools.ietf.org/html/rfc7231#section-6.6.1",
             Title = "An error occurred while processing your request",
-            Status = (int) HttpStatusCode.InternalServerError,
+            Status = (int)HttpStatusCode.InternalServerError,
             Detail = exception.Message,
             Instance = context.HttpContext.Request.Path
         };
@@ -24,4 +24,3 @@ public class ErrorHandlingFilterAttribute : ExceptionFilterAttribute
         context.ExceptionHandled = true;
     }
 }
-

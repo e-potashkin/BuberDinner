@@ -2,6 +2,7 @@ using System.Net;
 using System.Text.Json;
 
 namespace BuberDinner.Api.Middleware;
+
 public class ErrorHandlingMiddleware
 {
     private readonly RequestDelegate _next;

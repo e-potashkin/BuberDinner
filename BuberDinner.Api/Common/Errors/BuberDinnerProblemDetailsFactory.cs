@@ -12,8 +12,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 {
     private readonly ApiBehaviorOptions _options;
 
-    public BuberDinnerProblemDetailsFactory(
-        IOptions<ApiBehaviorOptions> options)
+    public BuberDinnerProblemDetailsFactory(IOptions<ApiBehaviorOptions> options)
     {
         _options = options?.Value ?? throw new ArgumentNullException(nameof(options));
     }
@@ -100,4 +99,3 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         }
     }
 }
-

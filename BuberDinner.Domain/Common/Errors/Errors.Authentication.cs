@@ -11,4 +11,3 @@ public static partial class Errors
             description: "Invalid credentials.");
     }
 }
-
