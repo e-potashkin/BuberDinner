@@ -4,12 +4,12 @@ namespace BuberDinner.Domain.Menu.ValueObjects;
 
 public sealed class MenuSectionId : ValueObject
 {
-    public Guid Value { get; }
-
     private MenuSectionId(Guid value)
     {
         Value = value;
     }
+
+    public Guid Value { get; }
 
     public static MenuSectionId CreateUnique()
     {

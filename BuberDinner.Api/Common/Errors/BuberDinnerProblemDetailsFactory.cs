@@ -33,7 +33,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             Title = title,
             Type = type,
             Detail = detail,
-            Instance = instance,
+            Instance = instance
         };
 
         ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
@@ -62,14 +62,12 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             Status = statusCode,
             Type = type,
             Detail = detail,
-            Instance = instance,
+            Instance = instance
         };
 
         if (title != null)
-        {
             // For validation problem details, don't overwrite the default title with null.
             problemDetails.Title = title;
-        }
 
         ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
 

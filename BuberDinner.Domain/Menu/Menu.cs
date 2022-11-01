@@ -9,11 +9,25 @@ namespace BuberDinner.Domain.Menu;
 
 internal sealed class Menu : AggregateRoot<MenuId>
 {
+    private readonly List<DinnerId> _dinnerIds = new();
+    private readonly List<MenuReviewId> _menuReviewIds = new();
     private readonly List<MenuSection> _sections = new();
 
-    private readonly List<DinnerId> _dinnerIds = new();
-
-    private readonly List<MenuReviewId> _menuReviewIds = new();
+    private Menu(
+        MenuId menuId,
+        string name,
+        string description,
+        HostId hostId,
+        DateTime createdDateTime,
+        DateTime updatedDateTime)
+        : base(menuId)
+    {
+        Name = name;
+        Description = description;
+        HostId = hostId;
+        CreatedDateTime = createdDateTime;
+        UpdatedDateTime = updatedDateTime;
+    }
 
     public string Name { get; }
 
@@ -32,22 +46,6 @@ internal sealed class Menu : AggregateRoot<MenuId>
     public DateTime CreatedDateTime { get; }
 
     public DateTime UpdatedDateTime { get; }
-
-    private Menu(
-        MenuId menuId,
-        string name,
-        string description,
-        HostId hostId,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
-        : base(menuId)
-    {
-        Name = name;
-        Description = description;
-        HostId = hostId;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
-    }
 
     public static Menu Create(string name, string description, HostId hostId)
     {

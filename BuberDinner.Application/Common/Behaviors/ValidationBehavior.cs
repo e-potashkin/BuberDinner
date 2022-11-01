@@ -6,8 +6,8 @@ namespace BuberDinner.Application.Common.Behaviors;
 
 public class ValidationBehavior<TRequest, TResponse>
     : IPipelineBehavior<TRequest, TResponse>
-        where TRequest : IRequest<TResponse>
-        where TResponse : IErrorOr
+    where TRequest : IRequest<TResponse>
+    where TResponse : IErrorOr
 {
     private readonly IValidator<TRequest>? _validator;
 

@@ -4,12 +4,12 @@ namespace BuberDinner.Domain.Dinner.ValueObjects;
 
 internal sealed class DinnerId : ValueObject
 {
-    public Guid Value { get; }
-
     private DinnerId(Guid value)
     {
         Value = value;
     }
+
+    public Guid Value { get; }
 
     public static DinnerId CreateUnique()
     {

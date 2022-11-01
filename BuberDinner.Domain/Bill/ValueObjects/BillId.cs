@@ -2,14 +2,14 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Bill.ValueObjects;
 
-public sealed class BillId : ValueObject
+internal sealed class BillId : ValueObject
 {
-    public Guid Value { get; }
-
     private BillId(Guid value)
     {
         Value = value;
     }
+
+    public Guid Value { get; }
 
     public static BillId CreateUnique()
     {

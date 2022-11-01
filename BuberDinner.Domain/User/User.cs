@@ -5,18 +5,6 @@ namespace BuberDinner.Domain.User;
 
 internal sealed class User : AggregateRoot<UserId>
 {
-    public string FirstName { get; }
-
-    public string LastName { get; }
-
-    public string Email { get; }
-
-    public string Password { get; }
-
-    public DateTime CreatedDateTime { get; }
-
-    public DateTime UpdatedDateTime { get; }
-
     private User(
         UserId userId,
         string firstName,
@@ -34,6 +22,18 @@ internal sealed class User : AggregateRoot<UserId>
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
     }
+
+    public string FirstName { get; }
+
+    public string LastName { get; }
+
+    public string Email { get; }
+
+    public string Password { get; }
+
+    public DateTime CreatedDateTime { get; }
+
+    public DateTime UpdatedDateTime { get; }
 
     public static User Create(
         string firstName,
