@@ -37,4 +37,16 @@ internal sealed class Bill : AggregateRoot<BillId>
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
     }
+
+    public static Bill Create(DinnerId dinnerId, GuestId guestId, HostId hostId, Price price)
+    {
+        return new(
+            BillId.CreateUnique(),
+            dinnerId,
+            guestId,
+            hostId,
+            price,
+            DateTime.UtcNow,
+            DateTime.UtcNow);
+    }
 }
