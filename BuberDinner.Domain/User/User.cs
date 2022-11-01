@@ -3,7 +3,7 @@ using BuberDinner.Domain.User.ValueObjects;
 
 namespace BuberDinner.Domain.User;
 
-internal sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId>
 {
     private User(
         UserId userId,
