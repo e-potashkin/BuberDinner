@@ -2,7 +2,7 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Host.ValueObjects;
 
-internal sealed class HostId : ValueObject
+public sealed class HostId : ValueObject
 {
     private HostId(Guid value)
     {

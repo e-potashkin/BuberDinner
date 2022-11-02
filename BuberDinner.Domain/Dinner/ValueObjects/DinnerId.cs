@@ -2,7 +2,7 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Dinner.ValueObjects;
 
-internal sealed class DinnerId : ValueObject
+public sealed class DinnerId : ValueObject
 {
     private DinnerId(Guid value)
     {
