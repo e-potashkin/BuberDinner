@@ -4,10 +4,7 @@ namespace BuberDinner.Domain.Guest.ValueObjects;
 
 public sealed class RatingId : ValueObject
 {
-    private RatingId(Guid value)
-    {
-        Value = value;
-    }
+    private RatingId(Guid value) => Value = value;
 
     public Guid Value { get; }
 
@@ -20,4 +17,6 @@ public sealed class RatingId : ValueObject
     {
         yield return Value;
     }
+
+    public static implicit operator Guid(RatingId ratingId) => ratingId?.Value ?? Guid.Empty;
 }

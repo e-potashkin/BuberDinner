@@ -4,10 +4,7 @@ namespace BuberDinner.Domain.Dinner.ValueObjects;
 
 internal sealed class ReservationId : ValueObject
 {
-    private ReservationId(Guid value)
-    {
-        Value = value;
-    }
+    private ReservationId(Guid value) => Value = value;
 
     public Guid Value { get; }
 
@@ -20,4 +17,6 @@ internal sealed class ReservationId : ValueObject
     {
         yield return Value;
     }
+
+    public static implicit operator Guid(ReservationId reservationId) => reservationId?.Value ?? Guid.Empty;
 }

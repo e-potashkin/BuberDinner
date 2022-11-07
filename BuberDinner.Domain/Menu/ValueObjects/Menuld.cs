@@ -4,10 +4,7 @@ namespace BuberDinner.Domain.Menu.ValueObjects;
 
 public sealed class MenuId : ValueObject
 {
-    private MenuId(Guid value)
-    {
-        Value = value;
-    }
+    private MenuId(Guid value) => Value = value;
 
     public Guid Value { get; }
 
@@ -20,4 +17,6 @@ public sealed class MenuId : ValueObject
     {
         yield return Value;
     }
+
+    public static implicit operator Guid(MenuId menuId) => menuId?.Value ?? Guid.Empty;
 }

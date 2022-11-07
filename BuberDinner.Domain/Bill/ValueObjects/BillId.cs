@@ -4,10 +4,7 @@ namespace BuberDinner.Domain.Bill.ValueObjects;
 
 internal sealed class BillId : ValueObject
 {
-    private BillId(Guid value)
-    {
-        Value = value;
-    }
+    private BillId(Guid value) => Value = value;
 
     public Guid Value { get; }
 
@@ -20,4 +17,6 @@ internal sealed class BillId : ValueObject
     {
         yield return Value;
     }
+
+    public static implicit operator Guid(BillId billId) => billId?.Value ?? Guid.Empty;
 }
