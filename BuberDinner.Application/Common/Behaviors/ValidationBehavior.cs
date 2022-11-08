@@ -1,6 +1,6 @@
 using ErrorOr;
 using FluentValidation;
-using MediatR;
+using Mediator;
 
 namespace BuberDinner.Application.Common.Behaviors;
 
@@ -16,20 +16,20 @@ public class ValidationBehavior<TRequest, TResponse>
         _validator = validator;
     }
 
-    public async Task<TResponse> Handle(
+    public async ValueTask<TResponse> Handle(
         TRequest request,
         CancellationToken cancellationToken,
-        RequestHandlerDelegate<TResponse> next)
+        MessageHandlerDelegate<TRequest, TResponse> next)
     {
         if (_validator is null)
         {
-            return await next();
+            return await next(request, cancellationToken);
         }
 
         var validationResult = await _validator.ValidateAsync(request, cancellationToken);
         if (validationResult.IsValid)
         {
-            return await next();
+            return await next(request, cancellationToken);
         }
 
         var errors = validationResult.Errors

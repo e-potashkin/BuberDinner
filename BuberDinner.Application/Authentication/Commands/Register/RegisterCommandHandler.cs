@@ -4,7 +4,7 @@ using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.Errors;
 using BuberDinner.Domain.User;
 using ErrorOr;
-using MediatR;
+using Mediator;
 
 namespace BuberDinner.Application.Authentication.Commands.Register;
 
@@ -21,7 +21,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         _userRepository = userRepository;
     }
 
-    public async Task<ErrorOr<AuthenticationResult>> Handle(
+    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(
         RegisterCommand command,
         CancellationToken cancellationToken)
     {
