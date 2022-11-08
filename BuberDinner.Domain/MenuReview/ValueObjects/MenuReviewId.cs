@@ -8,6 +8,8 @@ internal sealed class MenuReviewId : ValueObject
 
     public Guid Value { get; }
 
+    public static implicit operator Guid(MenuReviewId menuReviewId) => menuReviewId.Value;
+
     public static MenuReviewId CreateUnique()
     {
         return new(Guid.NewGuid());
@@ -17,6 +19,4 @@ internal sealed class MenuReviewId : ValueObject
     {
         yield return Value;
     }
-
-    public static implicit operator Guid(MenuReviewId menuReviewId) => menuReviewId?.Value ?? Guid.Empty;
 }

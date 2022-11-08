@@ -14,7 +14,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 
     public BuberDinnerProblemDetailsFactory(IOptions<ApiBehaviorOptions> options)
     {
-        _options = options?.Value ?? throw new ArgumentNullException(nameof(options));
+        _options = options.Value ?? throw new ArgumentNullException(nameof(options));
     }
 
     public override ProblemDetails CreateProblemDetails(
@@ -66,8 +66,10 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         };
 
         if (title != null)
+        {
             // For validation problem details, don't overwrite the default title with null.
             problemDetails.Title = title;
+        }
 
         ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
 

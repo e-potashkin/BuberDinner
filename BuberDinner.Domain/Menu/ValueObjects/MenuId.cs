@@ -8,6 +8,8 @@ public sealed class MenuId : ValueObject
 
     public Guid Value { get; }
 
+    public static implicit operator Guid(MenuId menuId) => menuId.Value;
+
     public static MenuId CreateUnique()
     {
         return new(Guid.NewGuid());
@@ -17,6 +19,4 @@ public sealed class MenuId : ValueObject
     {
         yield return Value;
     }
-
-    public static implicit operator Guid(MenuId menuId) => menuId?.Value ?? Guid.Empty;
 }

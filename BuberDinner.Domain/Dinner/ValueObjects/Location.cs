@@ -4,14 +4,6 @@ namespace BuberDinner.Domain.Dinner.ValueObjects;
 
 internal sealed class Location : ValueObject
 {
-    public string Name { get; }
-
-    public Address Address { get; }
-
-    public decimal Latitude { get; }
-
-    public decimal Longitude { get; }
-
     public Location(string name, Address address, decimal latitude, decimal longitude)
     {
         Name = name;
@@ -19,6 +11,14 @@ internal sealed class Location : ValueObject
         Latitude = latitude;
         Longitude = longitude;
     }
+
+    public string Name { get; }
+
+    public Address Address { get; }
+
+    public decimal Latitude { get; }
+
+    public decimal Longitude { get; }
 
     public override IEnumerable<object> GetEqualityComponents()
     {

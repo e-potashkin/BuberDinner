@@ -8,6 +8,8 @@ public sealed class RatingId : ValueObject
 
     public Guid Value { get; }
 
+    public static implicit operator Guid(RatingId ratingId) => ratingId.Value;
+
     public static RatingId CreateUnique()
     {
         return new(Guid.NewGuid());
@@ -17,6 +19,4 @@ public sealed class RatingId : ValueObject
     {
         yield return Value;
     }
-
-    public static implicit operator Guid(RatingId ratingId) => ratingId?.Value ?? Guid.Empty;
 }

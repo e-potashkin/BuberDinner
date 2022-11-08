@@ -8,6 +8,8 @@ internal sealed class ReservationId : ValueObject
 
     public Guid Value { get; }
 
+    public static implicit operator Guid(ReservationId reservationId) => reservationId.Value;
+
     public static ReservationId CreateUnique()
     {
         return new(Guid.NewGuid());
@@ -17,6 +19,4 @@ internal sealed class ReservationId : ValueObject
     {
         yield return Value;
     }
-
-    public static implicit operator Guid(ReservationId reservationId) => reservationId?.Value ?? Guid.Empty;
 }

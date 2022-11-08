@@ -8,6 +8,8 @@ internal sealed class BillId : ValueObject
 
     public Guid Value { get; }
 
+    public static implicit operator Guid(BillId billId) => billId.Value;
+
     public static BillId CreateUnique()
     {
         return new(Guid.NewGuid());
@@ -17,6 +19,4 @@ internal sealed class BillId : ValueObject
     {
         yield return Value;
     }
-
-    public static implicit operator Guid(BillId billId) => billId?.Value ?? Guid.Empty;
 }

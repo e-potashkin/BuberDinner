@@ -8,7 +8,17 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
         Id = id;
     }
 
-    public TId Id { get; protected set; }
+    public TId Id { get; }
+
+    public static bool operator ==(Entity<TId> left, Entity<TId> right)
+    {
+        return Equals(left, right);
+    }
+
+    public static bool operator !=(Entity<TId> left, Entity<TId> right)
+    {
+        return !Equals(left, right);
+    }
 
     public bool Equals(Entity<TId>? other)
     {
@@ -23,15 +33,5 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
     public override int GetHashCode()
     {
         return Id.GetHashCode();
-    }
-
-    public static bool operator ==(Entity<TId> left, Entity<TId> right)
-    {
-        return Equals(left, right);
-    }
-
-    public static bool operator !=(Entity<TId> left, Entity<TId> right)
-    {
-        return !Equals(left, right);
     }
 }
