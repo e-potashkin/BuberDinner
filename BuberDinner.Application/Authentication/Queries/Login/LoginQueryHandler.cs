@@ -40,8 +40,6 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         // 3. Generate a JWT token
         var token = _jwtTokenGenerator.GenerateToken(user);
 
-        return new AuthenticationResult(
-            user,
-            token);
+        return new AuthenticationResult(user, token);
     }
 }

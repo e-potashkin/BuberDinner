@@ -45,8 +45,6 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         // 3. Create JWT token
         var token = _jwtTokenGenerator.GenerateToken(user);
 
-        return new AuthenticationResult(
-            user,
-            token);
+        return new AuthenticationResult(user, token);
     }
 }

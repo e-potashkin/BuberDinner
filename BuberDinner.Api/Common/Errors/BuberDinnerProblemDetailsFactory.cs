@@ -50,7 +50,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         string? detail = null,
         string? instance = null)
     {
-        if (modelStateDictionary == null)
+        if (modelStateDictionary is null)
         {
             throw new ArgumentNullException(nameof(modelStateDictionary));
         }
@@ -65,7 +65,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             Instance = instance
         };
 
-        if (title != null)
+        if (title is not null)
         {
             // For validation problem details, don't overwrite the default title with null.
             problemDetails.Title = title;
@@ -87,7 +87,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         }
 
         var traceId = Activity.Current?.Id ?? httpContext?.TraceIdentifier;
-        if (traceId != null)
+        if (traceId is not null)
         {
             problemDetails.Extensions["traceId"] = traceId;
         }
