@@ -1,10 +1,10 @@
-using BuberDinner.Domain.Bill.ValueObjects;
+using BuberDinner.Domain.BillAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Enums;
 using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Dinner.Entities;
+namespace BuberDinner.Domain.DinnerAggregate.Entities;
 
 internal sealed class Reservation : Entity<ReservationId>
 {

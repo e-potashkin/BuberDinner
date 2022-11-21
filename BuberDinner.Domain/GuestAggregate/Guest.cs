@@ -1,12 +1,12 @@
 using BuberDinner.Domain.BillAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
-using BuberDinner.Domain.Guest.Entities;
-using BuberDinner.Domain.Guest.ValueObjects;
-using BuberDinner.Domain.MenuReview.ValueObjects;
-using BuberDinner.Domain.User.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.Entities;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
+using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
+using BuberDinner.Domain.UserAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Guest;
+namespace BuberDinner.Domain.GuestAggregate;
 
 internal sealed class Guest : AggregateRoot<GuestId>
 {

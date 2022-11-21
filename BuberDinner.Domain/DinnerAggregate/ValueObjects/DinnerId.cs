@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Dinner.ValueObjects;
+namespace BuberDinner.Domain.DinnerAggregate.ValueObjects;
 
 public sealed class DinnerId : ValueObject
 {

@@ -2,9 +2,13 @@
 <Project>
 
     <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)StyleCop.ruleset</CodeAnalysisRuleSet>
         <!-- Dependencies versions -->
-        <MediatorVersion>2.0.27-rc</MediatorVersion>
+        <MediatorVersion>2.1.0-preview.2</MediatorVersion>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Guest.ValueObjects;
+namespace BuberDinner.Domain.GuestAggregate.ValueObjects;
 
 public sealed class GuestId : ValueObject
 {

@@ -1,12 +1,12 @@
-using BuberDinner.Domain.Bill.ValueObjects;
+using BuberDinner.Domain.BillAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Enums;
 using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinner.Entities;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
-using BuberDinner.Domain.Menu.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.Entities;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Dinner;
+namespace BuberDinner.Domain.DinnerAggregate;
 
 internal sealed class Dinner : AggregateRoot<DinnerId>
 {

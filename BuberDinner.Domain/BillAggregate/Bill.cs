@@ -1,10 +1,10 @@
-using BuberDinner.Domain.Bill.ValueObjects;
+using BuberDinner.Domain.BillAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.Dinner.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
+using BuberDinner.Domain.DinnerAggregate.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Bill;
+namespace BuberDinner.Domain.BillAggregate;
 
 internal sealed class Bill : AggregateRoot<BillId>
 {

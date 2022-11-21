@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Bill.ValueObjects;
+namespace BuberDinner.Domain.BillAggregate.ValueObjects;
 
 internal sealed class Price : ValueObject
 {

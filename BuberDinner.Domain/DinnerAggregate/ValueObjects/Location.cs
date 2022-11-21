@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.Dinner.ValueObjects;
+namespace BuberDinner.Domain.DinnerAggregate.ValueObjects;
 
 internal sealed class Location : ValueObject
 {

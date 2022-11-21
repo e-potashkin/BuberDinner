@@ -1,9 +1,9 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
-using BuberDinner.Domain.Guest.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
+using BuberDinner.Domain.GuestAggregate.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Guest.Entities;
+namespace BuberDinner.Domain.GuestAggregate.Entities;
 
 internal sealed class Rating : Entity<RatingId>
 {

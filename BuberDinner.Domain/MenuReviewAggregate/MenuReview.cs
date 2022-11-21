@@ -3,9 +3,9 @@ using BuberDinner.Domain.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.GuestAggregate.ValueObjects;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate.ValueObjects;
-using BuberDinner.Domain.MenuReview.ValueObjects;
+using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.MenuReview;
+namespace BuberDinner.Domain.MenuReviewAggregate;
 
 internal sealed class MenuReview : AggregateRoot<MenuReviewId>
 {

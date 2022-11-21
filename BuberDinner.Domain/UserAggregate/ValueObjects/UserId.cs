@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Common.Models;
 
-namespace BuberDinner.Domain.User.ValueObjects;
+namespace BuberDinner.Domain.UserAggregate.ValueObjects;
 
 public sealed class UserId : ValueObject
 {

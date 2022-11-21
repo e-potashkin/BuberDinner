@@ -1,7 +1,7 @@
 using BuberDinner.Domain.Common.Models;
-using BuberDinner.Domain.User.ValueObjects;
+using BuberDinner.Domain.UserAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.User;
+namespace BuberDinner.Domain.UserAggregate;
 
 public sealed class User : AggregateRoot<UserId>
 {

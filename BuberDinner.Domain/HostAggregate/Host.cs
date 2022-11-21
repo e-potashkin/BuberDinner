@@ -1,10 +1,10 @@
 using BuberDinner.Domain.Common.Models;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
-using BuberDinner.Domain.Host.ValueObjects;
-using BuberDinner.Domain.Menu.ValueObjects;
-using BuberDinner.Domain.User.ValueObjects;
+using BuberDinner.Domain.HostAggregate.ValueObjects;
+using BuberDinner.Domain.MenuAggregate.ValueObjects;
+using BuberDinner.Domain.UserAggregate.ValueObjects;
 
-namespace BuberDinner.Domain.Host;
+namespace BuberDinner.Domain.HostAggregate;
 
 internal sealed class Host : AggregateRoot<HostId>
 {
