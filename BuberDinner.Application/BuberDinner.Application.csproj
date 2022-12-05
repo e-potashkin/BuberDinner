@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <ItemGroup>
         <PackageReference Include="FluentValidation" />
         <PackageReference Include="FluentValidation.AspNetCore" />
@@ -10,9 +9,7 @@
         </PackageReference>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     </ItemGroup>
-
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
     </ItemGroup>
-
 </Project>
