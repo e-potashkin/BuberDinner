@@ -175,6 +175,5 @@
         <Rule Id="SA1649" Action="Error"/>
         <Rule Id="SA1651" Action="None"/>
         <Rule Id="SX1101" Action="Error"/>
-        <!-- <Rule Id="CA1852" Action="Warning"/> // Seal internal types -->
     </Rules>
 </RuleSet>
