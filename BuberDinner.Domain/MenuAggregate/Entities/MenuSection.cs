@@ -3,7 +3,7 @@ using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.MenuAggregate.Entities;
 
-internal sealed class MenuSection : Entity<MenuSectionId>
+public sealed class MenuSection : Entity<MenuSectionId>
 {
     private readonly List<MenuItem> _items = new();
 

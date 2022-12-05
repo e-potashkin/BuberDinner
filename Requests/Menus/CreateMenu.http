@@ -1,0 +1,15 @@
+ @host=http://localhost:5080
+ @token=fasdfa
+ @hostId=fsdfasd
+
+POST {{host}}/hosts/{{hostId}}/menus
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Yummy Menu",
+    "description": "A menu with yummy food",
+    "sections": []
+}
+
+###

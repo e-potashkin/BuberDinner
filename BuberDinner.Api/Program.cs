@@ -1,4 +1,5 @@
-﻿using BuberDinner.Api;
+﻿#pragma warning disable CA1852
+using BuberDinner.Api;
 using BuberDinner.Application;
 using BuberDinner.Infrastructure;
 

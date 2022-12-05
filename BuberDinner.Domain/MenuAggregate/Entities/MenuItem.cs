@@ -3,7 +3,7 @@ using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.MenuAggregate.Entities;
 
-internal sealed class MenuItem : Entity<MenuItemId>
+public sealed class MenuItem : Entity<MenuItemId>
 {
     private MenuItem(MenuItemId menuItemId, string name, string description)
         : base(menuItemId)

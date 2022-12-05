@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
@@ -11,10 +11,10 @@
   "profiles": {
     "BuberDinner.Api": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": false,
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7056;http://localhost:5080",
+      // "devTunnelEnabled": true,
+      // "devTunnelAccess": "public",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

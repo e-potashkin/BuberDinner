@@ -2,7 +2,7 @@ using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
-internal sealed class MenuReviewId : ValueObject
+public sealed class MenuReviewId : ValueObject
 {
     private MenuReviewId(Guid value) => Value = value;
 

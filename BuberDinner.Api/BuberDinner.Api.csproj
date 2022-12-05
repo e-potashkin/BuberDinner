@@ -9,11 +9,6 @@
     <ItemGroup>
         <PackageReference Include="Mapster" Version="7.4.0-pre03" />
         <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
-        <PackageReference Include="Mediator.Abstractions" Version="$(MediatorVersion)" />
-        <PackageReference Include="Mediator.SourceGenerator" Version="$(MediatorVersion)">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
 
 </Project>

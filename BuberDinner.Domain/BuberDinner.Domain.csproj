@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-        <PackageReference Include="ErrorOr" Version="1.2.0" />
+        <PackageReference Include="ErrorOr" Version="1.2.1" />
     </ItemGroup>
 
 </Project>
