@@ -1,22 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
-
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)StyleCop.ruleset</CodeAnalysisRuleSet>
-        <!-- Dependencies versions -->
-        <MediatorVersion>2.1.0-preview.5</MediatorVersion>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-
 </Project>
