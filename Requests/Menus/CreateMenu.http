@@ -1,6 +1,6 @@
  @host=http://localhost:5080
  @token=fasdfa
- @hostId=fsdfasd
+ @hostId=5757661c-3e06-4ff7-a278-07e53ac0eabf
 
 POST {{host}}/hosts/{{hostId}}/menus
 Content-Type: application/json

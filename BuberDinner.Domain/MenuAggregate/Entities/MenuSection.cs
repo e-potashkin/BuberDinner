@@ -10,11 +10,13 @@ public sealed class MenuSection : Entity<MenuSectionId>
     private MenuSection(
         MenuSectionId menuSectionId,
         string name,
-        string description)
+        string description,
+        List<MenuItem> items)
         : base(menuSectionId)
     {
         Name = name;
         Description = description;
+        _items = items;
     }
 
     public string Name { get; }
@@ -23,11 +25,12 @@ public sealed class MenuSection : Entity<MenuSectionId>
 
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
 
-    public static MenuSection Create(string name, string description)
+    public static MenuSection Create(string name, string description, List<MenuItem> items)
     {
         return new(
             MenuSectionId.CreateUnique(),
             name,
-            description);
+            description,
+            items);
     }
 }

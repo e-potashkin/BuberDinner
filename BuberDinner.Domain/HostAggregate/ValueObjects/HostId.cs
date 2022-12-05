@@ -10,6 +10,11 @@ public sealed class HostId : ValueObject
 
     public static implicit operator Guid(HostId hostId) => hostId.Value;
 
+    public static HostId Create(string hostId)
+    {
+        return new(Guid.Parse(hostId));
+    }
+
     public static HostId CreateUnique()
     {
         return new(Guid.NewGuid());
