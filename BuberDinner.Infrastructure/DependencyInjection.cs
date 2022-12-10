@@ -1,8 +1,6 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Application.Common.Interfaces.Services;
 using BuberDinner.Infrastructure.Authentication;
-using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,22 +12,24 @@ public static class DependencyInjection
     {
         services
             .AddAuth()
-            .AddPersistance();
+            .AddPersistence();
 
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         return services;
     }
 
-    public static IServiceCollection AddPersistance(this IServiceCollection services)
+    private static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.AddScoped<IUserRepository, UserRepository>();
-        services.AddScoped<IMenuRepository, MenuRepository>();
+        services.Scan(scan => 
+            scan.FromCallingAssembly()
+                .AddClasses()
+                .AsMatchingInterface());
 
         return services;
     }
 
-    public static IServiceCollection AddAuth(this IServiceCollection services)
+    private static IServiceCollection AddAuth(this IServiceCollection services)
     {
         services.AddOptions<JwtSettings>()
            .BindConfiguration(JwtSettings.SectionName)
