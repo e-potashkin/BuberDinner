@@ -14,6 +14,6 @@ public class UserRepository : IUserRepository
 
     public User? GetUserByEmail(string email)
     {
-        return Users.SingleOrDefault(u => u.Email == email);
+        return Users.Find(u => u.Email == email);
     }
 }

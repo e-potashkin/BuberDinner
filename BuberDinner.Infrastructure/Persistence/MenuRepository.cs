@@ -5,10 +5,10 @@ namespace BuberDinner.Infrastructure.Persistence;
 
 public class MenuRepository : IMenuRepository
 {
-    private static readonly List<Menu> _menus = new();
+    private static readonly List<Menu> Menus = new();
 
     public void Add(Menu menu)
     {
-        _menus.Add(menu);
+        Menus.Add(menu);
     }
 }

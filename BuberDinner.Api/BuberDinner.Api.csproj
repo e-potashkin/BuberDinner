@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+    </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
         <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />

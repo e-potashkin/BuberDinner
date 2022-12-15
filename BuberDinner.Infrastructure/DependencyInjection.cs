@@ -21,7 +21,7 @@ public static class DependencyInjection
 
     private static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.Scan(scan => 
+        services.Scan(scan =>
             scan.FromCallingAssembly()
                 .AddClasses()
                 .AsMatchingInterface());

@@ -26,7 +26,7 @@ public class AuthenticationController : ApiController
         var authResult = await _mediator.Send(command);
 
         return authResult.Match(
-            authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
+            auth => Ok(_mapper.Map<AuthenticationResponse>(auth)),
             Problem);
     }
 
@@ -37,7 +37,7 @@ public class AuthenticationController : ApiController
         var authResult = await _mediator.Send(query);
 
         return authResult.Match(
-            authResult => Ok(_mapper.Map<AuthenticationResponse>(authResult)),
+            auth => Ok(_mapper.Map<AuthenticationResponse>(auth)),
             Problem);
     }
 }
