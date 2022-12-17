@@ -6,6 +6,7 @@
         <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
         <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
         <ProjectReference Include="..\BuberDinner.Infrastructure\BuberDinner.Infrastructure.csproj" />
+        <ProjectReference Include="..\BuberDinner.Persistence\BuberDinner.Persistence.csproj" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Mapster" />

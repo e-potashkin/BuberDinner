@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.Infrastructure"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B598F4B4-2C72-47DF-999F-18298BA2259E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.Persistence", "BuberDinner.Persistence\BuberDinner.Persistence.csproj", "{AA10A6CA-A89F-475A-A290-5E56D85FB765}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{710E2E5F-FC4A-43E0-8D94-8A64E60DE243}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{710E2E5F-FC4A-43E0-8D94-8A64E60DE243}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{710E2E5F-FC4A-43E0-8D94-8A64E60DE243}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA10A6CA-A89F-475A-A290-5E56D85FB765}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA10A6CA-A89F-475A-A290-5E56D85FB765}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA10A6CA-A89F-475A-A290-5E56D85FB765}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA10A6CA-A89F-475A-A290-5E56D85FB765}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

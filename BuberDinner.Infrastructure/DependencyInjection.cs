@@ -10,26 +10,13 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        services
-            .AddAuth()
-            .AddPersistence();
-
+        services.AddAuth();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         return services;
     }
 
-    private static IServiceCollection AddPersistence(this IServiceCollection services)
-    {
-        services.Scan(scan =>
-            scan.FromCallingAssembly()
-                .AddClasses()
-                .AsMatchingInterface());
-
-        return services;
-    }
-
-    private static IServiceCollection AddAuth(this IServiceCollection services)
+    private static void AddAuth(this IServiceCollection services)
     {
         services.AddOptions<JwtSettings>()
            .BindConfiguration(JwtSettings.SectionName)
@@ -37,7 +24,5 @@ public static class DependencyInjection
            .ValidateOnStart();
 
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
-
-        return services;
     }
 }

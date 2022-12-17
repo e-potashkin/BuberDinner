@@ -1,4 +1,5 @@
 using BuberDinner.Application.Menus.Commands.CreateMenu;
+using BuberDinner.Application.Menus.Queries.GetAll;
 using BuberDinner.Contracts.Menus;
 using MapsterMapper;
 using Mediator;
@@ -16,6 +17,14 @@ public class MenusController : ApiController
     {
         _mapper = mapper;
         _sender = sender;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Menus(CancellationToken cancellationToken)
+    {
+        var menus = await _sender.Send(new GetAllQuery(), cancellationToken);
+       
+        return Ok(menus);
     }
 
     [HttpPost]
