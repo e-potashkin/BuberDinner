@@ -3,12 +3,12 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="ErrorOr" Version="1.2.1" />
     <PackageVersion Include="FluentValidation" Version="11.4.0" />
     <PackageVersion Include="FluentValidation.AspNetCore" Version="11.2.2" />
     <PackageVersion Include="Scrutor" Version="4.2.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435" />
-    <PackageVersion Include="ErrorOr" Version="1.2.1" />
     <PackageVersion Include="Mediator.Abstractions" Version="2.1.0-preview.5" />
     <PackageVersion Include="Mediator.SourceGenerator" Version="2.1.0-preview.5" />
     <PackageVersion Include="Mapster" Version="7.4.0-pre03" />
@@ -18,3 +18,4 @@
     <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
   </ItemGroup>
 </Project>
+ 

@@ -23,7 +23,7 @@ public class MenusController : ApiController
     public async Task<IActionResult> Menus(CancellationToken cancellationToken)
     {
         var menus = await _sender.Send(new GetAllQuery(), cancellationToken);
-       
+
         return Ok(menus);
     }
 
@@ -35,7 +35,6 @@ public class MenusController : ApiController
 
         return createMenuResult.Match(
             menu => Ok(_mapper.Map<MenuResponse>(menu)),
-            Problem
-        );
+            Problem);
     }
 }
