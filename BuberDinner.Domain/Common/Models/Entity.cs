@@ -20,7 +20,7 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
         return !Equals(left, right);
     }
 
-    public bool Equals(Entity<TId>? other)
+    public virtual bool Equals(Entity<TId>? other)
     {
         return Equals((object?)other);
     }

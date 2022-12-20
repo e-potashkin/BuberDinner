@@ -40,8 +40,6 @@ internal sealed class Guest : AggregateRoot<GuestId>
         UserId = userId;
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
-
-        // TODO: add other properties
     }
 
     public string FirstName { get; }

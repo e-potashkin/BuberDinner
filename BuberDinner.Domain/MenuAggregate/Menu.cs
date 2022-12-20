@@ -11,7 +11,7 @@ public sealed class Menu : AggregateRoot<MenuId>
 {
     private readonly List<DinnerId> _dinnerIds = new();
     private readonly List<MenuReviewId> _menuReviewIds = new();
-    private readonly List<MenuSection> _sections = new();
+    private readonly List<MenuSection> _sections;
 
     private Menu(
         MenuId menuId,
