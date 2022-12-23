@@ -19,7 +19,7 @@ public static class DependencyInjection
     private static void AddAuth(this IServiceCollection services)
     {
         services.AddOptions<JwtSettings>()
-           .BindConfiguration(JwtSettings.SectionName)
+           .BindConfiguration(nameof(JwtSettings))
            .ValidateDataAnnotations()
            .ValidateOnStart();
 
