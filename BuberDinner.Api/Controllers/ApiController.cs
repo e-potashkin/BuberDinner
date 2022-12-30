@@ -1,5 +1,7 @@
 using BuberDinner.Api.Common.Http;
 using ErrorOr;
+using MapsterMapper;
+using Mediator;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -8,6 +10,12 @@ namespace BuberDinner.Api.Controllers;
 [ApiController]
 public class ApiController : ControllerBase
 {
+    private ISender? _sender;
+    private IMapper? _mapper;
+
+    protected ISender Sender => _sender ??= HttpContext.RequestServices.GetRequiredService<ISender>();
+    protected IMapper Mapper => _mapper ??= HttpContext.RequestServices.GetRequiredService<IMapper>();
+
     protected IActionResult Problem(List<Error> errors)
     {
         if (errors.Count is 0)
