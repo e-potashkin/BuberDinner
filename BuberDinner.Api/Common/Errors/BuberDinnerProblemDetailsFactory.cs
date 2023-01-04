@@ -25,7 +25,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         string? detail = null,
         string? instance = null)
     {
-        statusCode ??= 500;
+        statusCode ??= StatusCodes.Status500InternalServerError;
 
         var problemDetails = new ProblemDetails
         {
@@ -36,7 +36,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             Instance = instance
         };
 
-        ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
+        ApplyProblemDetailsDefaults(httpContext, problemDetails);
 
         return problemDetails;
     }
@@ -55,7 +55,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             throw new ArgumentNullException(nameof(modelStateDictionary));
         }
 
-        statusCode ??= 400;
+        statusCode ??= StatusCodes.Status400BadRequest;
 
         var problemDetails = new ValidationProblemDetails(modelStateDictionary)
         {
@@ -71,16 +71,14 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             problemDetails.Title = title;
         }
 
-        ApplyProblemDetailsDefaults(httpContext, problemDetails, statusCode.Value);
+        ApplyProblemDetailsDefaults(httpContext, problemDetails);
 
         return problemDetails;
     }
 
-    private void ApplyProblemDetailsDefaults(HttpContext httpContext, ProblemDetails problemDetails, int statusCode)
+    private void ApplyProblemDetailsDefaults(HttpContext httpContext, ProblemDetails problemDetails)
     {
-        problemDetails.Status ??= statusCode;
-
-        if (_options.ClientErrorMapping.TryGetValue(statusCode, out var clientErrorData))
+        if (_options.ClientErrorMapping.TryGetValue(problemDetails.Status.GetValueOrDefault(), out var clientErrorData))
         {
             problemDetails.Title ??= clientErrorData.Title;
             problemDetails.Type ??= clientErrorData.Link;
