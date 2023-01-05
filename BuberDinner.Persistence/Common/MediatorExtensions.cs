@@ -1,0 +1,53 @@
+using BuberDinner.Domain.Common.Models;
+using Mediator;
+using Microsoft.EntityFrameworkCore;
+
+namespace BuberDinner.Persistence.Common;
+
+public static class MediatorExtensions
+{
+    public static async Task DispatchDomainEventsAsync(
+        this IMediator mediator,
+        DbContext context,
+        CancellationToken cancellationToken = default)
+    {
+        _ = context ?? throw new ArgumentNullException(nameof(context));
+
+        var domainEntities = context.ChangeTracker.Entries<IEntity>()
+            .Where(x => x.Entity.DomainEvents.Any())
+            .ToList();
+
+        var domainEvents = domainEntities
+            .SelectMany(x => x.Entity.DomainEvents)
+            .ToList();
+
+        domainEntities.ForEach(entity => entity.Entity.ClearDomainEvents());
+
+        foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
+        {
+            await mediator.Publish(domainEvent, cancellationToken);
+        }
+    }
+
+    public static async Task DispatchDomainEventsAsync(
+        this IMediator mediator,
+        IEntity entity,
+        CancellationToken cancellationToken = default)
+    {
+        _ = entity ?? throw new ArgumentNullException(nameof(entity));
+
+        var domainEvents = entity.DomainEvents.ToList();
+
+        if (!domainEvents.Any())
+        {
+            return;
+        }
+
+        entity.ClearDomainEvents();
+
+        foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
+        {
+            await mediator.Publish(domainEvent, cancellationToken);
+        }
+    }
+}

@@ -3,10 +3,10 @@ using Mediator;
 
 namespace BuberDinner.Domain.Common.Models;
 
-public abstract class Entity<TId> : IEquatable<Entity<TId>>
+public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     where TId : notnull
 {
-    private Collection<INotification> _domainEvents;
+    private readonly Collection<INotification> _domainEvents;
 
     protected Entity(TId id)
     {
@@ -45,17 +45,16 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
 
     public void AddDomainEvent(INotification eventItem)
     {
-        _domainEvents ??= new Collection<INotification>();
         _domainEvents.Add(eventItem);
     }
 
     public void RemoveDomainEvent(INotification eventItem)
     {
-        _domainEvents?.Remove(eventItem);
+        _domainEvents.Remove(eventItem);
     }
 
     public void ClearDomainEvents()
     {
-        _domainEvents?.Clear();
+        _domainEvents.Clear();
     }
 }
