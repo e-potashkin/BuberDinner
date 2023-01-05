@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
         <PackageReference Include="ErrorOr" />
+        <PackageReference Include="Mediator.Abstractions" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Aggregates" />
+      <Folder Include="DomainEvents" />
     </ItemGroup>
 </Project>

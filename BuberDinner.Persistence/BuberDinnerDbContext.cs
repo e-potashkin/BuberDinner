@@ -1,5 +1,5 @@
 using System.Reflection;
-using BuberDinner.Domain.MenuAggregate;
+using BuberDinner.Domain.Aggregates.MenuAggregate;
 using BuberDinner.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
 

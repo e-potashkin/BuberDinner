@@ -1,4 +1,4 @@
-using BuberDinner.Domain.MenuAggregate;
+using BuberDinner.Domain.Aggregates.MenuAggregate;
 using ErrorOr;
 using Mediator;
 

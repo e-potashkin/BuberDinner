@@ -1,5 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.UserAggregate;
+using BuberDinner.Domain.Aggregates.UserAggregate;
 
 namespace BuberDinner.Persistence.Repositories;
 

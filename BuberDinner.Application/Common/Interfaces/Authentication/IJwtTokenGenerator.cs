@@ -1,4 +1,4 @@
-using BuberDinner.Domain.UserAggregate;
+using BuberDinner.Domain.Aggregates.UserAggregate;
 
 namespace BuberDinner.Application.Common.Interfaces.Authentication;
 

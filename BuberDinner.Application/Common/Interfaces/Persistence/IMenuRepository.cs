@@ -1,4 +1,4 @@
-using BuberDinner.Domain.MenuAggregate;
+using BuberDinner.Domain.Aggregates.MenuAggregate;
 
 namespace BuberDinner.Application.Common.Interfaces.Persistence;
 
