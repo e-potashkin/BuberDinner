@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace BuberDinner.Application.Authentication.Commands.Register;
+namespace BuberDinner.Application.UseCases.Authentication.Commands.Register;
 
 public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
 {

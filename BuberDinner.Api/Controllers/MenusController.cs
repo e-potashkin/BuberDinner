@@ -1,5 +1,5 @@
-using BuberDinner.Application.Menus.Commands.CreateMenu;
-using BuberDinner.Application.Menus.Queries.GetAll;
+using BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
+using BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 using BuberDinner.Contracts.Menus;
 using Microsoft.AspNetCore.Mvc;
 

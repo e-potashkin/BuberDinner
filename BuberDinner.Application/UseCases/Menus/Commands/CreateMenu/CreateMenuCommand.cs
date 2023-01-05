@@ -2,7 +2,7 @@ using BuberDinner.Domain.Aggregates.MenuAggregate;
 using ErrorOr;
 using Mediator;
 
-namespace BuberDinner.Application.Menus.Commands.CreateMenu;
+namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
 public record CreateMenuCommand(
     string HostId,

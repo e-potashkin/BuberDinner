@@ -1,8 +1,8 @@
-using BuberDinner.Application.Authentication.Common;
+using BuberDinner.Application.UseCases.Authentication.Common;
 using ErrorOr;
 using Mediator;
 
-namespace BuberDinner.Application.Authentication.Commands.Register;
+namespace BuberDinner.Application.UseCases.Authentication.Commands.Register;
 
 public record RegisterCommand(
     string FirstName,

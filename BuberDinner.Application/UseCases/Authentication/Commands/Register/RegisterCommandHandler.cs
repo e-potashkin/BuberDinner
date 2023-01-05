@@ -1,12 +1,12 @@
-using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
+using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.UserAggregate;
 using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
 using Mediator;
 
-namespace BuberDinner.Application.Authentication.Commands.Register;
+namespace BuberDinner.Application.UseCases.Authentication.Commands.Register;
 
 public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthenticationResult>>
 {
