@@ -6,6 +6,7 @@
         <PackageVersion Include="ErrorOr" Version="1.2.1"/>
         <PackageVersion Include="FluentValidation" Version="11.4.0"/>
         <PackageVersion Include="FluentValidation.AspNetCore" Version="11.2.2"/>
+        <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1"/>
         <PackageVersion Include="Scrutor" Version="4.2.0"/>
         <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1"/>
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.51.0.59060"/>
@@ -14,6 +15,7 @@
         <PackageVersion Include="Mediator.SourceGenerator" Version="2.1.0-preview.5"/>
         <PackageVersion Include="Mapster" Version="7.4.0-pre04"/>
         <PackageVersion Include="Mapster.DependencyInjection" Version="1.0.0"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1"/>
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0"/>
         <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0"/>
         <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0"/>

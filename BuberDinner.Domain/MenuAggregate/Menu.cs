@@ -28,8 +28,8 @@ public sealed class Menu : AggregateRoot<MenuId>
         HostId = hostId;
         _sections = sections;
         AverageRating = AverageRating.Create(0);
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public string Name { get; }
@@ -46,9 +46,9 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTimeUtc { get; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTimeUtc { get; }
 
     public static Menu Create(string name, string description, HostId hostId, List<MenuSection> sections)
     {
