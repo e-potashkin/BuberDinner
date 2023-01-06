@@ -18,8 +18,7 @@ public static class MediatorExtensions
             .ToList();
 
         var domainEvents = domainEntities
-            .SelectMany(x => x.Entity.DomainEvents)
-            .ToList();
+            .SelectMany(x => x.Entity.DomainEvents);
 
         domainEntities.ForEach(entity => entity.Entity.ClearDomainEvents());
 
@@ -36,16 +35,14 @@ public static class MediatorExtensions
     {
         _ = entity ?? throw new ArgumentNullException(nameof(entity));
 
-        var domainEvents = entity.DomainEvents.ToList();
-
-        if (!domainEvents.Any())
+        if (!entity.DomainEvents.Any())
         {
             return;
         }
 
         entity.ClearDomainEvents();
 
-        foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
+        foreach (var domainEvent in entity.DomainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
             await mediator.Publish(domainEvent, cancellationToken);
         }
