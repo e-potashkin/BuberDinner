@@ -11,6 +11,4 @@ public record MenuSection(
     string Description,
     List<MenuItem> Items);
 
-public record MenuItem(
-    string Name,
-    string Description);
+public record MenuItem(string Name, string Description);

@@ -1,5 +1,7 @@
-﻿using BuberDinner.Api.Common.Errors;
-using BuberDinner.Api.Common.Mapping;
+﻿using System.Reflection;
+using BuberDinner.Api.Common.Errors;
+using Mapster;
+using MapsterMapper;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace BuberDinner.Api;
@@ -11,6 +13,17 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
         services.AddMappings();
+
+        return services;
+    }
+
+    private static IServiceCollection AddMappings(this IServiceCollection services)
+    {
+        var config = TypeAdapterConfig.GlobalSettings;
+        config.Scan(Assembly.GetExecutingAssembly());
+
+        services.AddSingleton(config);
+        services.AddScoped<IMapper, ServiceMapper>();
 
         return services;
     }

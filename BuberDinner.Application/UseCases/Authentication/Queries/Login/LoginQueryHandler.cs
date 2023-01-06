@@ -13,17 +13,13 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
     private readonly IUserRepository _userRepository;
 
-    public LoginQueryHandler(
-        IJwtTokenGenerator jwtTokenGenerator,
-        IUserRepository userRepository)
+    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _userRepository = userRepository;
     }
 
-    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(
-        LoginQuery query,
-        CancellationToken cancellationToken)
+    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 

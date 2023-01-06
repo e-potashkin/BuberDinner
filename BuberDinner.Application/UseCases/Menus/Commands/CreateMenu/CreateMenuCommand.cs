@@ -15,6 +15,4 @@ public record MenuSectionCommand(
     string Description,
     List<MenuItemCommand> Items);
 
-public record MenuItemCommand(
-    string Name,
-    string Description);
+public record MenuItemCommand(string Name, string Description);

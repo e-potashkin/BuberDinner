@@ -16,9 +16,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
         _menuRepository = menuRepository;
     }
 
-    public async ValueTask<ErrorOr<Menu>> Handle(
-        CreateMenuCommand request,
-        CancellationToken cancellationToken)
+    public async ValueTask<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 
