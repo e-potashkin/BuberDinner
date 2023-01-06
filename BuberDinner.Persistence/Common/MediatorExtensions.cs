@@ -35,14 +35,16 @@ public static class MediatorExtensions
     {
         _ = entity ?? throw new ArgumentNullException(nameof(entity));
 
-        if (!entity.DomainEvents.Any())
+        var domainEvents = entity.DomainEvents.ToList();
+
+        if (!domainEvents.Any())
         {
             return;
         }
 
         entity.ClearDomainEvents();
 
-        foreach (var domainEvent in entity.DomainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
+        foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
             await mediator.Publish(domainEvent, cancellationToken);
         }
