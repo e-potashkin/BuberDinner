@@ -5,7 +5,9 @@ namespace BuberDinner.Application.DomainEventHandlers;
 
 public class DomainEventHandler : INotificationHandler<DomainEvent>
 {
-    public ValueTask Handle(DomainEvent notification, CancellationToken cancellationToken)
+    public ValueTask Handle(
+        DomainEvent notification,
+        CancellationToken cancellationToken)
     {
         return ValueTask.CompletedTask;
     }

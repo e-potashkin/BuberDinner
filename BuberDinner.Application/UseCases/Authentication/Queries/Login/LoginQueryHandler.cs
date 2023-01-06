@@ -21,7 +21,9 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         _userRepository = userRepository;
     }
 
-    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
+    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(
+        LoginQuery query,
+        CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 

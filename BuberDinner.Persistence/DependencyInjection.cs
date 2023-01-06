@@ -9,7 +9,10 @@ namespace BuberDinner.Persistence;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddPersistence(this IServiceCollection services, ConfigurationManager configuration, IWebHostEnvironment hostingEnvironment)
+    public static IServiceCollection AddPersistence(
+        this IServiceCollection services,
+        ConfigurationManager configuration,
+        IWebHostEnvironment hostingEnvironment)
     {
         services.Scan(scan =>
             scan.FromCallingAssembly()
