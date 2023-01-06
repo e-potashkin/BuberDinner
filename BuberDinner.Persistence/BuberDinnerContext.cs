@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Persistence
 {
-    public class BuberDinnerDbContext : DbContext
+    public class BuberDinnerContext : DbContext
     {
         private readonly IMediator _mediator;
 
-        public BuberDinnerDbContext(DbContextOptions<BuberDinnerDbContext> options, IMediator mediator)
+        public BuberDinnerContext(DbContextOptions<BuberDinnerContext> options, IMediator mediator)
             : base(options)
         {
             _mediator = mediator;

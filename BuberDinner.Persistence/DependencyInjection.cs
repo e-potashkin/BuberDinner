@@ -17,7 +17,7 @@ public static class DependencyInjection
                 .AsMatchingInterface()
                 .UsingRegistrationStrategy(RegistrationStrategy.Skip));
 
-        services.AddDbContext<BuberDinnerDbContext>(optionsAction =>
+        services.AddDbContext<BuberDinnerContext>(optionsAction =>
         {
             optionsAction.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"),
