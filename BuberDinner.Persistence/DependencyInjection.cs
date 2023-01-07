@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Scrutor;
 
 namespace BuberDinner.Persistence;
 
@@ -14,12 +13,6 @@ public static class DependencyInjection
         IConfiguration configuration,
         IWebHostEnvironment hostingEnvironment)
     {
-        services.Scan(scan =>
-            scan.FromCallingAssembly()
-                .AddClasses()
-                .AsMatchingInterface()
-                .UsingRegistrationStrategy(RegistrationStrategy.Skip));
-
         services.AddDbContext<BuberDinnerContext>(optionsAction =>
         {
             optionsAction.UseNpgsql(
