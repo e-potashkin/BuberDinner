@@ -10,17 +10,17 @@ namespace BuberDinner.Domain.Aggregates.GuestAggregate;
 
 internal sealed class Guest : AggregateRoot<GuestId>
 {
-    private readonly List<DinnerId> _upcomingDinnerIds = new();
+    private readonly HashSet<DinnerId> _upcomingDinnerIds = new();
 
-    private readonly List<DinnerId> _pastDinnerIds = new();
+    private readonly HashSet<DinnerId> _pastDinnerIds = new();
 
-    private readonly List<DinnerId> _pendingDinnerIds = new();
+    private readonly HashSet<DinnerId> _pendingDinnerIds = new();
 
-    private readonly List<BillId> _billIds = new();
+    private readonly HashSet<BillId> _billIds = new();
 
-    private readonly List<MenuReviewId> _menuReviewIds = new();
+    private readonly HashSet<MenuReviewId> _menuReviewIds = new();
 
-    private readonly List<Rating> _ratings = new();
+    private readonly HashSet<Rating> _ratings = new();
 
     private Guest(
         GuestId guestId,
@@ -52,17 +52,17 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     public UserId UserId { get; }
 
-    public IReadOnlyList<DinnerId> UpcomingDinnerIds => _upcomingDinnerIds.AsReadOnly();
+    public IReadOnlyCollection<DinnerId> UpcomingDinnerIds => _upcomingDinnerIds;
 
-    public IReadOnlyList<DinnerId> PastDinnerIds => _pastDinnerIds.AsReadOnly();
+    public IReadOnlyCollection<DinnerId> PastDinnerIds => _pastDinnerIds;
 
-    public IReadOnlyList<DinnerId> PendingDinnerIds => _pendingDinnerIds.AsReadOnly();
+    public IReadOnlyCollection<DinnerId> PendingDinnerIds => _pendingDinnerIds;
 
-    public IReadOnlyList<BillId> BillIds => _billIds.AsReadOnly();
+    public IReadOnlyCollection<BillId> BillIds => _billIds;
 
-    public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
+    public IReadOnlyCollection<MenuReviewId> MenuReviewIds => _menuReviewIds;
 
-    public IReadOnlyList<Rating> Ratings => _ratings.AsReadOnly();
+    public IReadOnlyCollection<Rating> Ratings => _ratings;
 
     public DateTime CreatedDateTime { get; }
 

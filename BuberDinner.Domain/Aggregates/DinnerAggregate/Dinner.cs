@@ -10,7 +10,7 @@ namespace BuberDinner.Domain.Aggregates.DinnerAggregate;
 
 internal sealed class Dinner : AggregateRoot<DinnerId>
 {
-    private readonly List<Reservation> _reservations = new();
+    private readonly HashSet<Reservation> _reservations = new();
 
     private Dinner(
         DinnerId dinnerId,
@@ -70,7 +70,7 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
 
     public Location Location { get; }
 
-    public IReadOnlyList<Reservation> Reservations => _reservations.AsReadOnly();
+    public IReadOnlyCollection<Reservation> Reservations => _reservations;
 
     public DateTime CreatedDateTime { get; }
 

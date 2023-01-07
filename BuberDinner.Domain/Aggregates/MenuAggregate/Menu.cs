@@ -9,16 +9,16 @@ namespace BuberDinner.Domain.Aggregates.MenuAggregate;
 
 public sealed class Menu : AggregateRoot<MenuId>
 {
-    private readonly List<DinnerId> _dinnerIds = new();
-    private readonly List<MenuReviewId> _menuReviewIds = new();
-    private readonly List<MenuSection> _sections;
+    private readonly HashSet<DinnerId> _dinnerIds = new();
+    private readonly HashSet<MenuReviewId> _menuReviewIds = new();
+    private readonly HashSet<MenuSection> _sections;
 
     private Menu(
         MenuId menuId,
         string name,
         string description,
         HostId hostId,
-        List<MenuSection> sections,
+        ICollection<MenuSection> sections,
         DateTime createdDateTime,
         DateTime updatedDateTime)
         : base(menuId)
@@ -26,7 +26,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         Name = name;
         Description = description;
         HostId = hostId;
-        _sections = sections;
+        _sections = new HashSet<MenuSection>(sections);
         AverageRating = AverageRating.Create(0);
         CreatedDateTimeUtc = createdDateTime;
         UpdatedDateTimeUtc = updatedDateTime;
@@ -40,17 +40,17 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public HostId HostId { get; }
 
-    public IReadOnlyList<MenuSection> Sections => _sections.AsReadOnly();
+    public IReadOnlyCollection<MenuSection> Sections => _sections;
 
-    public IReadOnlyList<DinnerId> DinnerIds => _dinnerIds.AsReadOnly();
+    public IReadOnlyCollection<DinnerId> DinnerIds => _dinnerIds;
 
-    public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
+    public IReadOnlyCollection<MenuReviewId> MenuReviewIds => _menuReviewIds;
 
     public DateTime CreatedDateTimeUtc { get; }
 
     public DateTime UpdatedDateTimeUtc { get; }
 
-    public static Menu Create(string name, string description, HostId hostId, List<MenuSection> sections)
+    public static Menu Create(string name, string description, HostId hostId, ICollection<MenuSection> sections)
     {
         return new(
             MenuId.CreateUnique(),

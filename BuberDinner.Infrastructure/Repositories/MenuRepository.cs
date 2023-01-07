@@ -1,7 +1,7 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
 
-namespace BuberDinner.Persistence.Repositories;
+namespace BuberDinner.Infrastructure.Repositories;
 
 public class MenuRepository : IMenuRepository
 {
