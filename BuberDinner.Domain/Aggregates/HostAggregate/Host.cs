@@ -11,6 +11,12 @@ internal sealed class Host : AggregateRoot<HostId>
     private readonly HashSet<DinnerId> _dinnerIds = new();
     private readonly HashSet<MenuId> _menuIds = new();
 
+#pragma warning disable CS8618
+    private Host()
+    {
+    }
+#pragma warning restore CS8618
+
     private Host(
         HostId hostId,
         string firstName,
@@ -31,23 +37,23 @@ internal sealed class Host : AggregateRoot<HostId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public string FirstName { get; }
+    public string FirstName { get; private set; }
 
-    public string LastName { get; }
+    public string LastName { get; private set; }
 
-    public string ProfileImage { get; }
+    public string ProfileImage { get; private set; }
 
-    public decimal AverageRating { get; }
+    public decimal AverageRating { get; private set; }
 
-    public UserId UserId { get; }
+    public UserId UserId { get; private set; }
 
     public IReadOnlyCollection<MenuId> MenuIds => _menuIds;
 
     public IReadOnlyCollection<DinnerId> DinnerIds => _dinnerIds;
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static Host Create(
         string firstName,

@@ -11,13 +11,13 @@ public static class DependencyInjection
         IConfiguration configuration,
         bool isDevelopment)
     {
-        services.AddDbContext<BuberDinnerContext>(optionsAction =>
+        services.AddDbContext<BuberDinnerDbContext>(options =>
         {
-            optionsAction.UseNpgsql(
+            options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"),
                 options => options.CommandTimeout(60));
 
-            optionsAction.EnableSensitiveDataLogging(isDevelopment);
+            options.EnableSensitiveDataLogging(isDevelopment);
         });
 
         return services;

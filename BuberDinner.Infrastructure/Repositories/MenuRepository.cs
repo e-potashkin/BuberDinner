@@ -1,19 +1,27 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
+using BuberDinner.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure.Repositories;
 
 public class MenuRepository : IMenuRepository
 {
-    private static readonly List<Menu> Menus = new();
+    private readonly BuberDinnerDbContext _dbContext;
 
-    public IReadOnlyCollection<Menu> GetAll()
+    public MenuRepository(BuberDinnerDbContext dbContext)
     {
-        return Menus.AsReadOnly();
+        _dbContext = dbContext;
     }
 
-    public void Add(Menu menu)
+    public async Task<IReadOnlyCollection<Menu>> GetAllAsync()
     {
-        Menus.Add(menu);
+        return await _dbContext.Menus.ToListAsync();
+    }
+
+    public async Task AddAsync(Menu menu)
+    {
+        _dbContext.Add(menu);
+        await _dbContext.SaveChangesAsync();
     }
 }

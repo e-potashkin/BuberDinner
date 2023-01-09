@@ -17,6 +17,6 @@ public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollecti
     {
         await Task.CompletedTask;
 
-        return _menuRepository.GetAll();
+        return await _menuRepository.GetAllAsync();
     }
 }

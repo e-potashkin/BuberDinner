@@ -8,6 +8,12 @@ namespace BuberDinner.Domain.Aggregates.BillAggregate;
 
 internal sealed class Bill : AggregateRoot<BillId>
 {
+#pragma warning disable CS8618
+    private Bill()
+    {
+    }
+#pragma warning restore CS8618
+
     private Bill(
         BillId billId,
         DinnerId dinnerId,
@@ -26,17 +32,17 @@ internal sealed class Bill : AggregateRoot<BillId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public DinnerId DinnerId { get; }
+    public DinnerId DinnerId { get; private set; }
 
-    public GuestId GuestId { get; }
+    public GuestId GuestId { get; private set; }
 
-    public HostId HostId { get; }
+    public HostId HostId { get; private set; }
 
-    public Price Price { get; }
+    public Price Price { get; private set; }
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static Bill Create(DinnerId dinnerId, GuestId guestId, HostId hostId, Price price)
     {

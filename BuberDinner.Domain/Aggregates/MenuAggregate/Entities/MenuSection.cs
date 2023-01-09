@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Models;
 
@@ -6,6 +7,12 @@ namespace BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
 public sealed class MenuSection : Entity<MenuSectionId>
 {
     private readonly List<MenuItem> _items;
+
+#pragma warning disable CS8618
+    private MenuSection()
+    {
+    }
+#pragma warning restore CS8618
 
     private MenuSection(
         MenuSectionId menuSectionId,
@@ -19,9 +26,11 @@ public sealed class MenuSection : Entity<MenuSectionId>
         _items = items;
     }
 
-    public string Name { get; }
+    [MaxLength(100)]
+    public string Name { get; private set; }
 
-    public string Description { get; }
+    [MaxLength(100)]
+    public string Description { get; private set; }
 
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
 

@@ -22,6 +22,12 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     private readonly HashSet<Rating> _ratings = new();
 
+#pragma warning disable CS8618
+    private Guest()
+    {
+    }
+#pragma warning restore CS8618
+
     private Guest(
         GuestId guestId,
         string firstName,
@@ -42,15 +48,15 @@ internal sealed class Guest : AggregateRoot<GuestId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public string FirstName { get; }
+    public string FirstName { get; private set; }
 
-    public string LastName { get; }
+    public string LastName { get; private set; }
 
-    public string ProfileImage { get; }
+    public string ProfileImage { get; private set; }
 
-    public decimal AverageRating { get; }
+    public decimal AverageRating { get; private set; }
 
-    public UserId UserId { get; }
+    public UserId UserId { get; private set; }
 
     public IReadOnlyCollection<DinnerId> UpcomingDinnerIds => _upcomingDinnerIds;
 
@@ -64,9 +70,9 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     public IReadOnlyCollection<Rating> Ratings => _ratings;
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static Guest Create(
         string firstName,

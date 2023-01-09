@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using BuberDinner.Domain.Aggregates.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
@@ -12,6 +13,12 @@ public sealed class Menu : AggregateRoot<MenuId>
     private readonly HashSet<DinnerId> _dinnerIds = new();
     private readonly HashSet<MenuReviewId> _menuReviewIds = new();
     private readonly HashSet<MenuSection> _sections;
+
+#pragma warning disable CS8618
+    private Menu()
+    {
+    }
+#pragma warning restore CS8618
 
     private Menu(
         MenuId menuId,
@@ -32,13 +39,15 @@ public sealed class Menu : AggregateRoot<MenuId>
         UpdatedDateTimeUtc = updatedDateTime;
     }
 
-    public string Name { get; }
+    [MaxLength(100)]
+    public string Name { get; private set; }
 
-    public string Description { get; }
+    [MaxLength(100)]
+    public string Description { get; private set; }
 
-    public AverageRating AverageRating { get; }
+    public AverageRating AverageRating { get; private set; }
 
-    public HostId HostId { get; }
+    public HostId HostId { get; private set; }
 
     public IReadOnlyCollection<MenuSection> Sections => _sections;
 
@@ -46,9 +55,9 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public IReadOnlyCollection<MenuReviewId> MenuReviewIds => _menuReviewIds;
 
-    public DateTime CreatedDateTimeUtc { get; }
+    public DateTime CreatedDateTimeUtc { get; private set; }
 
-    public DateTime UpdatedDateTimeUtc { get; }
+    public DateTime UpdatedDateTimeUtc { get; private set; }
 
     public static Menu Create(string name, string description, HostId hostId, ICollection<MenuSection> sections)
     {

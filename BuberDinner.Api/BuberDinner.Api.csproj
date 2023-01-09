@@ -9,6 +9,7 @@
         <ProjectReference Include="..\BuberDinner.Persistence\BuberDinner.Persistence.csproj" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Asp.Versioning.WebApi" />
         <PackageReference Include="Mapster" />
         <PackageReference Include="Mapster.DependencyInjection" />
     </ItemGroup>

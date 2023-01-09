@@ -23,7 +23,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
         var menu = Menu.Create(
             request.Name,
             request.Description,
-            HostId.Create(request.HostId),
+            HostId.Create(Guid.Parse(request.HostId)),
             request.Sections.ConvertAll(section => MenuSection.Create(
                 section.Name,
                 section.Description,
@@ -31,7 +31,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                     item.Name,
                     item.Description)))));
 
-        _menuRepository.Add(menu);
+        await _menuRepository.AddAsync(menu);
 
         return menu;
     }

@@ -8,6 +8,12 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
 {
     private readonly Collection<INotification> _domainEvents;
 
+#pragma warning disable CS8618
+    protected Entity()
+    {
+    }
+#pragma warning restore CS8618
+
     protected Entity(TId id)
     {
         Id = id;

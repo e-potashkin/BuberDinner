@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.Common.Models;
 
@@ -5,6 +6,12 @@ namespace BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
+#pragma warning disable CS8618
+    private MenuItem()
+    {
+    }
+#pragma warning restore CS8618
+
     private MenuItem(MenuItemId menuItemId, string name, string description)
         : base(menuItemId)
     {
@@ -12,9 +19,11 @@ public sealed class MenuItem : Entity<MenuItemId>
         Description = description;
     }
 
-    public string Name { get; }
+    [MaxLength(100)]
+    public string Name { get; private set; }
 
-    public string Description { get; }
+    [MaxLength(100)]
+    public string Description { get; private set; }
 
     public static MenuItem Create(string name, string description)
     {

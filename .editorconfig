@@ -366,3 +366,6 @@ dotnet_naming_style.s_camelcase.capitalization = camel_case
 dotnet_diagnostic.CA1852.severity = warning
 dotnet_diagnostic.SA1518.severity = none
 dotnet_diagnostic.SA1516.severity = none
+
+[*/Migrations/*]
+generated_code = true

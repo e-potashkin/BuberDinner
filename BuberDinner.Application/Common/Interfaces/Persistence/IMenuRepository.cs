@@ -4,7 +4,7 @@ namespace BuberDinner.Application.Common.Interfaces.Persistence;
 
 public interface IMenuRepository
 {
-    IReadOnlyCollection<Menu> GetAll();
+    Task<IReadOnlyCollection<Menu>> GetAllAsync();
 
-    void Add(Menu menu);
+    Task AddAsync(Menu menu);
 }

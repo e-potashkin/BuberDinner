@@ -7,6 +7,12 @@ namespace BuberDinner.Domain.Aggregates.GuestAggregate.Entities;
 
 internal sealed class Rating : Entity<RatingId>
 {
+#pragma warning disable CS8618
+    private Rating()
+    {
+    }
+#pragma warning restore CS8618
+
     private Rating(
         RatingId ratingId,
         decimal value,
@@ -23,15 +29,15 @@ internal sealed class Rating : Entity<RatingId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public decimal Value { get; }
+    public decimal Value { get; private set; }
 
-    public HostId HostId { get; }
+    public HostId HostId { get; private set; }
 
-    public DinnerId DinnerId { get; }
+    public DinnerId DinnerId { get; private set; }
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static Rating Create(
         decimal value,

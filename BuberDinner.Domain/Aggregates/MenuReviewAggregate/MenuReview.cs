@@ -9,6 +9,12 @@ namespace BuberDinner.Domain.Aggregates.MenuReviewAggregate;
 
 internal sealed class MenuReview : AggregateRoot<MenuReviewId>
 {
+#pragma warning disable CS8618
+    private MenuReview()
+    {
+    }
+#pragma warning restore CS8618
+
     private MenuReview(
         MenuReviewId menuReviewId,
         decimal rating,
@@ -31,21 +37,21 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public decimal Rating { get; }
+    public decimal Rating { get; private set; }
 
-    public string Comment { get; }
+    public string Comment { get; private set; }
 
-    public HostId HostId { get; }
+    public HostId HostId { get; private set; }
 
-    public MenuId MenuId { get; }
+    public MenuId MenuId { get; private set; }
 
-    public GuestId GuestId { get; }
+    public GuestId GuestId { get; private set; }
 
-    public DinnerId DinnerId { get; }
+    public DinnerId DinnerId { get; private set; }
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static MenuReview Create(
         decimal rating,

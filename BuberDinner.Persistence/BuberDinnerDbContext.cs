@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Persistence
 {
-    public class BuberDinnerContext : DbContext
+    public class BuberDinnerDbContext : DbContext
     {
         private readonly IMediator _mediator;
 
-        public BuberDinnerContext(DbContextOptions<BuberDinnerContext> options, IMediator mediator)
+        public BuberDinnerDbContext(DbContextOptions<BuberDinnerDbContext> options, IMediator mediator)
             : base(options)
         {
             _mediator = mediator;
         }
 
-        public DbSet<Menu> Menus => Set<Menu>();
+        public DbSet<Menu> Menus { get; set; } = null!;
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -27,7 +27,9 @@ namespace BuberDinner.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AutoConfigureTypes();
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(BuberDinnerDbContext).Assembly);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

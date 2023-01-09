@@ -8,6 +8,12 @@ namespace BuberDinner.Domain.Aggregates.DinnerAggregate.Entities;
 
 internal sealed class Reservation : Entity<ReservationId>
 {
+#pragma warning disable CS8618
+    private Reservation()
+    {
+    }
+#pragma warning restore CS8618
+
     private Reservation(
         ReservationId reservationId,
         int guestCount,
@@ -28,19 +34,19 @@ internal sealed class Reservation : Entity<ReservationId>
         UpdatedDateTime = updatedDateTime;
     }
 
-    public int GuestCount { get; }
+    public int GuestCount { get; private set; }
 
-    public ReservationStatus Status { get; }
+    public ReservationStatus Status { get; private set; }
 
-    public GuestId GuestId { get; }
+    public GuestId GuestId { get; private set; }
 
-    public BillId BillId { get; }
+    public BillId BillId { get; private set; }
 
-    public DateTime ArrivalDateTime { get; }
+    public DateTime ArrivalDateTime { get; private set; }
 
-    public DateTime CreatedDateTime { get; }
+    public DateTime CreatedDateTime { get; private set; }
 
-    public DateTime UpdatedDateTime { get; }
+    public DateTime UpdatedDateTime { get; private set; }
 
     public static Reservation Create(
         int guestCount,
