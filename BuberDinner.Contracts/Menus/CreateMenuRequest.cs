@@ -6,7 +6,6 @@ public record CreateMenuRequest(
     List<MenuSection> Sections);
 
 public record MenuSection(
-    string Id,
     string Name,
     string Description,
     List<MenuItem> Items);

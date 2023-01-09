@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Text.Json.Serialization;
 using MediatR;
 
 namespace BuberDinner.Domain.Common.Models;
@@ -22,6 +23,7 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
 
     public TId Id { get; }
 
+    [JsonIgnore]
     public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
     public static bool operator ==(Entity<TId> left, Entity<TId> right)
