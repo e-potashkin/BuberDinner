@@ -16,6 +16,8 @@ public class MenuConfigurations : IEntityTypeConfiguration<Menu>
         ConfigureMenuSectionsTable(builder);
         ConfigureMenuDinnerIdsTable(builder);
         ConfigureMenuReviewIdsTable(builder);
+
+        builder.Ignore(m => m.DomainEvents);
     }
 
     private static void ConfigureMenusTable(EntityTypeBuilder<Menu> builder)
@@ -32,8 +34,6 @@ public class MenuConfigurations : IEntityTypeConfiguration<Menu>
             .HasConversion(
                 id => id.Value,
                 value => HostId.Create(value));
-
-        builder.Ignore(m => m.DomainEvents);
     }
 
     private static void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
@@ -74,8 +74,6 @@ public class MenuConfigurations : IEntityTypeConfiguration<Menu>
         });
 
         builder.Metadata.FindNavigation(nameof(Menu.Sections))!.SetPropertyAccessMode(PropertyAccessMode.Field);
-
-        builder.Ignore(m => m.DomainEvents);
     }
 
     private static void ConfigureMenuDinnerIdsTable(EntityTypeBuilder<Menu> builder)
@@ -94,8 +92,6 @@ public class MenuConfigurations : IEntityTypeConfiguration<Menu>
         });
 
         builder.Metadata.FindNavigation(nameof(Menu.DinnerIds))!.SetPropertyAccessMode(PropertyAccessMode.Field);
-
-        builder.Ignore(m => m.DomainEvents);
     }
 
     private static void ConfigureMenuReviewIdsTable(EntityTypeBuilder<Menu> builder)
@@ -114,7 +110,5 @@ public class MenuConfigurations : IEntityTypeConfiguration<Menu>
                });
 
         builder.Metadata.FindNavigation(nameof(Menu.MenuReviewIds))!.SetPropertyAccessMode(PropertyAccessMode.Field);
-
-        builder.Ignore(m => m.DomainEvents);
     }
 }
