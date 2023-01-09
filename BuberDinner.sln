@@ -14,8 +14,48 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuberDinner.Infrastructure", "BuberDinner.Infrastructure\BuberDinner.Infrastructure.csproj", "{710E2E5F-FC4A-43E0-8D94-8A64E60DE243}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B598F4B4-2C72-47DF-999F-18298BA2259E}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		README.md = README.md
+		StyleCop.ruleset = StyleCop.ruleset
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.Persistence", "BuberDinner.Persistence\BuberDinner.Persistence.csproj", "{AA10A6CA-A89F-475A-A290-5E56D85FB765}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{B1A67D31-0185-4B7D-9F91-C87B2526D33E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{984A30C4-4E75-41BD-A98C-BF0C8CB0FE5C}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Api\Api.Menu.md = Docs\Api\Api.Menu.md
+		Docs\Api\Api.Auth.md = Docs\Api\Api.Auth.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModels", "DomainModels", "{B26B266A-3BD6-4AF4-99DC-1F07CB97ECB9}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\DomainModels\Aggregates.User.md = Docs\DomainModels\Aggregates.User.md
+		Docs\DomainModels\Aggregates.Bill.md = Docs\DomainModels\Aggregates.Bill.md
+		Docs\DomainModels\Aggregates.Guest.md = Docs\DomainModels\Aggregates.Guest.md
+		Docs\DomainModels\Aggregates.Host.md = Docs\DomainModels\Aggregates.Host.md
+		Docs\DomainModels\Aggregates.Dinner.md = Docs\DomainModels\Aggregates.Dinner.md
+		Docs\DomainModels\Aggregates.Menu.md = Docs\DomainModels\Aggregates.Menu.md
+		Docs\DomainModels\Aggregates.MenuReview.md = Docs\DomainModels\Aggregates.MenuReview.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{F69E3DA8-D07A-439D-8D9B-4AA20B2290F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Menus", "Menus", "{29DEDB78-6288-460B-80E8-BED5CBE24F2B}"
+	ProjectSection(SolutionItems) = preProject
+		Requests\Menus\CreateMenu.http = Requests\Menus\CreateMenu.http
+		Requests\Menus\GetAll.http = Requests\Menus\GetAll.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Authentication", "Authentication", "{D66A83C7-B206-498F-86EF-23D8F5FE3291}"
+	ProjectSection(SolutionItems) = preProject
+		Requests\Authentication\Login.http = Requests\Authentication\Login.http
+		Requests\Authentication\Register.http = Requests\Authentication\Register.http
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,5 +93,13 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C3190C5-3A62-4E30-BDE1-8E7BF3774EB4}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B1A67D31-0185-4B7D-9F91-C87B2526D33E} = {B598F4B4-2C72-47DF-999F-18298BA2259E}
+		{984A30C4-4E75-41BD-A98C-BF0C8CB0FE5C} = {B1A67D31-0185-4B7D-9F91-C87B2526D33E}
+		{B26B266A-3BD6-4AF4-99DC-1F07CB97ECB9} = {B1A67D31-0185-4B7D-9F91-C87B2526D33E}
+		{F69E3DA8-D07A-439D-8D9B-4AA20B2290F8} = {B598F4B4-2C72-47DF-999F-18298BA2259E}
+		{29DEDB78-6288-460B-80E8-BED5CBE24F2B} = {F69E3DA8-D07A-439D-8D9B-4AA20B2290F8}
+		{D66A83C7-B206-498F-86EF-23D8F5FE3291} = {F69E3DA8-D07A-439D-8D9B-4AA20B2290F8}
 	EndGlobalSection
 EndGlobal
