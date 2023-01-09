@@ -9,7 +9,7 @@ builder.Services
     .AddPresentation()
     .AddApplication()
     .AddInfrastructure()
-    .AddPersistence(builder.Configuration, builder.Environment);
+    .AddPersistence(builder.Configuration, builder.Environment.IsDevelopment());
 
 var app = builder.Build();
 app.UseExceptionHandler("/error");

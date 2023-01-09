@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 namespace BuberDinner.Persistence;
 
@@ -11,7 +9,7 @@ public static class DependencyInjection
     public static IServiceCollection AddPersistence(
         this IServiceCollection services,
         IConfiguration configuration,
-        IWebHostEnvironment hostingEnvironment)
+        bool isDevelopment)
     {
         services.AddDbContext<BuberDinnerContext>(optionsAction =>
         {
@@ -19,7 +17,7 @@ public static class DependencyInjection
                 configuration.GetConnectionString("DefaultConnection"),
                 options => options.CommandTimeout(60));
 
-            optionsAction.EnableSensitiveDataLogging(hostingEnvironment.IsDevelopment());
+            optionsAction.EnableSensitiveDataLogging(isDevelopment);
         });
 
         return services;

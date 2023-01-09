@@ -4,6 +4,6 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
+      <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
     </ItemGroup>
 </Project>
