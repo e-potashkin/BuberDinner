@@ -7,5 +7,6 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
+        <ProjectReference Include="..\BuberDinner.Persistence\BuberDinner.Persistence.csproj" />
     </ItemGroup>
 </Project>

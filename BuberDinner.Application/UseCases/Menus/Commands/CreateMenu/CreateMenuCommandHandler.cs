@@ -3,7 +3,7 @@ using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
 using BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
 using ErrorOr;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
@@ -16,7 +16,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
         _menuRepository = menuRepository;
     }
 
-    public async ValueTask<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 

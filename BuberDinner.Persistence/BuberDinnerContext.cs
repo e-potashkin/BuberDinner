@@ -1,7 +1,7 @@
 using System.Reflection;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
 using BuberDinner.Persistence.Common;
-using Mediator;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Persistence

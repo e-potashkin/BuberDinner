@@ -1,6 +1,6 @@
 using BuberDinner.Application.UseCases.Authentication.Common;
 using ErrorOr;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Authentication.Queries.Login;
 

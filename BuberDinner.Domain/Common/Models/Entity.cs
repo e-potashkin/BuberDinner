@@ -1,5 +1,5 @@
 using System.Collections.ObjectModel;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Domain.Common.Models;
 

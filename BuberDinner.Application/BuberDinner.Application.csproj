@@ -2,17 +2,14 @@
     <ItemGroup>
         <PackageReference Include="FluentValidation" />
         <PackageReference Include="FluentValidation.AspNetCore" />
-        <PackageReference Include="Mediator.Abstractions" />
-        <PackageReference Include="Mediator.SourceGenerator">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="MediatR" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="UseCases" />
+        <Folder Include="UseCases" />
     </ItemGroup>
 </Project>

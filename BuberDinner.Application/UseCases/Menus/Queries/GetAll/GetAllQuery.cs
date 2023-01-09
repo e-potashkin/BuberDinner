@@ -1,5 +1,5 @@
 using BuberDinner.Domain.Aggregates.MenuAggregate;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 

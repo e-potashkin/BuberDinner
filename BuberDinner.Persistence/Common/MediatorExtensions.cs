@@ -1,5 +1,5 @@
 using BuberDinner.Domain.Common.Models;
-using Mediator;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Persistence.Common;

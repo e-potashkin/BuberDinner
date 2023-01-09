@@ -4,7 +4,7 @@ using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.UserAggregate;
 using BuberDinner.Domain.Common.Errors;
 using ErrorOr;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Authentication.Queries.Login;
 
@@ -19,7 +19,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         _userRepository = userRepository;
     }
 
-    public async ValueTask<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
+    public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 

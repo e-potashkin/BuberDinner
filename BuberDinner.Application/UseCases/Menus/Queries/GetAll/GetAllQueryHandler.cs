@@ -1,6 +1,6 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 
@@ -13,7 +13,7 @@ public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollecti
         _menuRepository = menuRepository;
     }
 
-    public async ValueTask<IReadOnlyCollection<Menu>> Handle(GetAllQuery query, CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<Menu>> Handle(GetAllQuery query, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 

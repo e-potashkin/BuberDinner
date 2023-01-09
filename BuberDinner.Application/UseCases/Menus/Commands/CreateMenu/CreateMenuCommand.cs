@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Aggregates.MenuAggregate;
 using ErrorOr;
-using Mediator;
+using MediatR;
 
 namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 

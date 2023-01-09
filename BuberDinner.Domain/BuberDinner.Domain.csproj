@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
         <PackageReference Include="ErrorOr" />
-        <PackageReference Include="Mediator.Abstractions" />
+        <PackageReference Include="MediatR" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Aggregates" />

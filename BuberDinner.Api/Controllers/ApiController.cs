@@ -1,7 +1,7 @@
 using BuberDinner.Api.Common.Http;
 using ErrorOr;
 using MapsterMapper;
-using Mediator;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
