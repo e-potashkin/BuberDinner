@@ -3,7 +3,6 @@
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     </PropertyGroup>
     <ItemGroup>
-        <PackageVersion Include="Asp.Versioning.WebApi" Version="7.0.0" />
         <PackageVersion Include="ErrorOr" Version="1.2.1" />
         <PackageVersion Include="FluentValidation" Version="11.4.0" />
         <PackageVersion Include="FluentValidation.AspNetCore" Version="11.2.2" />
