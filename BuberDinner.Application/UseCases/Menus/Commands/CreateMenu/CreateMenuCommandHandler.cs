@@ -2,7 +2,6 @@ using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate;
 using BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
-using BuberDinner.Domain.DomainEvents;
 using ErrorOr;
 using MediatR;
 

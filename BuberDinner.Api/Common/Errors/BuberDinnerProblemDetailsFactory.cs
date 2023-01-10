@@ -84,13 +84,10 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             problemDetails.Type ??= clientErrorData.Link;
         }
 
-        var traceId = Activity.Current?.Id ?? httpContext?.TraceIdentifier;
-        if (traceId is not null)
-        {
-            problemDetails.Extensions["traceId"] = traceId;
-        }
+        var traceId = Activity.Current?.Id ?? httpContext.TraceIdentifier;
+        problemDetails.Extensions["traceId"] = traceId;
 
-        if (httpContext?.Items[HttpContextItemKeys.Errors] is List<Error> errors)
+        if (httpContext.Items[HttpContextItemKeys.Errors] is List<Error> errors)
         {
             problemDetails.Extensions.Add("errorCodes", errors.Select(e => e.Code));
         }

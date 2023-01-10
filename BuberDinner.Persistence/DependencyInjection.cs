@@ -15,7 +15,7 @@ public static class DependencyInjection
         {
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"),
-                options => options.CommandTimeout(60));
+                optionsAction => optionsAction.CommandTimeout(60));
 
             options.EnableSensitiveDataLogging(isDevelopment);
         });
