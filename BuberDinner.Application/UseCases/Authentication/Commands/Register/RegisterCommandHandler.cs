@@ -19,22 +19,22 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         _userRepository = userRepository;
     }
 
-    public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
 
         // 1. Validate the user does not already exist
-        if (_userRepository.GetUserByEmail(command.Email) is not null)
+        if (_userRepository.GetUserByEmail(request.Email) is not null)
         {
             return Errors.User.DuplicateEmail;
         }
 
         // 2. Create a new user (generate unique ID) & persist to the database
         var user = User.Create(
-            command.FirstName,
-            command.LastName,
-            command.Email,
-            command.Password);
+            request.FirstName,
+            request.LastName,
+            request.Email,
+            request.Password);
 
         _userRepository.Add(user);
 

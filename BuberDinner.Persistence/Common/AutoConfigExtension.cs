@@ -17,7 +17,7 @@ namespace BuberDinner.Persistence.Common
                 foreach (var entityProperty in entityType.GetProperties())
                 {
                     if (entityProperty.ClrType == typeof(DateTime)
-                        && entityProperty.Name.EndsWith("Utc"))
+                        && entityProperty.Name.EndsWith("Utc", StringComparison.OrdinalIgnoreCase))
                     {
                         entityProperty.SetValueConverter(utcConverter);
                     }
@@ -36,7 +36,7 @@ namespace BuberDinner.Persistence.Common
                     }
 
                     if (entityProperty.ClrType == typeof(string)
-                        && entityProperty.Name.EndsWith("Url"))
+                        && entityProperty.Name.EndsWith("Url", StringComparison.OrdinalIgnoreCase))
                     {
                         entityProperty.SetIsUnicode(false);
                     }

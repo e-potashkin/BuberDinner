@@ -13,7 +13,7 @@ public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollecti
         _menuRepository = menuRepository;
     }
 
-    public async Task<IReadOnlyCollection<Menu>> Handle(GetAllQuery query, CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<Menu>> Handle(GetAllQuery request, CancellationToken cancellationToken)
     {
         return await _menuRepository.GetAllAsync();
     }
