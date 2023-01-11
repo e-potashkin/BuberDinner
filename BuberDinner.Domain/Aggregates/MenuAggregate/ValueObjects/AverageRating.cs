@@ -1,7 +1,9 @@
 using BuberDinner.Domain.Common.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
 
+[Owned]
 public class AverageRating : ValueObject
 {
 #pragma warning disable CS8618

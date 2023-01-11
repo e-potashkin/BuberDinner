@@ -2,6 +2,7 @@
     <ItemGroup>
         <PackageReference Include="ErrorOr" />
         <PackageReference Include="MediatR" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Aggregates" />
