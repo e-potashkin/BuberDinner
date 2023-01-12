@@ -16,7 +16,7 @@
         <PackageVersion Include="Mapster" Version="7.4.0-pre05"/>
         <PackageVersion Include="Mapster.DependencyInjection" Version="1.0.0"/>
         <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1"/>
-        <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.1"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.2"/>
         <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0"/>
         <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0"/>
         <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0"/>
