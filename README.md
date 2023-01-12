@@ -1,4 +1,4 @@
-# ASP.NET 6 REST API Following CLEAN ARCHITECTURE & DDD
+# ASP.NET 7 REST API Following CLEAN ARCHITECTURE & DDD
 
 ## Description
 - REST API following Clean Architecture & Domain-Driven Design principles
