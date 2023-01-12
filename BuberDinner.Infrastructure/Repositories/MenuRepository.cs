@@ -14,14 +14,14 @@ public class MenuRepository : IMenuRepository
         _dbContext = dbContext;
     }
 
-    public async Task<IReadOnlyCollection<Menu>> GetAllAsync()
+    public async Task<IReadOnlyCollection<Menu>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await _dbContext.Menus.ToListAsync();
+        return await _dbContext.Menus.ToListAsync(cancellationToken);
     }
 
-    public async Task AddAsync(Menu menu)
+    public async Task AddAsync(Menu menu, CancellationToken cancellationToken)
     {
         _dbContext.Add(menu);
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
 }

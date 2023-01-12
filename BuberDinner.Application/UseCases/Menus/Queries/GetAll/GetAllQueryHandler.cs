@@ -15,6 +15,6 @@ public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollecti
 
     public async Task<IReadOnlyCollection<Menu>> Handle(GetAllQuery request, CancellationToken cancellationToken)
     {
-        return await _menuRepository.GetAllAsync();
+        return await _menuRepository.GetAllAsync(cancellationToken);
     }
 }

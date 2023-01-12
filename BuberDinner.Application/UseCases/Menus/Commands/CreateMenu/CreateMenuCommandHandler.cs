@@ -29,7 +29,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                     item.Name,
                     item.Description)))));
 
-        await _menuRepository.AddAsync(menu);
+        await _menuRepository.AddAsync(menu, cancellationToken);
 
         return menu;
     }
