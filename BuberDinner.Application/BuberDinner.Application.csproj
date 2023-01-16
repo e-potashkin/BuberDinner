@@ -5,11 +5,13 @@
         <PackageReference Include="MediatR" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+        <PackageReference Include="Serilog.AspNetCore" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
     </ItemGroup>
     <ItemGroup>
+        <Folder Include="Common" />
         <Folder Include="UseCases" />
     </ItemGroup>
 </Project>

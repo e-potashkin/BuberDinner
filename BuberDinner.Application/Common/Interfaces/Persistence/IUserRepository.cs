@@ -1,4 +1,4 @@
-using BuberDinner.Domain.Aggregates.UserAggregate;
+using BuberDinner.Domain.Aggregates.User;
 
 namespace BuberDinner.Application.Common.Interfaces.Persistence;
 

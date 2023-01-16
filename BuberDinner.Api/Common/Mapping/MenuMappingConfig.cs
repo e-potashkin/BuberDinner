@@ -1,10 +1,10 @@
 using BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 using BuberDinner.Contracts.Menus;
-using BuberDinner.Domain.Aggregates.MenuAggregate;
+using BuberDinner.Domain.Aggregates.Menu;
 using Mapster;
 
-using MenuItem = BuberDinner.Domain.Aggregates.MenuAggregate.Entities.MenuItem;
-using MenuSection = BuberDinner.Domain.Aggregates.MenuAggregate.Entities.MenuSection;
+using MenuItem = BuberDinner.Domain.Aggregates.Menu.Entities.MenuItem;
+using MenuSection = BuberDinner.Domain.Aggregates.Menu.Entities.MenuSection;
 
 namespace BuberDinner.Api.Common.Mapping;
 

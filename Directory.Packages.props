@@ -8,8 +8,10 @@
         <PackageVersion Include="FluentValidation.AspNetCore" Version="11.2.2"/>
         <PackageVersion Include="MediatR" Version="11.1.0"/>
         <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0"/>
         <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.1"/>
         <PackageVersion Include="Scrutor" Version="4.2.0"/>
+        <PackageVersion Include="Serilog.AspNetCore" Version="6.1.1-dev-00293"/>
         <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1"/>
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.51.0.59060"/>
         <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435"/>

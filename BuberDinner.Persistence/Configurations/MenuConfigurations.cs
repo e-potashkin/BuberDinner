@@ -1,8 +1,8 @@
-using BuberDinner.Domain.Aggregates.DinnerAggregate.ValueObjects;
-using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
-using BuberDinner.Domain.Aggregates.MenuAggregate;
-using BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
-using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
+using BuberDinner.Domain.Aggregates.Dinner.ValueObjects;
+using BuberDinner.Domain.Aggregates.Host.ValueObjects;
+using BuberDinner.Domain.Aggregates.Menu;
+using BuberDinner.Domain.Aggregates.Menu.Entities;
+using BuberDinner.Domain.Aggregates.Menu.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

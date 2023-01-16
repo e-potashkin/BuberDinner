@@ -1,5 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
-using BuberDinner.Domain.Aggregates.MenuAggregate;
+using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Persistence;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,7 +1,7 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Application.UseCases.Authentication.Common;
-using BuberDinner.Domain.Aggregates.UserAggregate;
+using BuberDinner.Domain.Aggregates.User;
 using BuberDinner.Domain.SharedKernel.Errors;
 using ErrorOr;
 using MediatR;

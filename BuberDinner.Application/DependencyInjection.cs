@@ -14,6 +14,9 @@ public static class DependencyInjection
         services.AddScoped(
             typeof(IPipelineBehavior<,>),
             typeof(ValidationBehavior<,>));
+        services.AddScoped(
+            typeof(IPipelineBehavior<,>),
+            typeof(LoggingBehavior<,>));
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
