@@ -1,4 +1,3 @@
-#pragma warning disable CA1852
 using System.Globalization;
 using BuberDinner.Api;
 using BuberDinner.Application;
