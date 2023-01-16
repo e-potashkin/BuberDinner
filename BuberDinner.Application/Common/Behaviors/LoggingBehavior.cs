@@ -14,7 +14,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 
         if (result.IsError)
         {
-            Log.Information($"Request failure {typeof(TRequest).Name}, {result.Errors}, {DateTime.UtcNow}");
+            Log.Error("Request failure {Name}, {Errors}", typeof(TRequest).Name, result.Errors);
         }
 
         return result;
