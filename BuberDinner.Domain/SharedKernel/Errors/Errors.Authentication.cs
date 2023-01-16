@@ -1,6 +1,6 @@
 using ErrorOr;
 
-namespace BuberDinner.Domain.Common.Errors;
+namespace BuberDinner.Domain.SharedKernel.Errors;
 
 public static partial class Errors
 {

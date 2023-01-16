@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.MenuAggregate.Entities;
 

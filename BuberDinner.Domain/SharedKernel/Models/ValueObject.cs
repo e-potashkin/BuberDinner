@@ -1,4 +1,4 @@
-namespace BuberDinner.Domain.Common.Models;
+namespace BuberDinner.Domain.SharedKernel.Models;
 
 public abstract class ValueObject : IEquatable<ValueObject>
 {

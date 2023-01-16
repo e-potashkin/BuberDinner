@@ -4,7 +4,7 @@ using BuberDinner.Domain.Aggregates.GuestAggregate.Entities;
 using BuberDinner.Domain.Aggregates.GuestAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuReviewAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.UserAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.GuestAggregate;
 

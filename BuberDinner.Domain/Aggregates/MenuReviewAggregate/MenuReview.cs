@@ -3,7 +3,7 @@ using BuberDinner.Domain.Aggregates.GuestAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuReviewAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.MenuReviewAggregate;
 

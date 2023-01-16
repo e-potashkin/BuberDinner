@@ -2,7 +2,7 @@ using BuberDinner.Domain.Aggregates.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.UserAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.HostAggregate;
 

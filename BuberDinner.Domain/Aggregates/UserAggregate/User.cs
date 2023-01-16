@@ -1,5 +1,5 @@
 using BuberDinner.Domain.Aggregates.UserAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.UserAggregate;
 

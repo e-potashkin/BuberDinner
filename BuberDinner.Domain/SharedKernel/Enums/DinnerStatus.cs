@@ -1,4 +1,4 @@
-namespace BuberDinner.Domain.Common.Enums;
+namespace BuberDinner.Domain.SharedKernel.Enums;
 
 public enum DinnerStatus
 {

@@ -1,4 +1,4 @@
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;

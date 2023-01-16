@@ -3,8 +3,8 @@ using BuberDinner.Domain.Aggregates.DinnerAggregate.Entities;
 using BuberDinner.Domain.Aggregates.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.HostAggregate.ValueObjects;
 using BuberDinner.Domain.Aggregates.MenuAggregate.ValueObjects;
-using BuberDinner.Domain.Common.Enums;
-using BuberDinner.Domain.Common.Models;
+using BuberDinner.Domain.SharedKernel.Enums;
+using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.DinnerAggregate;
 

@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 using MediatR;
 
-namespace BuberDinner.Domain.Common.Models;
+namespace BuberDinner.Domain.SharedKernel.Models;
 
 public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     where TId : notnull

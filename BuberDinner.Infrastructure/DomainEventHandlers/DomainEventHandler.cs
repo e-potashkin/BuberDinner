@@ -1,4 +1,4 @@
-using BuberDinner.Domain.DomainEvents;
+using BuberDinner.Domain.Events;
 using MediatR;
 
 namespace BuberDinner.Infrastructure.DomainEventHandlers;
