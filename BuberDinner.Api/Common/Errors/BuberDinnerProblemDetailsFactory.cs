@@ -84,8 +84,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
             problemDetails.Type ??= clientErrorData.Link;
         }
 
-        var traceId = Activity.Current?.Id ?? httpContext.TraceIdentifier;
-        problemDetails.Extensions["traceId"] = traceId;
+        problemDetails.Extensions["traceId"] = Activity.Current?.Id ?? httpContext.TraceIdentifier;
 
         if (httpContext.Items[HttpContextItemKeys.Errors] is List<Error> errors)
         {

@@ -1,5 +1,5 @@
-using System.Globalization;
 using BuberDinner.Api;
+using BuberDinner.Api.Common.Configurations;
 using BuberDinner.Application;
 using BuberDinner.Infrastructure;
 using BuberDinner.Persistence;
@@ -12,9 +12,7 @@ builder.Services
     .AddInfrastructure()
     .AddPersistence(builder.Configuration, builder.Environment.IsDevelopment());
 
-builder.Host.UseSerilog((ctx, lc) => lc
-    .WriteTo.Console(formatProvider: CultureInfo.InvariantCulture)
-    .ReadFrom.Configuration(ctx.Configuration));
+builder.Host.UseSerilog(LoggingConfiguration.ConfigureLogger);
 
 var app = builder.Build();
 app.UseExceptionHandler("/error");
