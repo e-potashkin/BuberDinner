@@ -6,13 +6,12 @@ using BuberDinner.Persistence;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(LoggingConfiguration.ConfigureLogger);
 builder.Services
     .AddPresentation()
     .AddApplication()
     .AddInfrastructure()
     .AddPersistence(builder.Configuration, builder.Environment.IsDevelopment());
-
-builder.Host.UseSerilog(LoggingConfiguration.ConfigureLogger);
 
 var app = builder.Build();
 app.UseExceptionHandler("/error");

@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 		StyleCop.ruleset = StyleCop.ruleset
 		.editorconfig = .editorconfig
+		ef-migrations.txt = ef-migrations.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberDinner.Persistence", "BuberDinner.Persistence\BuberDinner.Persistence.csproj", "{AA10A6CA-A89F-475A-A290-5E56D85FB765}"
