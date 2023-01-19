@@ -1,11 +1,10 @@
 using BuberDinner.Domain.SharedKernel.Interfaces;
-using BuberDinner.Domain.SharedKernel.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Persistence.Common;
 
-public static class MediatorExtensions
+public static class MediatorExtension
 {
     public static async Task DispatchDomainEventsAsync(
         this IMediator mediator,
