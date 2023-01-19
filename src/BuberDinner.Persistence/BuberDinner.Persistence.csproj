@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
+    </ItemGroup>
+</Project>
