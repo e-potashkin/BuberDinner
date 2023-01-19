@@ -1,4 +1,4 @@
-namespace BuberDinner.Domain.SharedKernel.Enums;
+namespace BuberDinner.Domain.Aggregates.Dinner.Enums;
 
 public enum ReservationStatus
 {

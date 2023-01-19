@@ -1,9 +1,9 @@
 using BuberDinner.Domain.Aggregates.Bill.ValueObjects;
 using BuberDinner.Domain.Aggregates.Dinner.Entities;
+using BuberDinner.Domain.Aggregates.Dinner.Enums;
 using BuberDinner.Domain.Aggregates.Dinner.ValueObjects;
 using BuberDinner.Domain.Aggregates.Host.ValueObjects;
 using BuberDinner.Domain.Aggregates.Menu.ValueObjects;
-using BuberDinner.Domain.SharedKernel.Enums;
 using BuberDinner.Domain.SharedKernel.Models;
 
 namespace BuberDinner.Domain.Aggregates.Dinner;
