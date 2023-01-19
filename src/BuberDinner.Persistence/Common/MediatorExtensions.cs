@@ -1,3 +1,4 @@
+using BuberDinner.Domain.SharedKernel.Interfaces;
 using BuberDinner.Domain.SharedKernel.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

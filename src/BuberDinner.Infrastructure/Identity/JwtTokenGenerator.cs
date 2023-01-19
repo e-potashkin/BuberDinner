@@ -7,7 +7,7 @@ using BuberDinner.Domain.Aggregates.User;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace BuberDinner.Infrastructure.Authentication;
+namespace BuberDinner.Infrastructure.Identity;
 
 public class JwtTokenGenerator : IJwtTokenGenerator
 {

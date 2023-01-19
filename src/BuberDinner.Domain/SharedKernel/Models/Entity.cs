@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
+using BuberDinner.Domain.SharedKernel.Interfaces;
 using MediatR;
 
 namespace BuberDinner.Domain.SharedKernel.Models;

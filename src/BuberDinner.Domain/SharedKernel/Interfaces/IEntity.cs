@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace BuberDinner.Domain.SharedKernel.Models;
+namespace BuberDinner.Domain.SharedKernel.Interfaces;
 
 public interface IEntity
 {
