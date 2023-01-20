@@ -6,11 +6,9 @@ namespace BuberDinner.Domain.Aggregates.Menu.ValueObjects;
 [Owned]
 public class AverageRating : ValueObject
 {
-#pragma warning disable CS8618
     private AverageRating()
     {
     }
-#pragma warning restore CS8618
 
     private AverageRating(float value) => Value = value;
 

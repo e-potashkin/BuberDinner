@@ -8,11 +8,9 @@ namespace BuberDinner.Domain.Aggregates.Bill;
 
 internal sealed class Bill : AggregateRoot<BillId>
 {
-#pragma warning disable CS8618
     private Bill()
     {
     }
-#pragma warning restore CS8618
 
     private Bill(
         BillId billId,

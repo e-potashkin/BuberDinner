@@ -5,11 +5,9 @@ namespace BuberDinner.Domain.Aggregates.User;
 
 public sealed class User : AggregateRoot<UserId>
 {
-#pragma warning disable CS8618
     private User()
     {
     }
-#pragma warning restore CS8618
 
     private User(
         UserId userId,

@@ -22,11 +22,9 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     private readonly HashSet<Rating> _ratings = new();
 
-#pragma warning disable CS8618
     private Guest()
     {
     }
-#pragma warning restore CS8618
 
     private Guest(
         GuestId guestId,

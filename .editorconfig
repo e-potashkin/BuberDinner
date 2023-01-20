@@ -367,8 +367,11 @@ dotnet_diagnostic.CA1852.severity = warning
 dotnet_diagnostic.SA1518.severity = none
 dotnet_diagnostic.SA1516.severity = none
 
-#Type 'Program' can be sealed
+# Type 'Program' can be sealed
 dotnet_diagnostic.CA1852.severity = none
+
+# Non-nullable property must contain a non-null value when exiting constructor.
+dotnet_diagnostic.CS8618.severity = suggestion
 
 dotnet_code_quality.ca1711.allowed_suffixes = EventHandler
 

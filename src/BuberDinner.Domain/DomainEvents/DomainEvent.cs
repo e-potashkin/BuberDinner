@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace BuberDinner.Domain.Events;
+namespace BuberDinner.Domain.DomainEvents;
 
 public class DomainEvent : INotification
 {

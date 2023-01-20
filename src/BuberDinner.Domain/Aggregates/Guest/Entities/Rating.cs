@@ -7,11 +7,9 @@ namespace BuberDinner.Domain.Aggregates.Guest.Entities;
 
 internal sealed class Rating : Entity<RatingId>
 {
-#pragma warning disable CS8618
     private Rating()
     {
     }
-#pragma warning restore CS8618
 
     private Rating(
         RatingId ratingId,

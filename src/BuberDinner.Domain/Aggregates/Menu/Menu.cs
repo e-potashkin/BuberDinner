@@ -14,11 +14,9 @@ public sealed class Menu : AggregateRoot<MenuId>
     private readonly HashSet<MenuReviewId> _menuReviewIds = new();
     private readonly HashSet<MenuSection> _sections;
 
-#pragma warning disable CS8618
     private Menu()
     {
     }
-#pragma warning restore CS8618
 
     private Menu(
         MenuId menuId,

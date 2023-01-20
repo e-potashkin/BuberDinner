@@ -12,11 +12,9 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
 {
     private readonly HashSet<Reservation> _reservations = new();
 
-#pragma warning disable CS8618
     private Dinner()
     {
     }
-#pragma warning restore CS8618
 
     private Dinner(
         DinnerId dinnerId,

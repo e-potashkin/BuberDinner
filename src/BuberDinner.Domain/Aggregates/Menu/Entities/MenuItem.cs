@@ -6,11 +6,9 @@ namespace BuberDinner.Domain.Aggregates.Menu.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
-#pragma warning disable CS8618
     private MenuItem()
     {
     }
-#pragma warning restore CS8618
 
     private MenuItem(MenuItemId menuItemId, string name, string description)
         : base(menuItemId)
