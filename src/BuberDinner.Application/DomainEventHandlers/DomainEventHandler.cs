@@ -1,7 +1,7 @@
 using BuberDinner.Domain.DomainEvents;
 using MediatR;
 
-namespace BuberDinner.Infrastructure.DomainEventHandlers;
+namespace BuberDinner.Application.DomainEventHandlers;
 
 public class DomainEventHandler : INotificationHandler<DomainEvent>
 {
