@@ -1,40 +1,41 @@
 version: '3.4'
 
-networks:
-  dev:
-    driver: bridge
-
 services:
+
   buber-dinner:
-    image: buberdinner
-    depends_on:
-      - "db"
     container_name: buber-dinner
+    build:
+      context: ./src/
     ports:
       - "8088:80"
-    build:
-      context: .
-      dockerfile: src/BuberDinner.Api/Dockerfile
-    environment:
-      - ConnectionStrings__DefaultConnection=Host=localhost:5432;User ID=postgres;Password=postgres;Database=SampleDb;IntegratedSecurity=true; Pooling=true;
-      - ASPNETCORE_URLS-http://+:80
     networks:
       - dev
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=localhost:5432;User ID=postgres;Password=postgres;
+      - ASPNETCORE_URLS-http://+:80
+    depends_on:
+      - "db"
+    restart: on-failure
 
   db:
     image: postgres:latest
     container_name: db
+    ports:
+      - "5433:5432"
+    networks:
+      - dev
     environment:
       - POSTGRES_USER-postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=SampleDb
-    ports:
-      - "5433:5432"
-    restart: always
     volumes:
       - app_data:/var/lib/postgresql/data
-    networks:
-      - dev
+    restart: always
 
 volumes:
   app_data:
+
+
+networks:
+  dev:
+    driver: bridge
