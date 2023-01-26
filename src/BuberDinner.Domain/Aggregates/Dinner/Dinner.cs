@@ -10,7 +10,7 @@ namespace BuberDinner.Domain.Aggregates.Dinner;
 
 internal sealed class Dinner : AggregateRoot<DinnerId>
 {
-    private readonly HashSet<Reservation> _reservations = new();
+    private readonly HashSet<Reservation> _reservations;
 
     private Dinner()
     {
@@ -48,6 +48,7 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
         Location = location;
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
+        _reservations = new();
     }
 
     public string Name { get; private set; }

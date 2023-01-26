@@ -8,8 +8,8 @@ namespace BuberDinner.Domain.Aggregates.Host;
 
 internal sealed class Host : AggregateRoot<HostId>
 {
-    private readonly HashSet<DinnerId> _dinnerIds = new();
-    private readonly HashSet<MenuId> _menuIds = new();
+    private readonly HashSet<DinnerId> _dinnerIds;
+    private readonly HashSet<MenuId> _menuIds;
 
     private Host()
     {
@@ -33,6 +33,8 @@ internal sealed class Host : AggregateRoot<HostId>
         UserId = userId;
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
+        _dinnerIds = new();
+        _menuIds = new();
     }
 
     public string FirstName { get; private set; }

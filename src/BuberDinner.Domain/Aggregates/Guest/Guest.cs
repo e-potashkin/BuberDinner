@@ -10,17 +10,17 @@ namespace BuberDinner.Domain.Aggregates.Guest;
 
 internal sealed class Guest : AggregateRoot<GuestId>
 {
-    private readonly HashSet<DinnerId> _upcomingDinnerIds = new();
+    private readonly HashSet<DinnerId> _upcomingDinnerIds;
 
-    private readonly HashSet<DinnerId> _pastDinnerIds = new();
+    private readonly HashSet<DinnerId> _pastDinnerIds;
 
-    private readonly HashSet<DinnerId> _pendingDinnerIds = new();
+    private readonly HashSet<DinnerId> _pendingDinnerIds;
 
-    private readonly HashSet<BillId> _billIds = new();
+    private readonly HashSet<BillId> _billIds;
 
-    private readonly HashSet<MenuReviewId> _menuReviewIds = new();
+    private readonly HashSet<MenuReviewId> _menuReviewIds;
 
-    private readonly HashSet<Rating> _ratings = new();
+    private readonly HashSet<Rating> _ratings;
 
     private Guest()
     {
@@ -44,6 +44,12 @@ internal sealed class Guest : AggregateRoot<GuestId>
         UserId = userId;
         CreatedDateTime = createdDateTime;
         UpdatedDateTime = updatedDateTime;
+        _upcomingDinnerIds = new();
+        _pastDinnerIds = new();
+        _pendingDinnerIds = new();
+        _billIds = new();
+        _menuReviewIds = new();
+        _ratings = new();
     }
 
     public string FirstName { get; private set; }

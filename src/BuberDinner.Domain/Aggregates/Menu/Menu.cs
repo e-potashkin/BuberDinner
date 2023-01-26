@@ -10,8 +10,8 @@ namespace BuberDinner.Domain.Aggregates.Menu;
 
 public sealed class Menu : AggregateRoot<MenuId>
 {
-    private readonly HashSet<DinnerId> _dinnerIds = new();
-    private readonly HashSet<MenuReviewId> _menuReviewIds = new();
+    private readonly HashSet<DinnerId> _dinnerIds;
+    private readonly HashSet<MenuReviewId> _menuReviewIds;
     private readonly HashSet<MenuSection> _sections;
 
     private Menu()
@@ -31,10 +31,12 @@ public sealed class Menu : AggregateRoot<MenuId>
         Name = name;
         Description = description;
         HostId = hostId;
-        _sections = new HashSet<MenuSection>(sections);
         AverageRating = AverageRating.Create(0);
         CreatedDateTimeUtc = createdDateTime;
         UpdatedDateTimeUtc = updatedDateTime;
+        _dinnerIds = new();
+        _menuReviewIds = new();
+        _sections = new(sections);
     }
 
     [MaxLength(100)]
