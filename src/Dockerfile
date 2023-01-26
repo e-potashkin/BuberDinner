@@ -5,6 +5,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["Directory.Build.props", "."]
+COPY ["Directory.Packages.props", "."]
+COPY ["StyleCop.ruleset", "."]
+COPY [".editorconfig", "."]
 COPY ["BuberDinner.Api/BuberDinner.Api.csproj", "BuberDinner.Api/"]
 COPY ["BuberDinner.Contracts/BuberDinner.Contracts.csproj", "BuberDinner.Contracts/"]
 COPY ["BuberDinner.Application/BuberDinner.Application.csproj", "BuberDinner.Application/"]

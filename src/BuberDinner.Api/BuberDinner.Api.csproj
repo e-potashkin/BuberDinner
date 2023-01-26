@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
         <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
-        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Contracts\BuberDinner.Contracts.csproj" />
@@ -14,7 +13,7 @@
         <PackageReference Include="Mapster.DependencyInjection" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="..\..\.dockerignore">
+      <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
