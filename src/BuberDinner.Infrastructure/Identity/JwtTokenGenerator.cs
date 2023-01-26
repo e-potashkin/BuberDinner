@@ -14,10 +14,10 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly JwtSettings _jwtSettings;
 
-    public JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptions<JwtSettings> jwtOptions)
+    public JwtTokenGenerator(IDateTimeProvider dateTimeProvider, IOptionsMonitor<JwtSettings> jwtOptions)
     {
         _dateTimeProvider = dateTimeProvider;
-        _jwtSettings = jwtOptions.Value;
+        _jwtSettings = jwtOptions.CurrentValue;
     }
 
     public string GenerateToken(User user)
