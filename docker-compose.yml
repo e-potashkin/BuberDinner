@@ -3,16 +3,15 @@ version: '3.4'
 services:
 
   buber-dinner:
-    container_name: buber-dinner
+    container_name: buber-dinner-api
     build:
       context: ./src/
     ports:
-      - "8088:80"
+      - "5080:80"
     networks:
-      - dev
+      - default
     environment:
       - ConnectionStrings__DefaultConnection=Host=localhost:5432;User ID=postgres;Password=postgres;
-      - ASPNETCORE_URLS-http://+:80
     depends_on:
       - "db"
     restart: on-failure
@@ -23,7 +22,7 @@ services:
     ports:
       - "5433:5432"
     networks:
-      - dev
+      - default
     environment:
       - POSTGRES_USER-postgres
       - POSTGRES_PASSWORD=postgres
@@ -37,5 +36,4 @@ volumes:
 
 
 networks:
-  dev:
-    driver: bridge
+  default:

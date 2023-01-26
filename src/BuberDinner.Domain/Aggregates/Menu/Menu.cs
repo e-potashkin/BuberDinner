@@ -23,7 +23,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         string name,
         string description,
         HostId hostId,
-        ICollection<MenuSection> sections,
+        IEnumerable<MenuSection> sections,
         DateTime createdDateTime,
         DateTime updatedDateTime)
         : base(menuId)
@@ -59,7 +59,11 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public DateTime UpdatedDateTimeUtc { get; private set; }
 
-    public static Menu Create(string name, string description, HostId hostId, ICollection<MenuSection> sections)
+    public static Menu Create(
+        string name,
+        string description,
+        HostId hostId,
+        IEnumerable<MenuSection> sections)
     {
         return new(
             MenuId.CreateUnique(),

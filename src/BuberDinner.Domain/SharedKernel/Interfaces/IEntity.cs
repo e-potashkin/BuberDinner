@@ -1,14 +1,12 @@
-using MediatR;
-
 namespace BuberDinner.Domain.SharedKernel.Interfaces;
 
 public interface IEntity
 {
-    IReadOnlyCollection<INotification> DomainEvents { get; }
+    IReadOnlyCollection<IDomainEvent> DomainEvents { get; }
 
-    void AddDomainEvent(INotification eventItem);
+    void AddDomainEvent(IDomainEvent eventItem);
 
     void ClearDomainEvents();
 
-    void RemoveDomainEvent(INotification eventItem);
+    void RemoveDomainEvent(IDomainEvent eventItem);
 }

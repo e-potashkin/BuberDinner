@@ -1,14 +1,13 @@
 using System.Collections.ObjectModel;
 using System.Text.Json.Serialization;
 using BuberDinner.Domain.SharedKernel.Interfaces;
-using MediatR;
 
 namespace BuberDinner.Domain.SharedKernel.Models;
 
 public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     where TId : notnull
 {
-    private readonly Collection<INotification> _domainEvents;
+    private readonly Collection<IDomainEvent> _domainEvents;
 
     protected Entity()
     {
@@ -17,13 +16,13 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     protected Entity(TId id)
     {
         Id = id;
-        _domainEvents = new Collection<INotification>();
+        _domainEvents = new Collection<IDomainEvent>();
     }
 
     public TId Id { get; }
 
     [JsonIgnore]
-    public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
+    public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
     public static bool operator ==(Entity<TId> left, Entity<TId> right)
     {
@@ -50,12 +49,12 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
         return Id.GetHashCode();
     }
 
-    public void AddDomainEvent(INotification eventItem)
+    public void AddDomainEvent(IDomainEvent eventItem)
     {
         _domainEvents.Add(eventItem);
     }
 
-    public void RemoveDomainEvent(INotification eventItem)
+    public void RemoveDomainEvent(IDomainEvent eventItem)
     {
         _domainEvents.Remove(eventItem);
     }
