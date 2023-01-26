@@ -12,9 +12,9 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 {
     private readonly ApiBehaviorOptions _options;
 
-    public BuberDinnerProblemDetailsFactory(IOptionsMonitor<ApiBehaviorOptions> options)
+    public BuberDinnerProblemDetailsFactory(IOptions<ApiBehaviorOptions> options)
     {
-        _options = options.CurrentValue ?? throw new ArgumentNullException(nameof(options));
+        _options = options.Value ?? throw new ArgumentNullException(nameof(options));
     }
 
     public override ProblemDetails CreateProblemDetails(

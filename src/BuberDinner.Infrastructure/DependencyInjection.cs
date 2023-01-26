@@ -33,6 +33,6 @@ public static class DependencyInjection
            .ValidateDataAnnotations()
            .ValidateOnStart();
 
-        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
     }
 }
