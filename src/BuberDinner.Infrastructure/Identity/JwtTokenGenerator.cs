@@ -18,8 +18,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     {
         _dateTimeProvider = dateTimeProvider;
         _jwtSettings = jwtSettings.CurrentValue;
-
-        jwtSettings.OnChange(OptionsChanged);
+        jwtSettings.OnChange(settings => _jwtSettings = settings);
     }
 
     public string GenerateToken(User user)
@@ -44,10 +43,5 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             signingCredentials: signingCredentials);
 
         return new JwtSecurityTokenHandler().WriteToken(securityToken);
-    }
-
-    private void OptionsChanged(JwtSettings newOptions)
-    {
-        _jwtSettings = newOptions;
     }
 }

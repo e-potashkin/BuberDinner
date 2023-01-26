@@ -11,7 +11,6 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
         var result = await next();
-
         if (result.IsError)
         {
             Log.Error("Request failure {Name}, Errors: {@Errors}", typeof(TRequest).Name, result.Errors);
