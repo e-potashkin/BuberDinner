@@ -12,9 +12,4 @@
         <PackageReference Include="Mapster" />
         <PackageReference Include="Mapster.DependencyInjection" />
     </ItemGroup>
-    <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ services:
   buber-dinner:
     container_name: buber-dinner-api
     build:
-      context: ./src/
+      context: .
     ports:
       - "5080:80"
     networks:
