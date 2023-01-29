@@ -14,7 +14,7 @@ public static class DependencyInjection
         services.AddDbContext<BuberDinnerDbContext>(options =>
         {
             options.UseNpgsql(
-                configuration.GetConnectionString("DefaultConnection"),
+                configuration.GetConnectionString("Default"),
                 optionsAction => optionsAction.CommandTimeout(60));
 
             options.EnableSensitiveDataLogging(isDevelopment);
