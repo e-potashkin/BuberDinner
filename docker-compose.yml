@@ -11,7 +11,7 @@ services:
     networks:
       - default
     environment:
-      - ConnectionStrings__DefaultConnection=Host=localhost:5432;User ID=postgres;Password=postgres;
+      - ConnectionStrings__Default=Host=localhost:5432;User ID=postgres;Password=postgres;
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - "db"
