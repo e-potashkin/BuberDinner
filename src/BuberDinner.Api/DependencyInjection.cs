@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Threading.RateLimiting;
 using BuberDinner.Api.Common.Errors;
 using Mapster;
 using MapsterMapper;
@@ -13,6 +14,7 @@ public static class DependencyInjection
         services.AddControllers();
         services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
         services.AddMappings();
+        services.AddRateLimiter();
 
         return services;
     }
@@ -24,5 +26,24 @@ public static class DependencyInjection
 
         services.AddSingleton(config);
         services.AddScoped<IMapper, ServiceMapper>();
+    }
+
+    private static void AddRateLimiter(this IServiceCollection services)
+    {
+        services.AddRateLimiter(options =>
+        {
+            options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(context =>
+                RateLimitPartition.GetFixedWindowLimiter(
+                    partitionKey: context.Request.Headers.Host.ToString(),
+                    factory: _ => new FixedWindowRateLimiterOptions
+                    {
+                        AutoReplenishment = true,
+                        PermitLimit = 5,
+                        QueueLimit = 0,
+                        Window = TimeSpan.FromSeconds(10)
+                    }));
+
+            options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+        });
     }
 }
