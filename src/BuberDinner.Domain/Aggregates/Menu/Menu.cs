@@ -55,10 +55,6 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public IReadOnlyCollection<MenuReviewId> MenuReviewIds => _menuReviewIds;
 
-    public DateTime CreatedDateTimeUtc { get; private set; }
-
-    public DateTime UpdatedDateTimeUtc { get; private set; }
-
     public static Menu Create(
         string name,
         string description,

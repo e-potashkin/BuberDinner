@@ -24,6 +24,10 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     [JsonIgnore]
     public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
+    public DateTime CreatedDateTimeUtc { get; protected set; }
+
+    public DateTime UpdatedDateTimeUtc { get; protected set; }
+
     public static bool operator ==(Entity<TId> left, Entity<TId> right)
     {
         return Equals(left, right);

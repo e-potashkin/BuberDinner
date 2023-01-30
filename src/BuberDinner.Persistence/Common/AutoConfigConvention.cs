@@ -1,18 +1,19 @@
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BuberDinner.Persistence.Common
 {
-    public static class AutoConfigExtension
+    public class AutoConfigConvention : IModelFinalizingConvention
     {
-        public static void AutoConfigureTypes(this ModelBuilder modelBuilder)
+        public void ProcessModelFinalizing(IConventionModelBuilder modelBuilder, IConventionContext<IConventionModelBuilder> context)
         {
             var utcConverter = new ValueConverter<DateTime, DateTime>(
                 toDb => toDb,
                 fromDb =>
                     DateTime.SpecifyKind(fromDb, DateTimeKind.Utc));
 
-            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            foreach (var entityType in modelBuilder.Metadata.GetEntityTypes())
             {
                 foreach (var entityProperty in entityType.GetProperties())
                 {
@@ -20,12 +21,6 @@ namespace BuberDinner.Persistence.Common
                         && entityProperty.Name.EndsWith("Utc", StringComparison.OrdinalIgnoreCase))
                     {
                         entityProperty.SetValueConverter(utcConverter);
-                    }
-
-                    if (entityProperty.ClrType == typeof(DateTime)
-                        && entityProperty.Name == "UpdatedDateTimeUtc")
-                    {
-                        entityProperty.IsIndex();
                     }
 
                     if (entityProperty.ClrType == typeof(decimal)

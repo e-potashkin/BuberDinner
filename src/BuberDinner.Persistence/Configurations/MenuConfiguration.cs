@@ -32,6 +32,8 @@ public class MenuConfiguration : IEntityTypeConfiguration<Menu>
             .HasConversion(
                 id => id.Value,
                 value => HostId.Create(value));
+
+        builder.HasIndex(m => m.UpdatedDateTimeUtc);
     }
 
     private static void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
@@ -68,6 +70,7 @@ public class MenuConfiguration : IEntityTypeConfiguration<Menu>
             });
 
             sb.Navigation(s => s.Items).Metadata.SetField("_items");
+
             sb.Navigation(s => s.Items).UsePropertyAccessMode(PropertyAccessMode.Field);
         });
 
