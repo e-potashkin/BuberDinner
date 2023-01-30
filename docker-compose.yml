@@ -11,7 +11,8 @@ services:
     networks:
       - default
     environment:
-      - ConnectionStrings__Default=Host=localhost:5432;User ID=postgres;Password=postgres;
+      - ConnectionStrings__Default=Host=db;User ID=postgres;Password=postgres;
+      - JwtSettings__Secret=BuberDinnerSecretKey
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - "db"
