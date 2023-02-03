@@ -53,14 +53,14 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
         return Id.GetHashCode();
     }
 
-    public void AddDomainEvent(IDomainEvent @event)
+    public void AddDomainEvent(IDomainEvent domainEvent)
     {
-        _domainEvents.Add(@event);
+        _domainEvents.Add(domainEvent);
     }
 
-    public void RemoveDomainEvent(IDomainEvent @event)
+    public void RemoveDomainEvent(IDomainEvent domainEvent)
     {
-        _domainEvents.Remove(@event);
+        _domainEvents.Remove(domainEvent);
     }
 
     public void ClearDomainEvents()
