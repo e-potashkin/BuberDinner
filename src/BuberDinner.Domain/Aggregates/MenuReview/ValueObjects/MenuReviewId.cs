@@ -10,13 +10,16 @@ public sealed class MenuReviewId : ValueObject
 
     public static implicit operator Guid(MenuReviewId menuReviewId) => menuReviewId.Value;
 
-    public static MenuReviewId CreateUnique()
-    {
-        return new(Guid.NewGuid());
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static MenuReviewId CreateUnique()
+        {
+            return new(Guid.NewGuid());
+        }
     }
 }

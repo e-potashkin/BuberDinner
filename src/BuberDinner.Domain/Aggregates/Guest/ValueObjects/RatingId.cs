@@ -10,13 +10,16 @@ public sealed class RatingId : ValueObject
 
     public static implicit operator Guid(RatingId ratingId) => ratingId.Value;
 
-    public static RatingId CreateUnique()
-    {
-        return new(Guid.NewGuid());
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static RatingId CreateUnique()
+        {
+            return new(Guid.NewGuid());
+        }
     }
 }

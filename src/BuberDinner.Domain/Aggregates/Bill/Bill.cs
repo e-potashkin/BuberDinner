@@ -49,7 +49,7 @@ internal sealed class Bill : AggregateRoot<BillId>
         Price price)
     {
         return new(
-            BillId.CreateUnique(),
+            BillId.Factory.CreateUnique(),
             dinnerId,
             guestId,
             hostId,

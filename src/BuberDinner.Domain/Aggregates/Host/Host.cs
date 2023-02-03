@@ -63,7 +63,7 @@ internal sealed class Host : AggregateRoot<HostId>
         UserId userId)
     {
         return new(
-            HostId.CreateUnique(),
+            HostId.Factory.CreateUnique(),
             firstName,
             lastName,
             profileImage,

@@ -10,8 +10,7 @@ namespace BuberDinner.Persistence.Common
         {
             var utcConverter = new ValueConverter<DateTime, DateTime>(
                 toDb => toDb,
-                fromDb =>
-                    DateTime.SpecifyKind(fromDb, DateTimeKind.Utc));
+                fromDb => DateTime.SpecifyKind(fromDb, DateTimeKind.Utc));
 
             foreach (var entityType in modelBuilder.Metadata.GetEntityTypes())
             {

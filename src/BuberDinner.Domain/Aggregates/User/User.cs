@@ -46,7 +46,7 @@ public sealed class User : AggregateRoot<UserId>
         string password)
     {
         return new(
-            UserId.CreateUnique(),
+            UserId.Factory.CreateUnique(),
             firstName,
             lastName,
             email,

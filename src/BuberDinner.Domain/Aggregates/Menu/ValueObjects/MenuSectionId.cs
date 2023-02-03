@@ -10,18 +10,21 @@ public sealed class MenuSectionId : ValueObject
 
     public static implicit operator Guid(MenuSectionId menuSectionId) => menuSectionId.Value;
 
-    public static MenuSectionId CreateUnique()
-    {
-        return new(Guid.NewGuid());
-    }
-
-    public static MenuSectionId Create(Guid value)
-    {
-        return new(value);
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static MenuSectionId CreateUnique()
+        {
+            return new(Guid.NewGuid());
+        }
+
+        public static MenuSectionId Create(Guid value)
+        {
+            return new(value);
+        }
     }
 }

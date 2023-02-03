@@ -43,7 +43,7 @@ internal sealed class Rating : Entity<RatingId>
         DinnerId dinnerId)
     {
         return new(
-            RatingId.CreateUnique(),
+            RatingId.Factory.CreateUnique(),
             value,
             hostId,
             dinnerId,

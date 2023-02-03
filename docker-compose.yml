@@ -2,8 +2,8 @@ version: '3.4'
 
 services:
 
-  buber-dinner:
-    image: buberdinner-api
+  buberdinner.api:
+    image: buberdinner.api
     container_name: api
     build:
       context: .

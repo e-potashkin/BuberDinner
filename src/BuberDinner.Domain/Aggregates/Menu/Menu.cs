@@ -31,7 +31,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         Name = name;
         Description = description;
         HostId = hostId;
-        AverageRating = AverageRating.Create(0);
+        AverageRating = AverageRating.Factory.Create(0);
         CreatedDateTimeUtc = createdDateTime;
         UpdatedDateTimeUtc = updatedDateTime;
         _dinnerIds = new();
@@ -62,7 +62,7 @@ public sealed class Menu : AggregateRoot<MenuId>
         IEnumerable<MenuSection> sections)
     {
         return new(
-            MenuId.CreateUnique(),
+            MenuId.Factory.CreateUnique(),
             name,
             description,
             hostId,

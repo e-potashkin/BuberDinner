@@ -10,13 +10,16 @@ internal sealed class ReservationId : ValueObject
 
     public static implicit operator Guid(ReservationId reservationId) => reservationId.Value;
 
-    public static ReservationId CreateUnique()
-    {
-        return new(Guid.NewGuid());
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static ReservationId CreateUnique()
+        {
+            return new(Guid.NewGuid());
+        }
     }
 }

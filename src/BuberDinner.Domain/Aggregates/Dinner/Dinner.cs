@@ -96,7 +96,7 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
         Location location)
     {
         return new(
-            DinnerId.CreateUnique(),
+            DinnerId.Factory.CreateUnique(),
             name,
             description,
             startDateTime,

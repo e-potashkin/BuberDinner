@@ -4,9 +4,9 @@ public interface IEntity
 {
     IReadOnlyCollection<IDomainEvent> DomainEvents { get; }
 
-    void AddDomainEvent(IDomainEvent eventItem);
+    void AddDomainEvent(IDomainEvent @event);
+
+    void RemoveDomainEvent(IDomainEvent @event);
 
     void ClearDomainEvents();
-
-    void RemoveDomainEvent(IDomainEvent eventItem);
 }

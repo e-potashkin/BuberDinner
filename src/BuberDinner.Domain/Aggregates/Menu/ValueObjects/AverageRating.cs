@@ -16,13 +16,16 @@ public class AverageRating : ValueObject
 
     public static implicit operator float(AverageRating averageRating) => averageRating.Value;
 
-    public static AverageRating Create(float averageRating)
-    {
-        return new(averageRating);
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static AverageRating Create(float averageRating)
+        {
+            return new(averageRating);
+        }
     }
 }

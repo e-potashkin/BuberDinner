@@ -34,13 +34,12 @@ public static class DependencyInjection
         {
             options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(context =>
                 RateLimitPartition.GetFixedWindowLimiter(
-                    partitionKey: context.Request.Headers.Host.ToString(),
+                    partitionKey: context.Connection.RemoteIpAddress!.ToString(),
                     factory: _ => new FixedWindowRateLimiterOptions
                     {
                         AutoReplenishment = true,
-                        PermitLimit = 5,
-                        QueueLimit = 0,
-                        Window = TimeSpan.FromSeconds(10)
+                        PermitLimit = 60,
+                        Window = TimeSpan.FromMinutes(1)
                     }));
 
             options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;

@@ -42,8 +42,8 @@ internal sealed class Guest : AggregateRoot<GuestId>
         ProfileImage = profileImage;
         AverageRating = averageRating;
         UserId = userId;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
         _upcomingDinnerIds = new();
         _pastDinnerIds = new();
         _pendingDinnerIds = new();
@@ -74,10 +74,6 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     public IReadOnlyCollection<Rating> Ratings => _ratings;
 
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
-
     public static Guest Create(
         string firstName,
         string lastName,
@@ -86,7 +82,7 @@ internal sealed class Guest : AggregateRoot<GuestId>
         UserId userId)
     {
         return new(
-            GuestId.CreateUnique(),
+            GuestId.Factory.CreateUnique(),
             firstName,
             lastName,
             profileImage,

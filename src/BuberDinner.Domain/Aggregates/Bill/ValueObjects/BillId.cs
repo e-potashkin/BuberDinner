@@ -10,13 +10,16 @@ internal sealed class BillId : ValueObject
 
     public static implicit operator Guid(BillId billId) => billId.Value;
 
-    public static BillId CreateUnique()
-    {
-        return new(Guid.NewGuid());
-    }
-
     public override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;
+    }
+
+    public static class Factory
+    {
+        public static BillId CreateUnique()
+        {
+            return new(Guid.NewGuid());
+        }
     }
 }

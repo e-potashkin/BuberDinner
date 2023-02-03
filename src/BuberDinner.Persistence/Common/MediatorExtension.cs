@@ -7,7 +7,7 @@ namespace BuberDinner.Persistence.Common;
 public static class MediatorExtension
 {
     public static async Task DispatchDomainEventsAsync(
-        this IMediator mediator,
+        this IPublisher publisher,
         DbContext context,
         CancellationToken cancellationToken = default)
     {
@@ -30,12 +30,12 @@ public static class MediatorExtension
 
         foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
-            await mediator.Publish(domainEvent, cancellationToken);
+            await publisher.Publish(domainEvent, cancellationToken);
         }
     }
 
     public static async Task DispatchDomainEventsAsync(
-        this IMediator mediator,
+        this IPublisher publisher,
         IEntity entity,
         CancellationToken cancellationToken = default)
     {
@@ -52,7 +52,7 @@ public static class MediatorExtension
 
         foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
-            await mediator.Publish(domainEvent, cancellationToken);
+            await publisher.Publish(domainEvent, cancellationToken);
         }
     }
 }

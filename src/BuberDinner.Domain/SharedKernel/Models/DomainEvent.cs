@@ -2,9 +2,9 @@ using BuberDinner.Domain.SharedKernel.Interfaces;
 
 namespace BuberDinner.Domain.DomainEvents;
 
-public class DomainEvent : IDomainEvent
+public abstract class DomainEvent : IDomainEvent
 {
-    public DomainEvent()
+    protected DomainEvent()
     {
         Id = Guid.NewGuid();
         OccurredOn = DateTime.UtcNow;

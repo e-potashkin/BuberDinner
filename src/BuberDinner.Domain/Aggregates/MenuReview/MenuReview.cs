@@ -60,7 +60,7 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
         DinnerId dinnerId)
     {
         return new(
-            MenuReviewId.CreateUnique(),
+            MenuReviewId.Factory.CreateUnique(),
             rating,
             comment,
             hostId,

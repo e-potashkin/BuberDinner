@@ -54,7 +54,7 @@ internal sealed class Reservation : Entity<ReservationId>
         DateTime arrivalDateTime)
     {
         return new(
-            ReservationId.CreateUnique(),
+            ReservationId.Factory.CreateUnique(),
             guestCount,
             status,
             guestId,

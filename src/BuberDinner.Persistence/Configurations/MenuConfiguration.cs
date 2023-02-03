@@ -26,12 +26,12 @@ public class MenuConfiguration : IEntityTypeConfiguration<Menu>
             .ValueGeneratedNever()
             .HasConversion(
                 id => id.Value,
-                value => MenuId.Create(value));
+                value => MenuId.Factory.Create(value));
 
         builder.Property(m => m.HostId)
             .HasConversion(
                 id => id.Value,
-                value => HostId.Create(value));
+                value => HostId.Factory.Create(value));
 
         builder.HasIndex(m => m.UpdatedDateTimeUtc);
     }
@@ -51,7 +51,7 @@ public class MenuConfiguration : IEntityTypeConfiguration<Menu>
                 .ValueGeneratedNever()
                 .HasConversion(
                     id => id.Value,
-                    value => MenuSectionId.Create(value));
+                    value => MenuSectionId.Factory.Create(value));
 
             sb.OwnsMany(s => s.Items, ib =>
             {
@@ -66,7 +66,7 @@ public class MenuConfiguration : IEntityTypeConfiguration<Menu>
                     .ValueGeneratedNever()
                     .HasConversion(
                         id => id.Value,
-                        value => MenuItemId.Create(value));
+                        value => MenuItemId.Factory.Create(value));
             });
 
             sb.Navigation(s => s.Items).Metadata.SetField("_items");
