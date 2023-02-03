@@ -39,19 +39,22 @@ public sealed class User : AggregateRoot<UserId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static User Create(
-        string firstName,
-        string lastName,
-        string email,
-        string password)
+    public static class Factory
     {
-        return new(
-            UserId.Factory.CreateUnique(),
-            firstName,
-            lastName,
-            email,
-            password,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static User Create(
+            string firstName,
+            string lastName,
+            string email,
+            string password)
+        {
+            return new(
+                UserId.Factory.CreateUnique(),
+                firstName,
+                lastName,
+                email,
+                password,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

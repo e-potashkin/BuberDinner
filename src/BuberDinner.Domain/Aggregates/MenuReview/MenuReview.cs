@@ -51,24 +51,27 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static MenuReview Create(
-        decimal rating,
-        string comment,
-        HostId hostId,
-        MenuId menuId,
-        GuestId guestId,
-        DinnerId dinnerId)
+    public static class Factory
     {
-        return new(
-            MenuReviewId.Factory.CreateUnique(),
-            rating,
-            comment,
-            hostId,
-            menuId,
-            guestId,
-            dinnerId,
-            DateTime.UtcNow,
-            DateTime.UtcNow
-        );
+        public static MenuReview Create(
+            decimal rating,
+            string comment,
+            HostId hostId,
+            MenuId menuId,
+            GuestId guestId,
+            DinnerId dinnerId)
+        {
+            return new(
+                MenuReviewId.Factory.CreateUnique(),
+                rating,
+                comment,
+                hostId,
+                menuId,
+                guestId,
+                dinnerId,
+                DateTime.UtcNow,
+                DateTime.UtcNow
+            );
+        }
     }
 }

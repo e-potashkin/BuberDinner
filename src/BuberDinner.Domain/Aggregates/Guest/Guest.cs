@@ -74,21 +74,24 @@ internal sealed class Guest : AggregateRoot<GuestId>
 
     public IReadOnlyCollection<Rating> Ratings => _ratings;
 
-    public static Guest Create(
-        string firstName,
-        string lastName,
-        string profileImage,
-        decimal averageRating,
-        UserId userId)
+    public static class Factory
     {
-        return new(
-            GuestId.Factory.CreateUnique(),
-            firstName,
-            lastName,
-            profileImage,
-            averageRating,
-            userId,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Guest Create(
+            string firstName,
+            string lastName,
+            string profileImage,
+            decimal averageRating,
+            UserId userId)
+        {
+            return new(
+                GuestId.Factory.CreateUnique(),
+                firstName,
+                lastName,
+                profileImage,
+                averageRating,
+                userId,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

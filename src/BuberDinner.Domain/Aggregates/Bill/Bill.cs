@@ -42,19 +42,22 @@ internal sealed class Bill : AggregateRoot<BillId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static Bill Create(
+    public static class Factory
+    {
+        public static Bill Create(
         DinnerId dinnerId,
         GuestId guestId,
         HostId hostId,
         Price price)
-    {
-        return new(
-            BillId.Factory.CreateUnique(),
-            dinnerId,
-            guestId,
-            hostId,
-            price,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        {
+            return new(
+                BillId.Factory.CreateUnique(),
+                dinnerId,
+                guestId,
+                hostId,
+                price,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

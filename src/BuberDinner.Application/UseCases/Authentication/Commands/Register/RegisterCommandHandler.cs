@@ -30,7 +30,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<A
         }
 
         // 2. Create a new user (generate unique ID) & persist to the database
-        var user = User.Create(
+        var user = User.Factory.Create(
             request.FirstName,
             request.LastName,
             request.Email,

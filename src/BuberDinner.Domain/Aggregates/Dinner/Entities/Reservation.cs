@@ -46,21 +46,24 @@ internal sealed class Reservation : Entity<ReservationId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static Reservation Create(
-        int guestCount,
-        ReservationStatus status,
-        GuestId guestId,
-        BillId billId,
-        DateTime arrivalDateTime)
+    public static class Factory
     {
-        return new(
-            ReservationId.Factory.CreateUnique(),
-            guestCount,
-            status,
-            guestId,
-            billId,
-            arrivalDateTime,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Reservation Create(
+            int guestCount,
+            ReservationStatus status,
+            GuestId guestId,
+            BillId billId,
+            DateTime arrivalDateTime)
+        {
+            return new(
+                ReservationId.Factory.CreateUnique(),
+                guestCount,
+                status,
+                guestId,
+                billId,
+                arrivalDateTime,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

@@ -55,21 +55,24 @@ internal sealed class Host : AggregateRoot<HostId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static Host Create(
-        string firstName,
-        string lastName,
-        string profileImage,
-        decimal averageRating,
-        UserId userId)
+    public static class Factory
     {
-        return new(
-            HostId.Factory.CreateUnique(),
-            firstName,
-            lastName,
-            profileImage,
-            averageRating,
-            userId,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Host Create(
+            string firstName,
+            string lastName,
+            string profileImage,
+            decimal averageRating,
+            UserId userId)
+        {
+            return new(
+                HostId.Factory.CreateUnique(),
+                firstName,
+                lastName,
+                profileImage,
+                averageRating,
+                userId,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

@@ -55,19 +55,22 @@ public sealed class Menu : AggregateRoot<MenuId>
 
     public IReadOnlyCollection<MenuReviewId> MenuReviewIds => _menuReviewIds;
 
-    public static Menu Create(
-        string name,
-        string description,
-        HostId hostId,
-        IEnumerable<MenuSection> sections)
+    public static class Factory
     {
-        return new(
-            MenuId.Factory.CreateUnique(),
-            name,
-            description,
-            hostId,
-            sections,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Menu Create(
+            string name,
+            string description,
+            HostId hostId,
+            IEnumerable<MenuSection> sections)
+        {
+            return new(
+                MenuId.Factory.CreateUnique(),
+                name,
+                description,
+                hostId,
+                sections,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

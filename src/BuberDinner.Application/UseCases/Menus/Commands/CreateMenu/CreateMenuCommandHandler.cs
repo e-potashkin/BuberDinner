@@ -18,14 +18,14 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
 
     public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {
-        var menu = Menu.Create(
+        var menu = Menu.Factory.Create(
             request.Name,
             request.Description,
             HostId.Factory.Create(Guid.Parse(request.HostId)),
-            request.Sections.ConvertAll(section => MenuSection.Create(
+            request.Sections.ConvertAll(section => MenuSection.Factory.Create(
                 section.Name,
                 section.Description,
-                section.Items.ConvertAll(item => MenuItem.Create(
+                section.Items.ConvertAll(item => MenuItem.Factory.Create(
                     item.Name,
                     item.Description)))));
 

@@ -37,17 +37,20 @@ internal sealed class Rating : Entity<RatingId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static Rating Create(
-        decimal value,
-        HostId hostId,
-        DinnerId dinnerId)
+    public static class Factory
     {
-        return new(
-            RatingId.Factory.CreateUnique(),
-            value,
-            hostId,
-            dinnerId,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Rating Create(
+            decimal value,
+            HostId hostId,
+            DinnerId dinnerId)
+        {
+            return new(
+                RatingId.Factory.CreateUnique(),
+                value,
+                hostId,
+                dinnerId,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

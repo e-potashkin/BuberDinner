@@ -81,35 +81,38 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
 
     public DateTime UpdatedDateTime { get; private set; }
 
-    public static Dinner Create(
-        string name,
-        string description,
-        DateTime startDateTime,
-        DateTime endDateTime,
-        DinnerStatus status,
-        bool isPublic,
-        int maxGuests,
-        Price price,
-        HostId hostId,
-        MenuId menuId,
-        string imageUrl,
-        Location location)
+    public static class Factory
     {
-        return new(
-            DinnerId.Factory.CreateUnique(),
-            name,
-            description,
-            startDateTime,
-            endDateTime,
-            status,
-            isPublic,
-            maxGuests,
-            price,
-            hostId,
-            menuId,
-            imageUrl,
-            location,
-            DateTime.UtcNow,
-            DateTime.UtcNow);
+        public static Dinner Create(
+            string name,
+            string description,
+            DateTime startDateTime,
+            DateTime endDateTime,
+            DinnerStatus status,
+            bool isPublic,
+            int maxGuests,
+            Price price,
+            HostId hostId,
+            MenuId menuId,
+            string imageUrl,
+            Location location)
+        {
+            return new(
+                DinnerId.Factory.CreateUnique(),
+                name,
+                description,
+                startDateTime,
+                endDateTime,
+                status,
+                isPublic,
+                maxGuests,
+                price,
+                hostId,
+                menuId,
+                imageUrl,
+                location,
+                DateTime.UtcNow,
+                DateTime.UtcNow);
+        }
     }
 }

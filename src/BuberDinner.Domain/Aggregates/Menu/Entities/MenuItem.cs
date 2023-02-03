@@ -23,11 +23,14 @@ public sealed class MenuItem : Entity<MenuItemId>
     [MaxLength(100)]
     public string Description { get; private set; }
 
-    public static MenuItem Create(string name, string description)
+    public static class Factory
     {
-        return new(
-            MenuItemId.Factory.CreateUnique(),
-            name,
-            description);
+        public static MenuItem Create(string name, string description)
+        {
+            return new(
+                MenuItemId.Factory.CreateUnique(),
+                name,
+                description);
+        }
     }
 }

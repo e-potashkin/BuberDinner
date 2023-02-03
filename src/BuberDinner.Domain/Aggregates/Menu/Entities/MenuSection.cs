@@ -32,12 +32,15 @@ public sealed class MenuSection : Entity<MenuSectionId>
 
     public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
 
-    public static MenuSection Create(string name, string description, List<MenuItem> items)
+    public static class Factory
     {
-        return new(
-            MenuSectionId.Factory.CreateUnique(),
-            name,
-            description,
-            items);
+        public static MenuSection Create(string name, string description, List<MenuItem> items)
+        {
+            return new(
+                MenuSectionId.Factory.CreateUnique(),
+                name,
+                description,
+                items);
+        }
     }
 }
