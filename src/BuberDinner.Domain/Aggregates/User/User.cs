@@ -23,8 +23,8 @@ public sealed class User : AggregateRoot<UserId>
         LastName = lastName;
         Email = email;
         Password = password;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public string FirstName { get; private set; }
@@ -34,10 +34,6 @@ public sealed class User : AggregateRoot<UserId>
     public string Email { get; private set; }
 
     public string Password { get; private set; }
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

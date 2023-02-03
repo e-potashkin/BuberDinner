@@ -28,8 +28,8 @@ internal sealed class Reservation : Entity<ReservationId>
         GuestId = guestId;
         BillId = billId;
         ArrivalDateTime = arrivalDateTime;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public int GuestCount { get; private set; }
@@ -41,10 +41,6 @@ internal sealed class Reservation : Entity<ReservationId>
     public BillId BillId { get; private set; }
 
     public DateTime ArrivalDateTime { get; private set; }
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

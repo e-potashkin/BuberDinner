@@ -23,8 +23,8 @@ internal sealed class Rating : Entity<RatingId>
         Value = value;
         HostId = hostId;
         DinnerId = dinnerId;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public decimal Value { get; private set; }
@@ -32,10 +32,6 @@ internal sealed class Rating : Entity<RatingId>
     public HostId HostId { get; private set; }
 
     public DinnerId DinnerId { get; private set; }
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

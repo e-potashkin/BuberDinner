@@ -46,8 +46,8 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
         MenuId = menuId;
         ImageUrl = imageUrl;
         Location = location;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
         _reservations = new();
     }
 
@@ -76,10 +76,6 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
     public Location Location { get; private set; }
 
     public IReadOnlyCollection<Reservation> Reservations => _reservations;
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

@@ -26,8 +26,8 @@ internal sealed class Bill : AggregateRoot<BillId>
         GuestId = guestId;
         HostId = hostId;
         Price = price;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public DinnerId DinnerId { get; private set; }
@@ -37,10 +37,6 @@ internal sealed class Bill : AggregateRoot<BillId>
     public HostId HostId { get; private set; }
 
     public Price Price { get; private set; }
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

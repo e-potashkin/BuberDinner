@@ -31,8 +31,8 @@ internal sealed class Host : AggregateRoot<HostId>
         ProfileImage = profileImage;
         AverageRating = averageRating;
         UserId = userId;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
         _dinnerIds = new();
         _menuIds = new();
     }
@@ -50,10 +50,6 @@ internal sealed class Host : AggregateRoot<HostId>
     public IReadOnlyCollection<MenuId> MenuIds => _menuIds;
 
     public IReadOnlyCollection<DinnerId> DinnerIds => _dinnerIds;
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {

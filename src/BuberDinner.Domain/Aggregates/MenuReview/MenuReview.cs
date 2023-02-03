@@ -31,8 +31,8 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
         MenuId = menuId;
         GuestId = guestId;
         DinnerId = dinnerId;
-        CreatedDateTime = createdDateTime;
-        UpdatedDateTime = updatedDateTime;
+        CreatedDateTimeUtc = createdDateTime;
+        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public decimal Rating { get; private set; }
@@ -46,10 +46,6 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
     public GuestId GuestId { get; private set; }
 
     public DinnerId DinnerId { get; private set; }
-
-    public DateTime CreatedDateTime { get; private set; }
-
-    public DateTime UpdatedDateTime { get; private set; }
 
     public static class Factory
     {
