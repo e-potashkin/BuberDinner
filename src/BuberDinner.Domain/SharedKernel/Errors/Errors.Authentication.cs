@@ -7,7 +7,7 @@ public static partial class Errors
     public static class Authentication
     {
         public static Error InvalidCredentials => Error.Validation(
-            "Authentication.InvalidCredentials",
+            $"{nameof(Authentication)}.{nameof(InvalidCredentials)}",
             "Invalid credentials.");
     }
 }
