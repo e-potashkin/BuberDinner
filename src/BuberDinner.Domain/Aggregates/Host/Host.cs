@@ -21,9 +21,7 @@ internal sealed class Host : AggregateRoot<HostId>
         string lastName,
         string profileImage,
         decimal averageRating,
-        UserId userId,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        UserId userId)
         : base(hostId)
     {
         FirstName = firstName;
@@ -31,8 +29,6 @@ internal sealed class Host : AggregateRoot<HostId>
         ProfileImage = profileImage;
         AverageRating = averageRating;
         UserId = userId;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
         _dinnerIds = new();
         _menuIds = new();
     }
@@ -66,9 +62,7 @@ internal sealed class Host : AggregateRoot<HostId>
                 lastName,
                 profileImage,
                 averageRating,
-                userId,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                userId);
         }
     }
 }

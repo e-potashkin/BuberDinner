@@ -20,9 +20,7 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
         HostId hostId,
         MenuId menuId,
         GuestId guestId,
-        DinnerId dinnerId,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        DinnerId dinnerId)
         : base(menuReviewId)
     {
         Rating = rating;
@@ -31,8 +29,6 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
         MenuId = menuId;
         GuestId = guestId;
         DinnerId = dinnerId;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public decimal Rating { get; private set; }
@@ -64,10 +60,7 @@ internal sealed class MenuReview : AggregateRoot<MenuReviewId>
                 hostId,
                 menuId,
                 guestId,
-                dinnerId,
-                DateTime.UtcNow,
-                DateTime.UtcNow
-            );
+                dinnerId);
         }
     }
 }

@@ -1,2 +1,2 @@
-dotnet ef migrations add Initial -p BuberDinner.Persistence -s BuberDinner.Api
-dotnet ef database update -p BuberDinner.Persistence -s BuberDinner.Api
+dotnet ef migrations add Initial -p BuberDinner.Infrastructure -s BuberDinner.Api
+dotnet ef database update -p BuberDinner.Infrastructure -s BuberDinner.Api

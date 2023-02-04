@@ -6,7 +6,7 @@ using BuberDinner.Domain.Aggregates.Menu.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BuberDinner.Persistence.Configurations;
+namespace BuberDinner.Infrastructure.Persistence.Configurations;
 
 public class MenuConfiguration : IEntityTypeConfiguration<Menu>
 {

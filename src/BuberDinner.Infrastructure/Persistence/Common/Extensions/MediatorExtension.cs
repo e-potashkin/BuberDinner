@@ -2,7 +2,7 @@ using BuberDinner.Domain.SharedKernel.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace BuberDinner.Persistence.Common;
+namespace BuberDinner.Infrastructure.Persistence.Common.Extensions;
 
 public static class MediatorExtension
 {
@@ -13,20 +13,22 @@ public static class MediatorExtension
     {
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
-        var domainEntities = context.ChangeTracker.Entries<IEntity>()
+        var entities = context.ChangeTracker
+            .Entries<IEntity>()
             .Where(x => x.Entity.DomainEvents.Any())
+            .Select(x => x.Entity)
             .ToList();
 
-        if (!domainEntities.Any())
+        if (!entities.Any())
         {
             return;
         }
 
-        var domainEvents = domainEntities
-            .SelectMany(x => x.Entity.DomainEvents)
+        var domainEvents = entities
+            .SelectMany(x => x.DomainEvents)
             .ToList();
 
-        domainEntities.ForEach(entity => entity.Entity.ClearDomainEvents());
+        entities.ForEach(entity => entity.ClearDomainEvents());
 
         foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {

@@ -17,17 +17,13 @@ internal sealed class Bill : AggregateRoot<BillId>
         DinnerId dinnerId,
         GuestId guestId,
         HostId hostId,
-        Price price,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        Price price)
         : base(billId)
     {
         DinnerId = dinnerId;
         GuestId = guestId;
         HostId = hostId;
         Price = price;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public DinnerId DinnerId { get; private set; }
@@ -51,9 +47,7 @@ internal sealed class Bill : AggregateRoot<BillId>
                 dinnerId,
                 guestId,
                 hostId,
-                price,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                price);
         }
     }
 }

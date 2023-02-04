@@ -9,8 +9,8 @@ public record MenuResponse(
     List<string> DinnerIds,
     List<string> MenuReviewIds,
     List<MenuSectionResponse> Sections,
-    DateTime CreatedDateTime,
-    DateTime UpdatedDateTime);
+    DateTime CreatedDateTimeUtc,
+    DateTime UpdatedDateTimeUtc);
 
 public record MenuSectionResponse(
     string Id,

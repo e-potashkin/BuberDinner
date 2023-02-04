@@ -1,6 +1,6 @@
 using BuberDinner.Domain.SharedKernel.Interfaces;
 
-namespace BuberDinner.Domain.DomainEvents;
+namespace BuberDinner.Domain.SharedKernel.Models;
 
 public abstract class DomainEvent : IDomainEvent
 {

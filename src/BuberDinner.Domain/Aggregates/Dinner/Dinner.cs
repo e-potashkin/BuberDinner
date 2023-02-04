@@ -29,9 +29,7 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
         HostId hostId,
         MenuId menuId,
         string imageUrl,
-        Location location,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        Location location)
         : base(dinnerId)
     {
         Name = name;
@@ -46,8 +44,6 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
         MenuId = menuId;
         ImageUrl = imageUrl;
         Location = location;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
         _reservations = new();
     }
 
@@ -106,9 +102,7 @@ internal sealed class Dinner : AggregateRoot<DinnerId>
                 hostId,
                 menuId,
                 imageUrl,
-                location,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                location);
         }
     }
 }

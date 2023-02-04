@@ -15,16 +15,12 @@ internal sealed class Rating : Entity<RatingId>
         RatingId ratingId,
         decimal value,
         HostId hostId,
-        DinnerId dinnerId,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        DinnerId dinnerId)
         : base(ratingId)
     {
         Value = value;
         HostId = hostId;
         DinnerId = dinnerId;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public decimal Value { get; private set; }
@@ -44,9 +40,7 @@ internal sealed class Rating : Entity<RatingId>
                 RatingId.Factory.CreateUnique(),
                 value,
                 hostId,
-                dinnerId,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                dinnerId);
         }
     }
 }

@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace BuberDinner.Persistence.Common
+namespace BuberDinner.Infrastructure.Persistence.Common
 {
     public class AutoConfigConvention : IModelFinalizingConvention
     {

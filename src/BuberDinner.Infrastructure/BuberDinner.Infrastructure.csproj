@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
         <PackageReference Include="Microsoft.Extensions.Configuration" />
         <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
@@ -7,6 +9,5 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
-        <ProjectReference Include="..\BuberDinner.Persistence\BuberDinner.Persistence.csproj" />
     </ItemGroup>
 </Project>

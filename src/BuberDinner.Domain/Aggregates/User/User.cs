@@ -14,17 +14,13 @@ public sealed class User : AggregateRoot<UserId>
         string firstName,
         string lastName,
         string email,
-        string password,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        string password)
         : base(userId)
     {
         FirstName = firstName;
         LastName = lastName;
         Email = email;
         Password = password;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public string FirstName { get; private set; }
@@ -48,9 +44,7 @@ public sealed class User : AggregateRoot<UserId>
                 firstName,
                 lastName,
                 email,
-                password,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                password);
         }
     }
 }

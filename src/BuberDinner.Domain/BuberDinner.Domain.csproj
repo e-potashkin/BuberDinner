@@ -6,6 +6,5 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="Aggregates" />
-      <Folder Include="DomainEvents" />
     </ItemGroup>
 </Project>

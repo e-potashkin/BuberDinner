@@ -32,9 +32,7 @@ internal sealed class Guest : AggregateRoot<GuestId>
         string lastName,
         string profileImage,
         decimal averageRating,
-        UserId userId,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        UserId userId)
         : base(guestId)
     {
         FirstName = firstName;
@@ -42,8 +40,6 @@ internal sealed class Guest : AggregateRoot<GuestId>
         ProfileImage = profileImage;
         AverageRating = averageRating;
         UserId = userId;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
         _upcomingDinnerIds = new();
         _pastDinnerIds = new();
         _pendingDinnerIds = new();
@@ -89,9 +85,7 @@ internal sealed class Guest : AggregateRoot<GuestId>
                 lastName,
                 profileImage,
                 averageRating,
-                userId,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                userId);
         }
     }
 }

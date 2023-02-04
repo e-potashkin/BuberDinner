@@ -18,9 +18,7 @@ internal sealed class Reservation : Entity<ReservationId>
         ReservationStatus status,
         GuestId guestId,
         BillId billId,
-        DateTime arrivalDateTime,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        DateTime arrivalDateTime)
         : base(reservationId)
     {
         GuestCount = guestCount;
@@ -28,8 +26,6 @@ internal sealed class Reservation : Entity<ReservationId>
         GuestId = guestId;
         BillId = billId;
         ArrivalDateTime = arrivalDateTime;
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
     }
 
     public int GuestCount { get; private set; }
@@ -57,9 +53,7 @@ internal sealed class Reservation : Entity<ReservationId>
                 status,
                 guestId,
                 billId,
-                arrivalDateTime,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                arrivalDateTime);
         }
     }
 }

@@ -23,17 +23,13 @@ public sealed class Menu : AggregateRoot<MenuId>
         string name,
         string description,
         HostId hostId,
-        IEnumerable<MenuSection> sections,
-        DateTime createdDateTime,
-        DateTime updatedDateTime)
+        IEnumerable<MenuSection> sections)
         : base(menuId)
     {
         Name = name;
         Description = description;
         HostId = hostId;
         AverageRating = AverageRating.Factory.Create(0);
-        CreatedDateTimeUtc = createdDateTime;
-        UpdatedDateTimeUtc = updatedDateTime;
         _dinnerIds = new();
         _menuReviewIds = new();
         _sections = new(sections);
@@ -68,9 +64,7 @@ public sealed class Menu : AggregateRoot<MenuId>
                 name,
                 description,
                 hostId,
-                sections,
-                DateTime.UtcNow,
-                DateTime.UtcNow);
+                sections);
         }
     }
 }

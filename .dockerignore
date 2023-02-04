@@ -1,6 +1,5 @@
 ﻿.dockerignore
 .config
-.editorconfig
 .env
 .git
 .github
@@ -25,6 +24,5 @@ obj
 secrets.dev.yaml
 values.dev.yaml
 ef-migrations.txt
-StyleCop.ruleset
 LICENSE
 README.md
