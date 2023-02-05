@@ -9,9 +9,7 @@ public class UnitOfWork : IUnitOfWork
     private readonly BuberDinnerDbContext _context;
     private readonly IMediator _mediator;
 
-    public UnitOfWork(
-        BuberDinnerDbContext context,
-        IMediator mediator)
+    public UnitOfWork(BuberDinnerDbContext context, IMediator mediator)
     {
         _context = context;
         _mediator = mediator;
