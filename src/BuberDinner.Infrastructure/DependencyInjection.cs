@@ -29,7 +29,7 @@ public static class DependencyInjection
 
         services.AddAuth();
         services.AddPersistence(configuration, isDevelopment);
-        services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        services.AddSingleton<IDateTimeProvider, UtcDateTimeProvider>();
 
         return services;
     }

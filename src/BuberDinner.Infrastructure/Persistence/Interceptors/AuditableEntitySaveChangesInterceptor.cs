@@ -43,12 +43,12 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
         {
             if (entry.State == EntityState.Added)
             {
-                entry.Entity.CreatedDateTimeUtc = _dateTimeProvider.UtcNow;
+                entry.Entity.CreatedDateTimeUtc = _dateTimeProvider.Now;
             }
 
             if (entry.State is EntityState.Added or EntityState.Modified || entry.HasChangedOwnedEntities())
             {
-                entry.Entity.UpdatedDateTimeUtc = _dateTimeProvider.UtcNow;
+                entry.Entity.UpdatedDateTimeUtc = _dateTimeProvider.Now;
             }
         }
     }
