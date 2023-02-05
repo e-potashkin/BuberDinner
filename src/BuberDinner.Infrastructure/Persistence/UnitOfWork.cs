@@ -1,7 +1,8 @@
+using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Infrastructure.Persistence.Common.Extensions;
 using MediatR;
 
-namespace BuberDinner.Infrastructure.Persistence.UnitOfWork;
+namespace BuberDinner.Infrastructure.Persistence;
 
 public class UnitOfWork : IUnitOfWork
 {

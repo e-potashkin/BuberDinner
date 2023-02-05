@@ -9,11 +9,13 @@ namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
 public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
 {
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IMenuRepository _menuRepository;
 
-    public CreateMenuCommandHandler(IMenuRepository menuRepository)
+    public CreateMenuCommandHandler(IMenuRepository menuRepository, IUnitOfWork unitOfWork)
     {
         _menuRepository = menuRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
@@ -30,6 +32,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                     item.Description)))));
 
         await _menuRepository.AddAsync(menu, cancellationToken);
+        await _unitOfWork.CommitAsync(cancellationToken);
 
         return menu;
     }

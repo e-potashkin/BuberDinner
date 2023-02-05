@@ -20,7 +20,6 @@ public class MenuRepository : IMenuRepository
 
     public async Task AddAsync(Menu menu, CancellationToken cancellationToken)
     {
-        _dbContext.Add(menu);
-        await _dbContext.SaveChangesAsync(cancellationToken);
+        await _dbContext.AddAsync(menu, cancellationToken);
     }
 }
