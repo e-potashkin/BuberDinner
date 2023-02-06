@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BuberDinner.Infrastructure.Identity;
+namespace BuberDinner.Infrastructure.Settings;
 
 public class JwtSettings
 {
