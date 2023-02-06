@@ -1,3 +1,4 @@
+using BuberDinner.Api.Common;
 using BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 using BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 using BuberDinner.Contracts.Menus;
@@ -5,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BuberDinner.Api.Controllers;
 
-[Route("hosts/{hostId}/menus")]
+[Route(Routes.Menus.Base)]
 public class MenusController : ApiController
 {
     [HttpGet]
