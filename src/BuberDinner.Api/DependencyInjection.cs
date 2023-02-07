@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using System.Threading.RateLimiting;
+﻿using System.Threading.RateLimiting;
 using BuberDinner.Api.Common.Errors;
 using Mapster;
 using MapsterMapper;
@@ -21,8 +20,8 @@ public static class DependencyInjection
 
     private static void AddMappings(this IServiceCollection services)
     {
-        var config = TypeAdapterConfig.GlobalSettings;
-        config.Scan(Assembly.GetExecutingAssembly());
+        var config = TypeAdapterConfig.GlobalSettings
+            .Scan(typeof(DependencyInjection).Assembly);
 
         services.AddSingleton(config);
         services.AddScoped<IMapper, ServiceMapper>();

@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using BuberDinner.Application.Common.Interfaces.Authentication;
+﻿using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Services;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
@@ -21,7 +20,7 @@ public static class DependencyInjection
         IConfiguration configuration,
         bool isDevelopment)
     {
-        services.AddMediatR(Assembly.GetExecutingAssembly());
+        services.AddMediatR(typeof(DependencyInjection));
         services.Scan(scan =>
             scan.FromCallingAssembly()
                 .AddClasses()
