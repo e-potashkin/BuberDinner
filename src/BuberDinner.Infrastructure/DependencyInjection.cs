@@ -15,6 +15,8 @@ namespace BuberDinner.Infrastructure;
 
 public static class DependencyInjection
 {
+    private const string POSTGRES = "Postgres";
+
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services,
         IConfiguration configuration,
@@ -52,7 +54,7 @@ public static class DependencyInjection
         services.AddDbContext<BuberDinnerDbContext>(options =>
         {
             options.UseNpgsql(
-                configuration.GetConnectionString("Default"),
+                configuration.GetConnectionString(POSTGRES),
                 optionsAction => optionsAction.CommandTimeout(60));
 
             options.EnableSensitiveDataLogging(isDevelopment);

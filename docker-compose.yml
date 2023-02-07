@@ -12,7 +12,7 @@ services:
     networks:
       - default
     environment:
-      - ConnectionStrings__Default=Host=postgres;User ID=postgres;Password=postgres;
+      - ConnectionStrings__Postgres=Host=postgres;User ID=postgres;Password=postgres;
       - JwtSettings__Secret=BuberDinnerSecretKey
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
