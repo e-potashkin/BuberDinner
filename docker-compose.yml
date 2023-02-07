@@ -12,16 +12,16 @@ services:
     networks:
       - default
     environment:
-      - ConnectionStrings__Default=Host=db;User ID=postgres;Password=postgres;
+      - ConnectionStrings__Default=Host=postgres;User ID=postgres;Password=postgres;
       - JwtSettings__Secret=BuberDinnerSecretKey
       - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
-      - "db"
+      - "postgres"
     restart: on-failure
 
-  db:
+  postgres:
     image: postgres:latest
-    container_name: db
+    container_name: postgres
     ports:
       - "5433:5432"
     networks:
