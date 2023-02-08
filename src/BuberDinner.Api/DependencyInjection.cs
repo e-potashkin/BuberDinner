@@ -20,8 +20,8 @@ public static class DependencyInjection
 
     private static void AddMappings(this IServiceCollection services)
     {
-        var config = TypeAdapterConfig.GlobalSettings
-            .Scan(typeof(DependencyInjection).Assembly);
+        var config = TypeAdapterConfig.GlobalSettings;
+        config.Scan(typeof(DependencyInjection).Assembly);
 
         services.AddSingleton(config);
         services.AddScoped<IMapper, ServiceMapper>();
