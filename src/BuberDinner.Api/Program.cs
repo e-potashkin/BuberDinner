@@ -5,6 +5,7 @@ using BuberDinner.Infrastructure;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Host.UseSerilog(LoggingConfiguration.ConfigureLogger);
 builder.Services
     .AddPresentation()
@@ -12,8 +13,10 @@ builder.Services
     .AddInfrastructure(builder.Configuration, builder.Environment.IsDevelopment());
 
 var app = builder.Build();
+
 app.UseExceptionHandler("/error");
 app.UseHttpsRedirection();
 app.MapControllers();
 app.UseRateLimiter();
+
 app.Run();
