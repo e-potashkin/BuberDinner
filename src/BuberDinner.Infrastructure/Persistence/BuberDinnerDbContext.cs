@@ -11,7 +11,7 @@ public class BuberDinnerDbContext : DbContext
 
     public BuberDinnerDbContext(
         DbContextOptions<BuberDinnerDbContext> options,
-        AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor)
+        AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor = default!)
         : base(options)
     {
         _auditableEntitySaveChangesInterceptor = auditableEntitySaveChangesInterceptor;

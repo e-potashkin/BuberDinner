@@ -1,13 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
-        <PackageReference Include="Microsoft.Extensions.Configuration" />
-        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
-        <PackageReference Include="Scrutor" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
-    </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    <PackageReference Include="Scrutor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <UserSecretsId>7b423728-b90d-4753-9e9e-46e7eb2433ae</UserSecretsId>
+  </PropertyGroup>
+
 </Project>
