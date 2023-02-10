@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BuberDinner.Infrastructure.Persistence.Common
 {
-    public class AutoConfigConvention : IModelFinalizingConvention
+    internal class AutoConfigConvention : IModelFinalizingConvention
     {
         public void ProcessModelFinalizing(IConventionModelBuilder modelBuilder, IConventionContext<IConventionModelBuilder> context)
         {

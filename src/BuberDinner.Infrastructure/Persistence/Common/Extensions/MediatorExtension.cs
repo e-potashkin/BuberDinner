@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure.Persistence.Common.Extensions;
 
-public static class MediatorExtension
+internal static class MediatorExtension
 {
     public static async Task DispatchDomainEventsAsync(
         this IPublisher publisher,

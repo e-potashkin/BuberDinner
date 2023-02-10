@@ -2,7 +2,7 @@
 
 namespace BuberDinner.Infrastructure.Settings;
 
-public class JwtSettings
+internal class JwtSettings
 {
     [Required]
     public string Secret { get; init; } = null!;

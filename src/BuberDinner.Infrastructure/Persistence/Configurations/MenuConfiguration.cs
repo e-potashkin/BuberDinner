@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BuberDinner.Infrastructure.Persistence.Configurations;
 
-public class MenuConfiguration : IEntityTypeConfiguration<Menu>
+internal class MenuConfiguration : IEntityTypeConfiguration<Menu>
 {
     public void Configure(EntityTypeBuilder<Menu> builder)
     {

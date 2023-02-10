@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BuberDinner.Infrastructure.Identity;
 
-public class JwtTokenGenerator : IJwtTokenGenerator
+internal class JwtTokenGenerator : IJwtTokenGenerator
 {
     private readonly IDateTimeProvider _dateTimeProvider;
     private JwtSettings _jwtSettings;
