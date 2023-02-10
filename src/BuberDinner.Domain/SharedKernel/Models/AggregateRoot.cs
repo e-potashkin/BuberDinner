@@ -2,7 +2,7 @@ using BuberDinner.Domain.SharedKernel.Interfaces;
 
 namespace BuberDinner.Domain.SharedKernel.Models;
 
-public abstract class AggregateRoot<TId> : Entity<TId>, IAggregateRoot
+public abstract class AggregateRoot<TId> : Entity<TId>, IAuditableEntity
     where TId : notnull
 {
     protected AggregateRoot()

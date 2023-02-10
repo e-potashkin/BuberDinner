@@ -1,6 +1,6 @@
 namespace BuberDinner.Domain.SharedKernel.Interfaces;
 
-public interface IAggregateRoot
+public interface IAuditableEntity
 {
     DateTime CreatedDateTimeUtc { get; set; }
 

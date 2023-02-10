@@ -39,7 +39,7 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
             return;
         }
 
-        foreach (var entry in context.ChangeTracker.Entries<IAggregateRoot>())
+        foreach (var entry in context.ChangeTracker.Entries<IAuditableEntity>())
         {
             if (entry.State == EntityState.Added)
             {
