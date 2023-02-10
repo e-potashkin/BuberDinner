@@ -62,7 +62,7 @@ public class CacheService : ICacheService
     public async Task RemoveByPrefixAsync(string prefixKey, CancellationToken cancellationToken = default)
     {
         var tasks = CacheKeys.Keys
-            .Where(k => k.StartsWith(prefixKey))
+            .Where(k => k.StartsWith(prefixKey, StringComparison.OrdinalIgnoreCase))
             .Select(k => RemoveAsync(k, cancellationToken));
 
         await Task.WhenAll(tasks);
