@@ -1,5 +1,7 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Authentication;
+using BuberDinner.Application.Common.Interfaces.Caching;
 using BuberDinner.Application.Common.Interfaces.Services;
+using BuberDinner.Infrastructure.Caching;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Persistence.Interceptors;
@@ -30,6 +32,7 @@ public static class DependencyInjection
                 .UsingRegistrationStrategy(RegistrationStrategy.Skip));
 
         services.AddAuth();
+        services.AddCaching();
         services.AddPersistence(configuration, isDevelopment);
         services.AddSingleton<IDateTimeProvider, UtcDateTimeProvider>();
 
@@ -61,6 +64,14 @@ public static class DependencyInjection
         });
 
         services.AddScoped<AuditableEntitySaveChangesInterceptor>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddCaching(this IServiceCollection services)
+    {
+        services.AddDistributedMemoryCache();
+        services.AddSingleton<ICacheService, CacheService>();
 
         return services;
     }

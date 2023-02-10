@@ -19,12 +19,12 @@ public sealed class Menu : AggregateRoot<MenuId>
     }
 
     private Menu(
-        MenuId menuId,
-        string name,
-        string description,
-        HostId hostId,
-        IEnumerable<MenuSection> sections)
-        : base(menuId)
+            MenuId menuId,
+            string name,
+            string description,
+            HostId hostId,
+            IEnumerable<MenuSection> sections)
+            : base(menuId)
     {
         Name = name;
         Description = description;
