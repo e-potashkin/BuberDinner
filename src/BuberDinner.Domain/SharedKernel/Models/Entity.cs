@@ -21,10 +21,6 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
 
     public TId Id { get; }
 
-    public DateTime CreatedDateTimeUtc { get; set; }
-
-    public DateTime UpdatedDateTimeUtc { get; set; }
-
     [JsonIgnore]
     public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
