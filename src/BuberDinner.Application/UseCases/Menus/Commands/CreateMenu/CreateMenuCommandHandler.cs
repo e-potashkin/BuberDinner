@@ -32,7 +32,7 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                     item.Description)))));
 
         await _menuRepository.AddAsync(menu, cancellationToken);
-        await _unitOfWork.CommitAsync(cancellationToken);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return menu;
     }
