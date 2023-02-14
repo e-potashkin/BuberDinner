@@ -4,7 +4,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="ErrorOr" Version="1.2.1"/>
-        <PackageVersion Include="FluentValidation" Version="11.4.0"/>
+        <PackageVersion Include="FluentValidation" Version="11.5.0"/>
         <PackageVersion Include="FluentValidation.AspNetCore" Version="11.2.2"/>
         <PackageVersion Include="MediatR" Version="11.1.0"/>
         <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
