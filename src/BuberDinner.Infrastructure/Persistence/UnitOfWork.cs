@@ -20,6 +20,7 @@ public class UnitOfWork : IUnitOfWork
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _mediator.DispatchDomainEventsAsync(_context, cancellationToken);
+
         return await _context.SaveChangesAsync(cancellationToken);
     }
 
