@@ -24,7 +24,7 @@ public static class DependencyInjection
         IConfiguration configuration,
         bool isDevelopment)
     {
-        services.AddMediatR(typeof(DependencyInjection));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(DependencyInjection).Assembly));
         services.Scan(scan =>
             scan.FromCallingAssembly()
                 .AddClasses()

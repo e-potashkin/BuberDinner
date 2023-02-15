@@ -3,7 +3,6 @@
         <PackageReference Include="FluentValidation" />
         <PackageReference Include="FluentValidation.AspNetCore" />
         <PackageReference Include="MediatR" />
-        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
         <PackageReference Include="Serilog.AspNetCore" />
     </ItemGroup>
