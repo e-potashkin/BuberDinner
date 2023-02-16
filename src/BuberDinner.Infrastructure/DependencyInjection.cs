@@ -7,7 +7,6 @@ using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Persistence.Interceptors;
 using BuberDinner.Infrastructure.Services;
 using BuberDinner.Infrastructure.Settings;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
