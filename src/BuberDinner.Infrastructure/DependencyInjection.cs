@@ -48,6 +48,14 @@ public static class DependencyInjection
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
     }
 
+    private static IServiceCollection AddCaching(this IServiceCollection services)
+    {
+        services.AddDistributedMemoryCache();
+        services.AddSingleton<ICacheService, CacheService>();
+
+        return services;
+    }
+
     private static IServiceCollection AddPersistence(
        this IServiceCollection services,
        IConfiguration configuration,
@@ -63,14 +71,6 @@ public static class DependencyInjection
         });
 
         services.AddScoped<AuditableEntitySaveChangesInterceptor>();
-
-        return services;
-    }
-
-    private static IServiceCollection AddCaching(this IServiceCollection services)
-    {
-        services.AddDistributedMemoryCache();
-        services.AddSingleton<ICacheService, CacheService>();
 
         return services;
     }
