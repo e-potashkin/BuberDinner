@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BuberDinner.Domain.Aggregates.Menu.ValueObjects;
 
 [Owned]
-public class AverageRating : ValueObject
+public sealed class AverageRating : ValueObject
 {
     private AverageRating()
     {
