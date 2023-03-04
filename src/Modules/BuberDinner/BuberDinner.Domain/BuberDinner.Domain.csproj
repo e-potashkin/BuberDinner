@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-      <Folder Include="Aggregates" />
+        <ProjectReference Include="..\..\..\BuildingBlocks\Domain\BuildingBlocks.Domain.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\..\..\BuildingBlocks\Domain\BuildingBlocks.Domain.csproj" />
+        <Folder Include="Aggregates" />
     </ItemGroup>
 </Project>
