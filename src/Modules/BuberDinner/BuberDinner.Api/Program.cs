@@ -10,7 +10,7 @@ builder.Host.UseSerilog(LoggingConfiguration.ConfigureLogger);
 builder.Services
     .AddPresentation()
     .AddApplication()
-    .AddInfrastructure(builder.Configuration, builder.Environment.IsDevelopment());
+    .AddInfrastructure(builder.Environment.IsDevelopment());
 
 var app = builder.Build();
 

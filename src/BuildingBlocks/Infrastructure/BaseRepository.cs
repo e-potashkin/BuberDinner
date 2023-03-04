@@ -1,12 +1,13 @@
 using BuildingBlocks.Application.Interfaces.Persistence;
+using BuildingBlocks.Domain.Interfaces;
 using BuildingBlocks.Infrastructure.Common.Extensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuildingBlocks.Infrastructure;
 
-public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
-    where TEntity : class
+public abstract class BaseRepository<T> : IBaseRepository<T>
+    where T : class, IEntity
 {
     private readonly DbContext _dbContext;
     private readonly IMediator _mediator;
@@ -15,16 +16,18 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
     {
         _dbContext = dbContext;
         _mediator = mediator;
+        Table = dbContext.Set<T>();
     }
 
-    public async Task<IReadOnlyCollection<TEntity>> GetAllAsync(CancellationToken cancellationToken)
-    {
-        return await _dbContext.Set<TEntity>().ToListAsync(cancellationToken);
-    }
+    private DbSet<T> Table { get; }
 
-    public async Task AddAsync(TEntity entity, CancellationToken cancellationToken)
+    public async Task<IReadOnlyCollection<T>> GetAllAsync(CancellationToken cancellationToken) => await Table
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
+
+    public async Task AddAsync(T entity, CancellationToken cancellationToken)
     {
-        await _dbContext.Set<TEntity>().AddAsync(entity, cancellationToken);
+        await Table.AddAsync(entity, cancellationToken);
     }
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

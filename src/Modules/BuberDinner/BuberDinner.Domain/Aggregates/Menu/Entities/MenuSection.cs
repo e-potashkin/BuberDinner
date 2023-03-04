@@ -30,7 +30,7 @@ public sealed class MenuSection : Entity<MenuSectionId>
     [MaxLength(100)]
     public string Description { get; private set; }
 
-    public IReadOnlyList<MenuItem> Items => _items.AsReadOnly();
+    public IReadOnlyCollection<MenuItem> Items => _items.AsReadOnly();
 
     public static class Factory
     {
