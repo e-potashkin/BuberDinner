@@ -52,8 +52,8 @@ public static class DependencyInjection
         {
             var postgresOptions = serviceProvider.GetRequiredService<PostgresOptions>();
             options.UseNpgsql(
-                postgresOptions?.ConnectionString,
-                optionsAction => optionsAction.CommandTimeout(postgresOptions?.CommandTimeout));
+                postgresOptions.ConnectionString,
+                optionsAction => optionsAction.CommandTimeout(postgresOptions.CommandTimeout));
 
             options.EnableSensitiveDataLogging(isDevelopment);
         });

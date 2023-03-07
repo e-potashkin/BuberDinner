@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Infrastructure.Extensions;
+namespace BuildingBlocks.Infrastructure.Extensions;
 
 public static class LinqExtensions
 {
@@ -98,12 +98,12 @@ public static class LinqExtensions
         return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(expr1.Body, secondBody), expr1.Parameters);
     }
 
-    public static Expression Replace(this Expression expression, Expression searchEx, Expression replaceEx)
+    private static Expression Replace(this Expression expression, Expression searchEx, Expression replaceEx)
     {
         return new ReplaceVisitor(searchEx, replaceEx).Visit(expression);
     }
 
-    internal class ReplaceVisitor : ExpressionVisitor
+    private sealed class ReplaceVisitor : ExpressionVisitor
     {
         private readonly Expression _from;
         private readonly Expression _to;
