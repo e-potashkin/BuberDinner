@@ -7,6 +7,7 @@ namespace BuberDinner.Infrastructure.Persistence;
 
 public class BuberDinnerDbContext : DbContext
 {
+    private const string DEFAULTSCHEMA = "buberdinner";
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
 
     public BuberDinnerDbContext(
@@ -26,7 +27,9 @@ public class BuberDinnerDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.HasDefaultSchema(DEFAULTSCHEMA);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(BuberDinnerDbContext).Assembly);
+
         base.OnModelCreating(modelBuilder);
     }
 

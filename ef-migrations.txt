@@ -1,7 +1,7 @@
-// In src directory
+// In src/Modules/BuberDinner directory
 dotnet ef migrations add Initial -p BuberDinner.Infrastructure -s BuberDinner.Api -o Persistence/Migrations
 dotnet ef database update -p BuberDinner.Infrastructure -s BuberDinner.Api
 
-// In src/BuberDinner.Infrastructure
+// In src/Modules/BuberDinner/BuberDinner.Infrastructure
 dotnet ef migrations add Initial -o Persistence/Migrations
 dotnet ef database update
