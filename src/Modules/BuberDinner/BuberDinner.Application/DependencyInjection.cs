@@ -12,7 +12,7 @@ public static class DependencyInjection
         var assembly = typeof(DependencyInjection).Assembly;
 
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
-        services.AddValidatorsFromAssembly(assembly);
+        services.AddValidatorsFromAssembly(assembly, ServiceLifetime.Singleton);
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 

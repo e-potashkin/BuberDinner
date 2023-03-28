@@ -33,7 +33,7 @@ internal class MenuConfiguration : IEntityTypeConfiguration<Menu>
                 id => id.Value,
                 value => HostId.Factory.Create(value));
 
-        builder.HasIndex(m => m.UpdatedDateTimeUtc);
+        builder.HasIndex(m => m.Name);
     }
 
     private static void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
