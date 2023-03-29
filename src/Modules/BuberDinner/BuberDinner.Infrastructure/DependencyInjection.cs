@@ -2,6 +2,7 @@
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
 using BuildingBlocks.Application.Interfaces.Caching;
+using BuildingBlocks.Application.Services;
 using BuildingBlocks.Infrastructure.Caching;
 using BuildingBlocks.Infrastructure.Extensions;
 using BuildingBlocks.Infrastructure.Interceptors;
@@ -27,7 +28,7 @@ public static class DependencyInjection
         services.AddAuth();
         services.AddCaching();
         services.AddPersistence(isDevelopment);
-        services.AddSingleton<UtcDateTimeProvider>();
+        services.AddSingleton<IDateTimeProvider, UtcDateTimeProvider>();
 
         return services;
     }
