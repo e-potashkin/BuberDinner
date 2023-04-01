@@ -3,6 +3,7 @@ using BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 using BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 using BuberDinner.Contracts.Menus;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
 
 namespace BuberDinner.Api.Controllers;
 
@@ -10,6 +11,7 @@ namespace BuberDinner.Api.Controllers;
 public class MenusController : ApiController
 {
     [HttpGet]
+    [OutputCache]
     public async Task<IActionResult> Menus(CancellationToken cancellationToken)
     {
         var menus = await Sender.Send(new GetAllQuery(), cancellationToken);

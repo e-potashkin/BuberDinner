@@ -19,5 +19,6 @@ app.UseExceptionHandler("/error");
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 app.MapControllers();
+app.UseOutputCache();
 
 app.Run();

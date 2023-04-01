@@ -14,6 +14,7 @@ public static class DependencyInjection
         services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
         services.AddMappings();
         services.AddRateLimiter();
+        services.AddOutputCache();
 
         return services;
     }
@@ -43,5 +44,12 @@ public static class DependencyInjection
 
             options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
         });
+    }
+
+    private static void AddOutputCache(this IServiceCollection services)
+    {
+        services.AddOutputCache(options =>
+            options.AddBasePolicy(builder =>
+                builder.Expire(TimeSpan.FromSeconds(5))));
     }
 }
