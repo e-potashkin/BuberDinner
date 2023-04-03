@@ -11,7 +11,7 @@
         <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3"/>
         <PackageVersion Include="Scrutor" Version="4.2.2"/>
         <PackageVersion Include="Serilog.AspNetCore" Version="6.1.0"/>
-        <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0"/>
+        <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.28.0"/>
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.55.0.65544"/>
         <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435"/>
         <PackageVersion Include="Mapster" Version="7.4.0-pre06"/>
