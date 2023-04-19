@@ -1,5 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Persistence;
+using BuberDinner.Application.Data;
 using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.User;
 using BuildingBlocks.Domain.Errors;
@@ -11,12 +11,12 @@ namespace BuberDinner.Application.UseCases.Authentication.Queries.Login;
 public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
-    private readonly IUserRepository _userRepository;
+    private readonly IBuberDinnerDbContext _dbContext;
 
-    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository)
+    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IBuberDinnerDbContext dbContext)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
-        _userRepository = userRepository;
+        _dbContext = dbContext;
     }
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -24,7 +24,7 @@ public class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Authenticat
         await Task.CompletedTask;
 
         // 1. Validate the user exists
-        if (_userRepository.GetUserByEmail(request.Email) is not User user)
+        if (_dbContext.Users.Find(u => u.Email == request.Email) is not User user)
         {
             return Errors.Authentication.InvalidCredentials;
         }

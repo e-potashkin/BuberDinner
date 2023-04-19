@@ -1,4 +1,5 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Authentication;
+using BuberDinner.Application.Data;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
 using BuildingBlocks.Application.Interfaces.Caching;
@@ -58,7 +59,7 @@ public static class DependencyInjection
             options.EnableSensitiveDataLogging(isDevelopment);
         });
 
-        services.AddScoped<DbContext, BuberDinnerDbContext>();
+        services.AddScoped<IBuberDinnerDbContext, BuberDinnerDbContext>();
         services.AddScoped<AuditableEntitySaveChangesInterceptor>();
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuildingBlocks.Infrastructure.Common.Extensions;
 
-internal static class MediatorExtension
+public static class MediatorExtension
 {
     public static async Task DispatchDomainEventsAsync(
         this IPublisher publisher,

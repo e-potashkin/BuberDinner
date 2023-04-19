@@ -1,4 +1,4 @@
-using BuberDinner.Application.Common.Interfaces.Persistence;
+using BuberDinner.Application.Data;
 using BuberDinner.Domain.Aggregates.Host.ValueObjects;
 using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.Menu.Entities;
@@ -9,9 +9,9 @@ namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
 public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
 {
-    private readonly IMenuRepository _menuRepository;
+    private readonly IBuberDinnerDbContext _dbContext;
 
-    public CreateMenuCommandHandler(IMenuRepository menuRepository) => _menuRepository = menuRepository;
+    public CreateMenuCommandHandler(IBuberDinnerDbContext dbContext) => _dbContext = dbContext;
 
     public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {
@@ -26,8 +26,8 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                     item.Name,
                     item.Description)))));
 
-        await _menuRepository.AddAsync(menu, cancellationToken);
-        await _menuRepository.SaveChangesAsync(cancellationToken);
+        await _dbContext.Menus.AddAsync(menu, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
 
         return menu;
     }

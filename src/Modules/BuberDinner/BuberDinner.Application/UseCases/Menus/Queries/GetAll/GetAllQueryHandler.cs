@@ -1,20 +1,23 @@
-using BuberDinner.Application.Common.Interfaces.Persistence;
+using BuberDinner.Application.Data;
 using BuberDinner.Domain.Aggregates.Menu;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 
 public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollection<Menu>>
 {
-    private readonly IMenuRepository _menuRepository;
+    private readonly IBuberDinnerDbContext _dbContext;
 
-    public GetAllQueryHandler(IMenuRepository menuRepository)
+    public GetAllQueryHandler(IBuberDinnerDbContext dbContext)
     {
-        _menuRepository = menuRepository;
+        _dbContext = dbContext;
     }
 
     public async Task<IReadOnlyCollection<Menu>> Handle(GetAllQuery request, CancellationToken cancellationToken)
     {
-        return await _menuRepository.GetAllAsync(cancellationToken);
+        return await _dbContext.Menus
+            .AsNoTracking()
+            .ToListAsync(cancellationToken);
     }
 }
