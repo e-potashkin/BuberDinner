@@ -8,7 +8,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.Guest;
 
-internal sealed class Guest : AggregateRoot<GuestId>
+internal sealed class Guest : AggregateRoot<GuestId, Guid>
 {
     private readonly HashSet<DinnerId> _upcomingDinnerIds;
 

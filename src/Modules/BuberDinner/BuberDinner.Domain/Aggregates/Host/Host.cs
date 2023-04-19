@@ -6,7 +6,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.Host;
 
-internal sealed class Host : AggregateRoot<HostId>
+internal sealed class Host : AggregateRoot<HostId, Guid>
 {
     private readonly HashSet<DinnerId> _dinnerIds;
     private readonly HashSet<MenuId> _menuIds;

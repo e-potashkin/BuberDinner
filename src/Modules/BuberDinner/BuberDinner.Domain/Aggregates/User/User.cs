@@ -3,7 +3,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.User;
 
-public sealed class User : AggregateRoot<UserId>
+public sealed class User : AggregateRoot<UserId, Guid>
 {
     private User()
     {

@@ -7,7 +7,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.MenuReview;
 
-internal sealed class MenuReview : AggregateRoot<MenuReviewId>
+internal sealed class MenuReview : AggregateRoot<MenuReviewId, Guid>
 {
     private MenuReview()
     {

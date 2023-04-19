@@ -8,7 +8,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.Menu;
 
-public sealed class Menu : AggregateRoot<MenuId>
+public sealed class Menu : AggregateRoot<MenuId, Guid>
 {
     private readonly HashSet<DinnerId> _dinnerIds;
     private readonly HashSet<MenuReviewId> _menuReviewIds;

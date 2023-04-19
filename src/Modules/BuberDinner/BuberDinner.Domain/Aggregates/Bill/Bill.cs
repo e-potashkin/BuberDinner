@@ -6,7 +6,7 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.Bill;
 
-internal sealed class Bill : AggregateRoot<BillId>
+internal sealed class Bill : AggregateRoot<BillId, Guid>
 {
     private Bill()
     {

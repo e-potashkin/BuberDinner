@@ -2,11 +2,11 @@ using BuildingBlocks.Domain.Models;
 
 namespace BuberDinner.Domain.Aggregates.Guest.ValueObjects;
 
-public sealed class RatingId : ValueObject
+public sealed class RatingId : AggregateRootId<Guid>
 {
     private RatingId(Guid value) => Value = value;
 
-    public Guid Value { get; }
+    public override Guid Value { get; protected set; }
 
     public static implicit operator Guid(RatingId ratingId) => ratingId.Value;
 
