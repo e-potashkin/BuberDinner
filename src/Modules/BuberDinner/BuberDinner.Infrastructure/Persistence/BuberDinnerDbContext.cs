@@ -31,9 +31,11 @@ public class BuberDinnerDbContext : DbContext, IBuberDinnerDbContext
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
+        var result = await base.SaveChangesAsync(cancellationToken);
+
         await _mediator.DispatchDomainEventsAsync(this, cancellationToken);
 
-        return await base.SaveChangesAsync(cancellationToken);
+        return result;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
