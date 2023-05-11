@@ -1,6 +1,6 @@
 namespace BuildingBlocks.Domain.Interfaces;
 
-public interface IEntity
+public interface IHasDomainEvents
 {
     IReadOnlyCollection<IDomainEvent> DomainEvents { get; }
 

@@ -2,7 +2,7 @@ using BuildingBlocks.Domain.Interfaces;
 
 namespace BuildingBlocks.Domain.Models;
 
-public abstract class DomainEvent : IDomainEvent
+public abstract record DomainEvent : IDomainEvent
 {
     protected DomainEvent()
     {

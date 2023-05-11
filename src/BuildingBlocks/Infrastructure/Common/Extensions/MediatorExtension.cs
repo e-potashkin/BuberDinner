@@ -8,13 +8,13 @@ public static class MediatorExtension
 {
     public static async Task DispatchDomainEventsAsync(
         this IPublisher publisher,
-        DbContext context,
+        DbContext? context,
         CancellationToken cancellationToken = default)
     {
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
         var entities = context.ChangeTracker
-            .Entries<IEntity>()
+            .Entries<IHasDomainEvents>()
             .Where(x => x.Entity.DomainEvents.Any())
             .Select(x => x.Entity)
             .ToList();
@@ -38,7 +38,7 @@ public static class MediatorExtension
 
     public static async Task DispatchDomainEventsAsync(
         this IPublisher publisher,
-        IEntity entity,
+        IHasDomainEvents entity,
         CancellationToken cancellationToken = default)
     {
         _ = entity ?? throw new ArgumentNullException(nameof(entity));

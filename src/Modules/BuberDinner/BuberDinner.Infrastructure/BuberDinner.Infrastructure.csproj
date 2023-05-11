@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\BuildingBlocks\Infrastructure\BuildingBlocks.Infrastructure.csproj" />
-        <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+        <UserSecretsId>4514d5c3-9260-44fd-a22c-833f5eef2e28</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Infrastructure\BuildingBlocks.Infrastructure.csproj" />
+    <ProjectReference Include="..\BuberDinner.Application\BuberDinner.Application.csproj" />
+  </ItemGroup>
 </Project>
