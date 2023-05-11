@@ -1,10 +1,9 @@
 using System.Collections.ObjectModel;
-using System.Text.Json.Serialization;
 using BuildingBlocks.Domain.Interfaces;
 
 namespace BuildingBlocks.Domain.Models;
 
-public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
+public abstract class Entity<TId> : IEquatable<Entity<TId>>, IHasDomainEvents
     where TId : notnull
 {
     private readonly Collection<IDomainEvent> _domainEvents;
@@ -16,12 +15,11 @@ public abstract class Entity<TId> : IEntity, IEquatable<Entity<TId>>
     protected Entity(TId id)
     {
         Id = id;
-        _domainEvents = new Collection<IDomainEvent>();
+        _domainEvents = new();
     }
 
     public TId Id { get; }
 
-    [JsonIgnore]
     public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
     public static bool operator ==(Entity<TId> left, Entity<TId> right)
