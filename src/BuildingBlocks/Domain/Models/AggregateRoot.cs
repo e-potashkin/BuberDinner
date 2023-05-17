@@ -19,4 +19,6 @@ public abstract class AggregateRoot<TId, TIdType> : Entity<TId>, IAuditableEntit
     public DateTime CreatedDateTimeUtc { get; set; }
 
     public DateTime UpdatedDateTimeUtc { get; set; }
+
+    public bool IsDeleted { get; set; }
 }
