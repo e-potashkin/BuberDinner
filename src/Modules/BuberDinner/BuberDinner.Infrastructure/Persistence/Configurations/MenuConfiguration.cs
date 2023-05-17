@@ -34,6 +34,8 @@ internal class MenuConfiguration : IEntityTypeConfiguration<Menu>
                 value => HostId.Factory.Create(value));
 
         builder.HasIndex(m => m.Name);
+
+        builder.HasQueryFilter(menu => !menu.IsDeleted);
     }
 
     private static void ConfigureMenuSectionsTable(EntityTypeBuilder<Menu> builder)
