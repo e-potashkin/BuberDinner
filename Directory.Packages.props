@@ -3,6 +3,8 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="6.0.2" />
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
     <PackageVersion Include="ErrorOr" Version="1.2.1" />
     <PackageVersion Include="FluentValidation" Version="11.5.2" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
