@@ -7,7 +7,7 @@ using MediatR;
 
 namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
-public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
+public sealed class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
 {
     private readonly IBuberDinnerDbContext _dbContext;
 

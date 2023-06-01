@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 
-public class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollection<Menu>>
+public sealed class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollection<Menu>>
 {
     private readonly IBuberDinnerDbContext _dbContext;
 
