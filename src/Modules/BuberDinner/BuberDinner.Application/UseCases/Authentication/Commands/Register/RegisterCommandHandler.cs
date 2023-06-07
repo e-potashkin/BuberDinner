@@ -22,6 +22,7 @@ public sealed class RegisterCommandHandler : IRequestHandler<RegisterCommand, Er
     public async Task<ErrorOr<AuthenticationResult>> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         await Task.CompletedTask;
+        _ = request ?? throw new ArgumentNullException(nameof(request));
 
         // 1. Validate the user does not already exist
         if (_dbContext.Users.Find(u => u.Email == request.Email) is not null)

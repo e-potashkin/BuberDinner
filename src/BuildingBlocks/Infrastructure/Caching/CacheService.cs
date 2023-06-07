@@ -30,6 +30,8 @@ public class CacheService : ICacheService
     public async Task<T> GetAsync<T>(string key, Func<Task<T>> factory, CancellationToken cancellationToken = default)
         where T : class
     {
+        _ = factory ?? throw new ArgumentNullException(nameof(factory));
+
         var cachedValue = await GetAsync<T>(key, cancellationToken);
         if (cachedValue is not null)
         {

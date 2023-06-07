@@ -10,6 +10,8 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
 {
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
+        _ = next ?? throw new ArgumentNullException(nameof(next));
+
         var result = await next();
         if (result.IsError)
         {

@@ -18,12 +18,13 @@ public class ApiController : ControllerBase
 
     protected IActionResult Problem(List<Error> errors)
     {
+        _ = errors ?? throw new ArgumentNullException(nameof(errors));
         if (errors.Count is 0)
         {
             return Problem();
         }
 
-        if (errors.TrueForAll(error => error.Type == ErrorType.Validation))
+        if (errors.Exists(error => error.Type == ErrorType.Validation))
         {
             return ValidationProblem(errors);
         }
@@ -46,7 +47,7 @@ public class ApiController : ControllerBase
         return Problem(statusCode: statusCode, title: error.Description);
     }
 
-    private IActionResult ValidationProblem(List<Error> errors)
+    private IActionResult ValidationProblem(IEnumerable<Error> errors)
     {
         var modelStateDictionary = new ModelStateDictionary();
 

@@ -1,10 +1,13 @@
 ﻿<Project>
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <Nullable>enable</Nullable> 
-        <ImplicitUsings>enable</ImplicitUsings>
+        <AnalysisLevel>latest</AnalysisLevel>
         <AnalysisMode>Recommended</AnalysisMode>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <Nullable>enable</Nullable>  
+        <ImplicitUsings>enable</ImplicitUsings>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)StyleCop.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
     <ItemGroup>

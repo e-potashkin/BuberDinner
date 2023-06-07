@@ -23,6 +23,8 @@ public sealed class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Auth
     {
         await Task.CompletedTask;
 
+        _ = request ?? throw new ArgumentNullException(nameof(request));
+
         // 1. Validate the user exists
         if (_dbContext.Users.Find(u => u.Email == request.Email) is not User user)
         {

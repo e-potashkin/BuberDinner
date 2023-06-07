@@ -21,6 +21,8 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
+        _ = next ?? throw new ArgumentNullException(nameof(next));
+
         var requestName = request.GetType();
         if (_validator is null)
         {

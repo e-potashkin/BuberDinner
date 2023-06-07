@@ -8,6 +8,8 @@ public class AutoConfigConvention : IModelFinalizingConvention
 {
     public void ProcessModelFinalizing(IConventionModelBuilder modelBuilder, IConventionContext<IConventionModelBuilder> context)
     {
+        _ = modelBuilder ?? throw new ArgumentNullException(nameof(modelBuilder));
+
         var utcConverter = new ValueConverter<DateTime, DateTime>(
             toDb => toDb,
             fromDb => DateTime.SpecifyKind(fromDb, DateTimeKind.Utc));
@@ -23,7 +25,7 @@ public class AutoConfigConvention : IModelFinalizingConvention
                 }
 
                 if (entityProperty.ClrType == typeof(decimal)
-                    && entityProperty.Name.Contains("Price"))
+                    && entityProperty.Name.Contains("Price", StringComparison.OrdinalIgnoreCase))
                 {
                     entityProperty.SetPrecision(9);
                     entityProperty.SetScale(2);

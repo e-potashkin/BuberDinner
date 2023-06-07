@@ -11,6 +11,7 @@ public static class MediatorExtension
         DbContext? context,
         CancellationToken cancellationToken = default)
     {
+        _ = publisher ?? throw new ArgumentNullException(nameof(publisher));
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
         var entities = context.ChangeTracker
@@ -41,6 +42,7 @@ public static class MediatorExtension
         IHasDomainEvents entity,
         CancellationToken cancellationToken = default)
     {
+        _ = publisher ?? throw new ArgumentNullException(nameof(publisher));
         _ = entity ?? throw new ArgumentNullException(nameof(entity));
 
         var domainEvents = entity.DomainEvents.ToList();

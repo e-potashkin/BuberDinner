@@ -15,6 +15,8 @@ public sealed class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand
 
     public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {
+        _ = request ?? throw new ArgumentNullException(nameof(request));
+
         var menu = Menu.Factory.Create(
             request.Name,
             request.Description,

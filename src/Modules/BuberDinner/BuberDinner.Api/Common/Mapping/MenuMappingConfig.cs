@@ -12,6 +12,8 @@ public class MenuMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
+        _ = config ?? throw new ArgumentNullException(nameof(config));
+
         config.NewConfig<(CreateMenuRequest Request, string HostId), CreateMenuCommand>()
             .Map(dest => dest.HostId, src => src.HostId)
             .Map(dest => dest, src => src.Request);

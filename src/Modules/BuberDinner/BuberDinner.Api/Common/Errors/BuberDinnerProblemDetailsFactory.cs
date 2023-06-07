@@ -14,6 +14,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
 
     public BuberDinnerProblemDetailsFactory(IOptions<ApiBehaviorOptions> options)
     {
+        _ = options ?? throw new ArgumentNullException(nameof(options));
         _options = options.Value ?? throw new ArgumentNullException(nameof(options));
     }
 
@@ -25,6 +26,7 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         string? detail = null,
         string? instance = null)
     {
+        _ = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
         statusCode ??= StatusCodes.Status500InternalServerError;
 
         var problemDetails = new ProblemDetails
@@ -50,10 +52,8 @@ public class BuberDinnerProblemDetailsFactory : ProblemDetailsFactory
         string? detail = null,
         string? instance = null)
     {
-        if (modelStateDictionary is null)
-        {
-            throw new ArgumentNullException(nameof(modelStateDictionary));
-        }
+        _ = httpContext ?? throw new ArgumentNullException(nameof(httpContext));
+        _ = modelStateDictionary ?? throw new ArgumentNullException(nameof(modelStateDictionary));
 
         statusCode ??= StatusCodes.Status400BadRequest;
 

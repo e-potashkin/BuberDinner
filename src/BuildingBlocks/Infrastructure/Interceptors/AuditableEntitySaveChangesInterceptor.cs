@@ -20,6 +20,8 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
     {
+        _ = eventData ?? throw new ArgumentNullException(nameof(eventData));
+
         UpdateEntities(eventData.Context);
 
         _mediator.DispatchDomainEventsAsync(eventData.Context).GetAwaiter().GetResult();
@@ -32,6 +34,8 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
         InterceptionResult<int> result,
         CancellationToken cancellationToken = default)
     {
+        _ = eventData ?? throw new ArgumentNullException(nameof(eventData));
+
         UpdateEntities(eventData.Context);
 
         await _mediator.DispatchDomainEventsAsync(eventData.Context, cancellationToken);

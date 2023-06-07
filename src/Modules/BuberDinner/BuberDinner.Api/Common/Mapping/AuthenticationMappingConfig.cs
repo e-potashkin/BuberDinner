@@ -10,6 +10,8 @@ public class AuthenticationMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
+        _ = config ?? throw new ArgumentNullException(nameof(config));
+
         // src => target
         config.NewConfig<RegisterRequest, RegisterCommand>();
         config.NewConfig<LoginRequest, LoginQuery>();

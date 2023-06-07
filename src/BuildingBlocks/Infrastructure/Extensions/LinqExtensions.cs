@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq.Expressions;
 
 namespace BuildingBlocks.Infrastructure.Extensions;
@@ -8,7 +9,10 @@ public static class LinqExtensions
         this IEnumerable<T> source,
         Func<bool> condition,
         Func<T, bool> predicate)
-        => condition() ? source.Where(predicate) : source;
+    {
+        _ = condition ?? throw new ArgumentNullException(nameof(condition));
+        return condition() ? source.Where(predicate) : source;
+    }
 
     public static IEnumerable<T> ConditionalWhere<T>(
         this IEnumerable<T> source,
@@ -21,7 +25,10 @@ public static class LinqExtensions
         Func<bool> condition,
         Func<T, bool> truePredicate,
         Func<T, bool> falsePredicate)
-        => condition() ? source.Where(truePredicate) : source.Where(falsePredicate);
+    {
+        _ = condition ?? throw new ArgumentNullException(nameof(condition));
+        return condition() ? source.Where(truePredicate) : source.Where(falsePredicate);
+    }
 
     public static IEnumerable<T> ConditionalWhere<T>(
         this IEnumerable<T> source,
@@ -34,7 +41,10 @@ public static class LinqExtensions
         this IQueryable<T> source,
         Func<bool> condition,
         Expression<Func<T, bool>> predicate)
-        => condition() ? source.Where(predicate) : source;
+    {
+        _ = condition ?? throw new ArgumentNullException(nameof(condition));
+        return condition() ? source.Where(predicate) : source;
+    }
 
     public static IQueryable<T> ConditionalWhere<T>(
         this IQueryable<T> source,
@@ -47,7 +57,10 @@ public static class LinqExtensions
         Func<bool> condition,
         Expression<Func<T, bool>> truePredicate,
         Expression<Func<T, bool>> falsePredicate)
-        => condition() ? source.Where(truePredicate) : source.Where(falsePredicate);
+    {
+        _ = condition ?? throw new ArgumentNullException(nameof(condition));
+        return condition() ? source.Where(truePredicate) : source.Where(falsePredicate);
+    }
 
     public static IQueryable<T> ConditionalWhere<T>(
         this IQueryable<T> source,
@@ -60,13 +73,21 @@ public static class LinqExtensions
         this IQueryable<T> source,
         string? value,
         Func<string, Expression<Func<T, bool>>> predicate)
-        => !string.IsNullOrEmpty(value) ? source.Where(predicate(value.Trim().ToLowerInvariant())) : source;
+    {
+        _ = predicate ?? throw new ArgumentNullException(nameof(predicate));
+        return !string.IsNullOrEmpty(value)
+            ? source.Where(predicate(value.Trim().ToUpper(CultureInfo.InvariantCulture)))
+            : source;
+    }
 
     public static IQueryable<T> WhenEnumerableIsNotNullOrEmpty<T>(
         this IQueryable<T> source,
         IEnumerable<T>? value,
         Func<IEnumerable<T>, Expression<Func<T, bool>>> predicate)
-        => value?.Any() == true ? source.Where(predicate(value)) : source;
+    {
+        _ = predicate ?? throw new ArgumentNullException(nameof(predicate));
+        return value?.Any() == true ? source.Where(predicate(value)) : source;
+    }
 
     public static IQueryable<T> WhereAny<T>(this IQueryable<T> source, params Expression<Func<T, bool>>[] predicates)
         => source.Where(predicates.Aggregate((a, b) => a.Or(b)));
@@ -88,12 +109,16 @@ public static class LinqExtensions
 
     public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
     {
+        _ = expr1 ?? throw new ArgumentNullException(nameof(expr1));
+        _ = expr2 ?? throw new ArgumentNullException(nameof(expr2));
         var secondBody = expr2.Body.Replace(expr2.Parameters[0], expr1.Parameters[0]);
         return Expression.Lambda<Func<T, bool>>(Expression.OrElse(expr1.Body, secondBody), expr1.Parameters);
     }
 
     public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
     {
+        _ = expr1 ?? throw new ArgumentNullException(nameof(expr1));
+        _ = expr2 ?? throw new ArgumentNullException(nameof(expr2));
         var secondBody = expr2.Body.Replace(expr2.Parameters[0], expr1.Parameters[0]);
         return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(expr1.Body, secondBody), expr1.Parameters);
     }
