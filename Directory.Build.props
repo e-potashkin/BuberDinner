@@ -14,4 +14,7 @@
         <PackageReference Include="StyleCop.Analyzers" PrivateAssets="all" Condition="$(MSBuildProjectExtension) == '.csproj'"/>
         <PackageReference Include="SonarAnalyzer.CSharp" PrivateAssets="all" Condition="$(MSBuildProjectExtension) == '.csproj'"/>
     </ItemGroup>
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);NU1507</NoWarn>
+    </PropertyGroup>
 </Project>
