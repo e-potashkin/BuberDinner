@@ -26,5 +26,6 @@ app.MapHealthChecks("/_health", new HealthCheckOptions
 });
 app.MapControllers();
 app.UseOutputCache();
+app.UseResponseCompression();
 
 app.Run();

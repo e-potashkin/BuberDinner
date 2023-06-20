@@ -28,13 +28,13 @@ public sealed class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Auth
         // 1. Validate the user exists
         if (_dbContext.Users.Find(u => u.Email == request.Email) is not User user)
         {
-            return Errors.Authentication.InvalidCredentials;
+            return BubberDinnerErrors.Authentication.InvalidCredentials;
         }
 
         // 2. Validate the password is correct
         if (user.Password != request.Password)
         {
-            return new[] { Errors.Authentication.InvalidCredentials };
+            return new[] { BubberDinnerErrors.Authentication.InvalidCredentials };
         }
 
         // 3. Generate a JWT token

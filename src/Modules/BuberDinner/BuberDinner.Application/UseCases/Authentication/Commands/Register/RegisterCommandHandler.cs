@@ -27,7 +27,7 @@ public sealed class RegisterCommandHandler : IRequestHandler<RegisterCommand, Er
         // 1. Validate the user does not already exist
         if (_dbContext.Users.Find(u => u.Email == request.Email) is not null)
         {
-            return Errors.User.DuplicateEmail;
+            return BubberDinnerErrors.User.DuplicateEmail;
         }
 
         // 2. Create a new user (generate unique ID) & persist to the database
