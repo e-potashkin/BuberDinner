@@ -15,7 +15,7 @@
     <PackageVersion Include="Scrutor" Version="4.2.2" />
     <PackageVersion Include="Serilog.AspNetCore" Version="7.0.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.3.0.71466" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="9.4.0.72892" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435" />
     <PackageVersion Include="Mapster" Version="7.4.0-pre06" />
     <PackageVersion Include="Mapster.DependencyInjection" Version="1.0.0" />
