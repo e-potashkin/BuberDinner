@@ -13,14 +13,3 @@ public record MenuResponse(
     ReadOnlyCollection<MenuSectionResponse> Sections,
     DateTime CreatedDateTimeUtc,
     DateTime UpdatedDateTimeUtc);
-
-public record MenuSectionResponse(
-    string Id,
-    string Name,
-    string Description,
-    ReadOnlyCollection<MenuItemResponse> Items);
-
-public record MenuItemResponse(
-    string Id,
-    string Name,
-    string Description);

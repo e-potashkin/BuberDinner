@@ -2,7 +2,8 @@ using System.Collections.ObjectModel;
 
 namespace BuberDinner.Contracts.Menus;
 
-public record CreateMenuRequest(
+public record MenuSectionResponse(
+    string Id,
     string Name,
     string Description,
-    ReadOnlyCollection<MenuSection> Sections);
+    ReadOnlyCollection<MenuItemResponse> Items);
