@@ -19,6 +19,10 @@ public static class DependencyInjection
         services.AddOutputCache();
         services.AddHealthChecks()
             .AddNpgSql(configurationManager["PostgresOptions:ConnectionString"]!);
+        services.AddResponseCompression(opts =>
+        {
+            opts.EnableForHttps = true;
+        });
 
         return services;
     }
