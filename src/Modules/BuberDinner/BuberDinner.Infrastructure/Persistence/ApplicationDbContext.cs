@@ -5,6 +5,7 @@ using BuildingBlocks.Domain.Interfaces;
 using BuildingBlocks.Infrastructure.Common;
 using BuildingBlocks.Infrastructure.Interceptors;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace BuberDinner.Infrastructure.Persistence;
 
@@ -24,6 +25,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public List<User> Users { get; set; }
 
     public DbSet<Menu> Menus { get; set; }
+
+    public DatabaseFacade DatabaseFacade => Database;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

@@ -26,7 +26,7 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         var requestName = request.GetType();
         if (_validator is null)
         {
-            Log.Information("{Request} does not have a validation handler configured.", requestName);
+            Log.Information("{Request} does not have a validation handler configured", requestName);
             return await next();
         }
 
