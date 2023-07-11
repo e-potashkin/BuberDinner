@@ -1,4 +1,4 @@
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Domain.Aggregates.Host.ValueObjects;
 using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.Menu.Entities;
@@ -9,9 +9,9 @@ namespace BuberDinner.Application.UseCases.Menus.Commands.CreateMenu;
 
 public sealed class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, ErrorOr<Menu>>
 {
-    private readonly IBuberDinnerDbContext _dbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public CreateMenuCommandHandler(IBuberDinnerDbContext dbContext) => _dbContext = dbContext;
+    public CreateMenuCommandHandler(IApplicationDbContext dbContext) => _dbContext = dbContext;
 
     public async Task<ErrorOr<Menu>> Handle(CreateMenuCommand request, CancellationToken cancellationToken)
     {

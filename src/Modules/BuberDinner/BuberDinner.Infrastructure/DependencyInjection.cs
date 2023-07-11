@@ -1,9 +1,9 @@
 ﻿using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
 using BuildingBlocks.Application.Interfaces.Caching;
-using BuildingBlocks.Application.Services;
+using BuildingBlocks.Application.Interfaces.Services;
 using BuildingBlocks.Infrastructure.Caching;
 using BuildingBlocks.Infrastructure.Extensions;
 using BuildingBlocks.Infrastructure.Interceptors;
@@ -49,7 +49,7 @@ public static class DependencyInjection
     private static void AddPersistence(this IServiceCollection services, bool isDevelopment)
     {
         services.AddValidateOptions<PostgresOptions>();
-        services.AddDbContext<BuberDinnerDbContext>((serviceProvider, options) =>
+        services.AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
         {
             var postgresOptions = serviceProvider.GetRequiredService<PostgresOptions>();
             options.UseNpgsql(
@@ -59,7 +59,7 @@ public static class DependencyInjection
             options.EnableSensitiveDataLogging(isDevelopment);
         });
 
-        services.AddScoped<IBuberDinnerDbContext, BuberDinnerDbContext>();
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         services.AddScoped<AuditableEntitySaveChangesInterceptor>();
     }
 }

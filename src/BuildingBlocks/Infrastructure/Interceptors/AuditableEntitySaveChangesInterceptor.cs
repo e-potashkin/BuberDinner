@@ -1,4 +1,4 @@
-using BuildingBlocks.Application.Services;
+using BuildingBlocks.Application.Interfaces.Services;
 using BuildingBlocks.Domain.Interfaces;
 using BuildingBlocks.Infrastructure.Common.Extensions;
 using MediatR;

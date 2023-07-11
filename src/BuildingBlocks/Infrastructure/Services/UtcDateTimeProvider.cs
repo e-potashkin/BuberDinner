@@ -1,4 +1,4 @@
-using BuildingBlocks.Application.Services;
+using BuildingBlocks.Application.Interfaces.Services;
 
 namespace BuildingBlocks.Infrastructure.Services;
 

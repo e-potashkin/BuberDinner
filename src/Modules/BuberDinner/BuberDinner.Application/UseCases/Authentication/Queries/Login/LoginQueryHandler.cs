@@ -1,5 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.User;
 using BuildingBlocks.Domain.Errors;
@@ -11,9 +11,9 @@ namespace BuberDinner.Application.UseCases.Authentication.Queries.Login;
 public sealed class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
-    private readonly IBuberDinnerDbContext _dbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IBuberDinnerDbContext dbContext)
+    public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IApplicationDbContext dbContext)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _dbContext = dbContext;

@@ -1,4 +1,4 @@
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.User;
 using BuildingBlocks.Domain.Interfaces;
@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure.Persistence;
 
-public class BuberDinnerDbContext : DbContext, IBuberDinnerDbContext
+public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     private const string DEFAULTSCHEMA = "buberdinner";
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
 
-    public BuberDinnerDbContext(
-        DbContextOptions<BuberDinnerDbContext> options,
+    public ApplicationDbContext(
+        DbContextOptions<ApplicationDbContext> options,
         AuditableEntitySaveChangesInterceptor auditableEntitySaveChangesInterceptor = default!)
         : base(options)
     {
@@ -35,7 +35,7 @@ public class BuberDinnerDbContext : DbContext, IBuberDinnerDbContext
         modelBuilder.HasDefaultSchema(DEFAULTSCHEMA);
         modelBuilder
             .Ignore<List<IDomainEvent>>()
-            .ApplyConfigurationsFromAssembly(typeof(BuberDinnerDbContext).Assembly);
+            .ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
         base.OnModelCreating(modelBuilder);
     }

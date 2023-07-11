@@ -1,5 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.User;
 using BuildingBlocks.Domain.Errors;
@@ -11,9 +11,9 @@ namespace BuberDinner.Application.UseCases.Authentication.Commands.Register;
 public sealed class RegisterCommandHandler : IRequestHandler<RegisterCommand, ErrorOr<AuthenticationResult>>
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;
-    private readonly IBuberDinnerDbContext _dbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IBuberDinnerDbContext dbContext)
+    public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator, IApplicationDbContext dbContext)
     {
         _jwtTokenGenerator = jwtTokenGenerator;
         _dbContext = dbContext;

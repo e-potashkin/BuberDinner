@@ -1,4 +1,4 @@
-using BuberDinner.Application.Data;
+using BuberDinner.Application.Common.Interfaces.Data;
 using BuberDinner.Domain.Aggregates.Menu;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +7,9 @@ namespace BuberDinner.Application.UseCases.Menus.Queries.GetAll;
 
 public sealed class GetAllQueryHandler : IRequestHandler<GetAllQuery, IReadOnlyCollection<Menu>>
 {
-    private readonly IBuberDinnerDbContext _dbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public GetAllQueryHandler(IBuberDinnerDbContext dbContext)
+    public GetAllQueryHandler(IApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }

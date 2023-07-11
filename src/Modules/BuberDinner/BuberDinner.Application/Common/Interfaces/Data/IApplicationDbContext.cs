@@ -2,9 +2,9 @@ using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace BuberDinner.Application.Data;
+namespace BuberDinner.Application.Common.Interfaces.Data;
 
-public interface IBuberDinnerDbContext
+public interface IApplicationDbContext
 {
     List<User> Users { get; set; }
 

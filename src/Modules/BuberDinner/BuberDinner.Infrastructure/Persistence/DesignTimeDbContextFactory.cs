@@ -11,21 +11,21 @@ namespace BuberDinner.Infrastructure.Persistence;
  *
  * e.g we can now run 'dotnet ef migrations add' without specifying -s and -p.
  */
-internal class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<BuberDinnerDbContext>
+internal class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
 {
     private const string POSTGRES = "Postgres";
 
-    public BuberDinnerDbContext CreateDbContext(string[] args)
+    public ApplicationDbContext CreateDbContext(string[] args)
     {
         var configs = new ConfigurationBuilder()
             .AddUserSecrets(typeof(DesignTimeDbContextFactory).Assembly)
             .AddEnvironmentVariables()
             .Build();
 
-        var options = new DbContextOptionsBuilder<BuberDinnerDbContext>()
+        var options = new DbContextOptionsBuilder<ApplicationDbContext>()
             .UseNpgsql(configs.GetConnectionString(POSTGRES))
             .Options;
 
-        return new BuberDinnerDbContext(options);
+        return new ApplicationDbContext(options);
     }
 }

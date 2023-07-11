@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Domain.Aggregates.User;
-using BuildingBlocks.Application.Services;
+using BuildingBlocks.Application.Interfaces.Services;
 using BuildingBlocks.Infrastructure.Settings;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
