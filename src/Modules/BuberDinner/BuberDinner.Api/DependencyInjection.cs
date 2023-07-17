@@ -2,6 +2,7 @@
 using BuberDinner.Api.Common.Errors;
 using Mapster;
 using MapsterMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace BuberDinner.Api;
@@ -12,6 +13,7 @@ public static class DependencyInjection
     {
         _ = configurationManager ?? throw new ArgumentNullException(nameof(configurationManager));
 
+        services.AddApiVersioning();
         services.AddControllers();
         services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
         services.AddMappings();
@@ -19,12 +21,19 @@ public static class DependencyInjection
         services.AddOutputCache();
         services.AddHealthChecks()
             .AddNpgSql(configurationManager["PostgresOptions:ConnectionString"]!);
-        services.AddResponseCompression(opts =>
-        {
-            opts.EnableForHttps = true;
-        });
+        services.AddResponseCompression(opts => opts.EnableForHttps = true);
 
         return services;
+    }
+
+    private static void AddApiVersioning(this IServiceCollection services)
+    {
+        services.AddApiVersioning(config =>
+        {
+            config.DefaultApiVersion = new ApiVersion(1, 0);
+            config.AssumeDefaultVersionWhenUnspecified = true;
+            config.ReportApiVersions = true;
+        });
     }
 
     private static void AddMappings(this IServiceCollection services)

@@ -13,5 +13,7 @@
         <PackageReference Include="AspNetCore.HealthChecks.UI.Client" />
         <PackageReference Include="Mapster" />
         <PackageReference Include="Mapster.DependencyInjection" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
     </ItemGroup>
 </Project>

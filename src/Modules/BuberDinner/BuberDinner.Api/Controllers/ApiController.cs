@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace BuberDinner.Api.Controllers;
 
 [ApiController]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class ApiController : ControllerBase
 {
     private ISender? _sender;
