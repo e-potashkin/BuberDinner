@@ -9,7 +9,7 @@ namespace BuberDinner.Api.Controllers;
 
 [ApiController]
 [Route("api/v{version:apiVersion}/[controller]")]
-public class ApiController : ControllerBase
+public abstract class ApiController : ControllerBase
 {
     private ISender? _sender;
     private IMapper? _mapper;
@@ -17,6 +17,7 @@ public class ApiController : ControllerBase
     protected ISender Sender => _sender ??= HttpContext.RequestServices.GetRequiredService<ISender>();
     protected IMapper Mapper => _mapper ??= HttpContext.RequestServices.GetRequiredService<IMapper>();
 
+    [NonAction]
     protected IActionResult Problem(List<Error> errors)
     {
         _ = errors ?? throw new ArgumentNullException(nameof(errors));
