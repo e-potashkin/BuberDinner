@@ -40,6 +40,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks.Infrastructure", "src\BuildingBlocks\Infrastructure\BuildingBlocks.Infrastructure.csproj", "{1AED26B6-A8ED-4EC8-8603-8F449F07F7C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{82939EC6-90C3-4DA2-ABE8-5536B7250875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{0593DCE6-AC9F-4A0D-9953-153E6432832B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +82,10 @@ Global
 		{1AED26B6-A8ED-4EC8-8603-8F449F07F7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AED26B6-A8ED-4EC8-8603-8F449F07F7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AED26B6-A8ED-4EC8-8603-8F449F07F7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0593DCE6-AC9F-4A0D-9953-153E6432832B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0593DCE6-AC9F-4A0D-9953-153E6432832B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0593DCE6-AC9F-4A0D-9953-153E6432832B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0593DCE6-AC9F-4A0D-9953-153E6432832B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +105,6 @@ Global
 		{80F21C70-B235-4046-B522-BA8669C231B3} = {F6EA8C0F-A9CF-4315-89DD-888E49778A26}
 		{80C70AF2-C953-4AB5-8209-294129600B99} = {65F23DA9-4B22-49E9-9972-F3D98E151FB0}
 		{1AED26B6-A8ED-4EC8-8603-8F449F07F7C1} = {65F23DA9-4B22-49E9-9972-F3D98E151FB0}
+		{0593DCE6-AC9F-4A0D-9953-153E6432832B} = {82939EC6-90C3-4DA2-ABE8-5536B7250875}
 	EndGlobalSection
 EndGlobal
