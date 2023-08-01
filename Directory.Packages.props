@@ -4,7 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AspNetCore.HealthChecks.NpgSql" Version="7.0.0" />
-    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+    <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="7.0.0" />
     <PackageVersion Include="ErrorOr" Version="1.2.1" />
     <PackageVersion Include="FluentValidation" Version="11.6.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
