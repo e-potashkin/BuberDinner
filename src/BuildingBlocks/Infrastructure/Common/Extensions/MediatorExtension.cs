@@ -14,22 +14,22 @@ public static class MediatorExtension
         _ = publisher ?? throw new ArgumentNullException(nameof(publisher));
         _ = context ?? throw new ArgumentNullException(nameof(context));
 
-        var entities = context.ChangeTracker
+        var entitiesWithDomainEvents = context.ChangeTracker
             .Entries<IHasDomainEvents>()
             .Where(x => x.Entity.DomainEvents.Any())
             .Select(x => x.Entity)
             .ToList();
 
-        if (!entities.Any())
+        if (!entitiesWithDomainEvents.Any())
         {
             return;
         }
 
-        var domainEvents = entities
+        var domainEvents = entitiesWithDomainEvents
             .SelectMany(x => x.DomainEvents)
             .ToList();
 
-        entities.ForEach(entity => entity.ClearDomainEvents());
+        entitiesWithDomainEvents.ForEach(x => x.ClearDomainEvents());
 
         foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
@@ -46,7 +46,6 @@ public static class MediatorExtension
         _ = entity ?? throw new ArgumentNullException(nameof(entity));
 
         var domainEvents = entity.DomainEvents.ToList();
-
         if (!domainEvents.Any())
         {
             return;
