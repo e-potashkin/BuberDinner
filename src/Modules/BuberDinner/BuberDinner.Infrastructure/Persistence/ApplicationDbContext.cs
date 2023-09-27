@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace BuberDinner.Infrastructure.Persistence;
 
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+internal class ApplicationDbContext : DbContext, IApplicationDbContext
 {
     private const string DEFAULTSCHEMA = "buberdinner";
     private readonly AuditableEntitySaveChangesInterceptor _auditableEntitySaveChangesInterceptor;
