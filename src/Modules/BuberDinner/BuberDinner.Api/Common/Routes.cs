@@ -15,9 +15,4 @@ internal static class Routes
     {
         public const string Base = "hosts/{hostId}/menus";
     }
-
-    internal static class Errors
-    {
-        public const string Base = "/error";
-    }
 }

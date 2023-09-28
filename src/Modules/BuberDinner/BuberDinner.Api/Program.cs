@@ -17,7 +17,7 @@ builder.Services
 var app = builder.Build();
 
 app.UseRateLimiter();
-app.UseExceptionHandler("/error");
+app.UseExceptionHandler();
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 app.MapHealthChecks("/_health", new HealthCheckOptions
