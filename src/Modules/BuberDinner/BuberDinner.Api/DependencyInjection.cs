@@ -1,9 +1,7 @@
 ﻿using System.Threading.RateLimiting;
-using BuberDinner.Api.Common.Errors;
 using Mapster;
 using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace BuberDinner.Api;
 
@@ -15,7 +13,7 @@ public static class DependencyInjection
 
         services.AddApiVersioning();
         services.AddControllers();
-        services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
+        services.AddProblemDetails();
         services.AddMappings();
         services.AddRateLimiter();
         services.AddOutputCache();
