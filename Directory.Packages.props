@@ -21,7 +21,7 @@
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.507" />
     <PackageVersion Include="Mapster" Version="7.4.0" />
     <PackageVersion Include="Mapster.DependencyInjection" Version="1.0.1" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.12" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
