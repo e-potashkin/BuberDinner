@@ -3,7 +3,7 @@ using BuberDinner.Domain.Aggregates.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace BuberDinner.Application.Common.Interfaces.Data;
+namespace BuberDinner.Domain.Data;
 
 public interface IApplicationDbContext
 {
