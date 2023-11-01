@@ -1,7 +1,7 @@
-using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Aggregates.User;
-using BuberDinner.Domain.Data;
+using BuberDinner.Domain.Interfaces.Authentication;
+using BuberDinner.Domain.Interfaces.Data;
 using BuildingBlocks.Domain.Errors;
 using ErrorOr;
 using MediatR;

@@ -1,6 +1,6 @@
 using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.User;
-using BuberDinner.Domain.Data;
+using BuberDinner.Domain.Interfaces.Data;
 using BuildingBlocks.Domain.Interfaces;
 using BuildingBlocks.Infrastructure.Common;
 using BuildingBlocks.Infrastructure.Interceptors;
