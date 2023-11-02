@@ -24,9 +24,11 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 
         UpdateEntities(eventData.Context);
 
+        var savingChangesResult = base.SavingChanges(eventData, result);
+
         _mediator.DispatchDomainEventsAsync(eventData.Context).GetAwaiter().GetResult();
 
-        return base.SavingChanges(eventData, result);
+        return savingChangesResult;
     }
 
     public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(
@@ -38,9 +40,11 @@ public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
 
         UpdateEntities(eventData.Context);
 
+        var savingChangesResult = await base.SavingChangesAsync(eventData, result, cancellationToken);
+
         await _mediator.DispatchDomainEventsAsync(eventData.Context, cancellationToken);
 
-        return await base.SavingChangesAsync(eventData, result, cancellationToken);
+        return savingChangesResult;
     }
 
     private void UpdateEntities(DbContext? context)
