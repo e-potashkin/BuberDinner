@@ -16,11 +16,11 @@ public static class MediatorExtension
 
         var entitiesWithDomainEvents = context.ChangeTracker
             .Entries<IHasDomainEvents>()
-            .Where(x => x.Entity.DomainEvents.Any())
+            .Where(x => x.Entity.DomainEvents.Count != 0)
             .Select(x => x.Entity)
             .ToList();
 
-        if (!entitiesWithDomainEvents.Any())
+        if (entitiesWithDomainEvents.Count == 0)
         {
             return;
         }
@@ -46,7 +46,7 @@ public static class MediatorExtension
         _ = entity ?? throw new ArgumentNullException(nameof(entity));
 
         var domainEvents = entity.DomainEvents.ToList();
-        if (!domainEvents.Any())
+        if (domainEvents.Count == 0)
         {
             return;
         }
