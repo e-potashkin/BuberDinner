@@ -1,5 +1,5 @@
-﻿using BuberDinner.Application.Common.Interfaces.Authentication;
-using BuberDinner.Application.Common.Interfaces.Data;
+﻿using BuberDinner.Domain.Interfaces.Authentication;
+using BuberDinner.Domain.Interfaces.Data;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;
 using BuildingBlocks.Application.Interfaces.Caching;

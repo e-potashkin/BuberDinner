@@ -2,7 +2,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\BuildingBlocks\Application\BuildingBlocks.Application.csproj" />
         <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Common" />
