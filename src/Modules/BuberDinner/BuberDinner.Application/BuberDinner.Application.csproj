@@ -4,6 +4,9 @@
         <ProjectReference Include="..\BuberDinner.Domain\BuberDinner.Domain.csproj" />
     </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    </ItemGroup>
+    <ItemGroup>
         <Folder Include="Common" />
         <Folder Include="UseCases" />
     </ItemGroup>

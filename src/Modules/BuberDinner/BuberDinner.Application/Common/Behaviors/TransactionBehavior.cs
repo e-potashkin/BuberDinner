@@ -1,4 +1,4 @@
-using BuberDinner.Domain.Interfaces.Data;
+using BuberDinner.Application.Interfaces;
 using ErrorOr;
 using MediatR;
 

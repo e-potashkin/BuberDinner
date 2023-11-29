@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using BuberDinner.Domain.Aggregates.User;
-using BuberDinner.Domain.Interfaces.Authentication;
+using BuberDinner.Domain.Interfaces;
 using BuildingBlocks.Application.Interfaces.Services;
 using BuildingBlocks.Infrastructure.Settings;
 using Microsoft.Extensions.Options;

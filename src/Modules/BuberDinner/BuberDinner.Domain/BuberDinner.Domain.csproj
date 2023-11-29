@@ -5,7 +5,4 @@
     <ItemGroup>
         <Folder Include="Aggregates" />
     </ItemGroup>
-    <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" />
-    </ItemGroup>
 </Project>

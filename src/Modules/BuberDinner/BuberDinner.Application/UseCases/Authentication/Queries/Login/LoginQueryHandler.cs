@@ -1,7 +1,6 @@
+using BuberDinner.Application.Interfaces;
 using BuberDinner.Application.UseCases.Authentication.Common;
-using BuberDinner.Domain.Aggregates.User;
-using BuberDinner.Domain.Interfaces.Authentication;
-using BuberDinner.Domain.Interfaces.Data;
+using BuberDinner.Domain.Interfaces;
 using BuildingBlocks.Domain.Errors;
 using ErrorOr;
 using MediatR;
@@ -26,7 +25,7 @@ public sealed class LoginQueryHandler : IRequestHandler<LoginQuery, ErrorOr<Auth
         _ = request ?? throw new ArgumentNullException(nameof(request));
 
         // 1. Validate the user exists
-        if (_dbContext.Users.Find(u => u.Email == request.Email) is not User user)
+        if (_dbContext.Users.Find(u => u.Email == request.Email) is not { } user)
         {
             return BubberDinnerErrors.Authentication.InvalidCredentials;
         }

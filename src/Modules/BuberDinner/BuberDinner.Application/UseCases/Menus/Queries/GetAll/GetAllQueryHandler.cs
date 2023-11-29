@@ -1,5 +1,5 @@
+using BuberDinner.Application.Interfaces;
 using BuberDinner.Domain.Aggregates.Menu;
-using BuberDinner.Domain.Interfaces.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
