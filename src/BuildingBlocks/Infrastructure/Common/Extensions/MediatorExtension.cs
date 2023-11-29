@@ -11,25 +11,22 @@ public static class MediatorExtension
         DbContext? context,
         CancellationToken cancellationToken = default)
     {
-        _ = publisher ?? throw new ArgumentNullException(nameof(publisher));
-        _ = context ?? throw new ArgumentNullException(nameof(context));
+        ArgumentNullException.ThrowIfNull(publisher);
+        ArgumentNullException.ThrowIfNull(context);
 
-        var entitiesWithDomainEvents = context.ChangeTracker
+        var domainEvents = context
+            .ChangeTracker
             .Entries<IHasDomainEvents>()
-            .Where(x => x.Entity.DomainEvents.Count != 0)
             .Select(x => x.Entity)
+            .SelectMany(x =>
+            {
+                var domainEvents = x.DomainEvents.ToList();
+
+                x.ClearDomainEvents();
+
+                return domainEvents;
+            })
             .ToList();
-
-        if (entitiesWithDomainEvents.Count == 0)
-        {
-            return;
-        }
-
-        var domainEvents = entitiesWithDomainEvents
-            .SelectMany(x => x.DomainEvents)
-            .ToList();
-
-        entitiesWithDomainEvents.ForEach(x => x.ClearDomainEvents());
 
         foreach (var domainEvent in domainEvents.TakeWhile(_ => !cancellationToken.IsCancellationRequested))
         {
@@ -42,14 +39,10 @@ public static class MediatorExtension
         IHasDomainEvents entity,
         CancellationToken cancellationToken = default)
     {
-        _ = publisher ?? throw new ArgumentNullException(nameof(publisher));
-        _ = entity ?? throw new ArgumentNullException(nameof(entity));
+        ArgumentNullException.ThrowIfNull(publisher);
+        ArgumentNullException.ThrowIfNull(entity);
 
         var domainEvents = entity.DomainEvents.ToList();
-        if (domainEvents.Count == 0)
-        {
-            return;
-        }
 
         entity.ClearDomainEvents();
 
