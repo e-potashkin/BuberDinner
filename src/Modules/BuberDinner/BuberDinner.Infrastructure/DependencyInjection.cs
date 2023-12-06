@@ -1,4 +1,4 @@
-﻿using BuberDinner.Application.Interfaces;
+﻿using BuberDinner.Application.Common.Interfaces;
 using BuberDinner.Domain.Interfaces;
 using BuberDinner.Infrastructure.Identity;
 using BuberDinner.Infrastructure.Persistence;

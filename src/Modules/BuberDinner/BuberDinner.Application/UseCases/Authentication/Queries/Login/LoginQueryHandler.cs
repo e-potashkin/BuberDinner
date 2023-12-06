@@ -1,4 +1,4 @@
-using BuberDinner.Application.Interfaces;
+using BuberDinner.Application.Common.Interfaces;
 using BuberDinner.Application.UseCases.Authentication.Common;
 using BuberDinner.Domain.Interfaces;
 using BuildingBlocks.Domain.Errors;

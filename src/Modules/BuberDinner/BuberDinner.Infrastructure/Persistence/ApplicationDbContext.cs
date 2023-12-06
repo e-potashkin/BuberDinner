@@ -1,4 +1,4 @@
-using BuberDinner.Application.Interfaces;
+using BuberDinner.Application.Common.Interfaces;
 using BuberDinner.Domain.Aggregates.Menu;
 using BuberDinner.Domain.Aggregates.User;
 using BuildingBlocks.Domain.Interfaces;
