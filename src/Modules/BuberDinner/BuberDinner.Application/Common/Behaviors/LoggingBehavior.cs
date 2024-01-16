@@ -1,6 +1,7 @@
 using ErrorOr;
 using MediatR;
 using Serilog;
+using Serilog.Context;
 
 namespace BuberDinner.Application.Common.Behaviors;
 
@@ -13,13 +14,21 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        _ = next ?? throw new ArgumentNullException(nameof(next));
+        ArgumentNullException.ThrowIfNull(next);
+
+        string requestName = typeof(TRequest).Name;
+        Log.Information("Processing request {RequestName}", requestName);
 
         var result = await next();
         if (result.IsError)
         {
-            Log.Error("Request failure {Name}, Errors: {@Errors}", typeof(TRequest).Name, result.Errors);
+            using (LogContext.PushProperty("Error", result.Errors, true))
+            {
+                Log.Error("Completed request {RequestName} with error", requestName);
+            }
         }
+
+        Log.Information("Completed request {RequestName}", requestName);
 
         return result;
     }

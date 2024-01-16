@@ -1,5 +1,6 @@
 using BuberDinner.Api;
 using BuberDinner.Api.Common.Configurations;
+using BuberDinner.Api.Middleware;
 using BuberDinner.Application;
 using BuberDinner.Infrastructure;
 using HealthChecks.UI.Client;
@@ -18,6 +19,7 @@ var app = builder.Build();
 
 app.UseRateLimiter();
 app.UseExceptionHandler();
+app.UseMiddleware<RequestLogContextMiddleware>();
 app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 app.MapHealthChecks("/_health", new HealthCheckOptions
