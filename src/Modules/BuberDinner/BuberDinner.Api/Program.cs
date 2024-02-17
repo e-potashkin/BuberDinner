@@ -15,7 +15,7 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Environment.IsDevelopment());
 
-var app = builder.Build ();
+var app = builder.Build();
 
 app.UseRateLimiter();
 app.UseExceptionHandler();
